@@ -1,0 +1,24 @@
+{
+  "name": "The-app-of-GNAR",
+  "homepage": "https://github.com/hwgordon247/The-app-of-GNAR",
+  "authors": [
+    "Michael Collins <michaelj.collinsuk@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.2",
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.2",
+    "angular-resource": "^1.5.2"
+  }
+}
