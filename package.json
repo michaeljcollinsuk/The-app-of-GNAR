@@ -1,0 +1,34 @@
+{
+  "name": "gnar-app",
+  "version": "1.0.0",
+  "description": "The app of Gnar",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start test/karma.conf.js",
+    "start": "webdriver-manager start",
+    "server": "http-server",
+    "protractor": "protractor test/e2e/conf.js",
+    "update-webdriver": "webdriver-manager update"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hwgordon247/The-app-of-GNAR.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hwgordon247/The-app-of-GNAR/issues"
+  },
+  "homepage": "https://github.com/hwgordon247/The-app-of-GNAR#readme",
+  "devDependencies": {
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-jasmine": "^0.3.8",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "phantomjs-prebuilt": "^2.1.6"
+  },
+  "dependencies": {
+    "http-server": "^0.9.0"
+  }
+}
