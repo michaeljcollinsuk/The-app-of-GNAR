@@ -4,7 +4,11 @@
   "description": "The app of Gnar",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start test/karma.conf.js",
+    "start": "webdriver-manager start",
+    "server": "http-server",
+    "protractor": "protractor test/e2e/conf.js",
+    "update-webdriver": "webdriver-manager update"
   },
   "repository": {
     "type": "git",
@@ -23,5 +27,8 @@
     "karma-jasmine": "^0.3.8",
     "karma-phantomjs-launcher": "^1.0.0",
     "phantomjs-prebuilt": "^2.1.6"
+  },
+  "dependencies": {
+    "http-server": "^0.9.0"
   }
 }
