@@ -9,12 +9,12 @@ describe('service: apiService', function() {
 
   beforeEach(inject(function($httpBackend) {
     httpBackend = $httpBackend;
-    httpBackend.expectGET('http://localhost:3000/beaches').respond( {data: 'Bude'} );
+    httpBackend.expectGET('http://localhost:3000/beaches').respond( {data: { name: 'Bude'}} );
   }));
 
   it('returns the name of the beach', function() {
     api.getBeaches().then(function(response) {
-      expect(response.data).toEqual('Bude');
+      expect(response.data.name).toEqual('Bude');
     });
     httpBackend.flush();
   });
