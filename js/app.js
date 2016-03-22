@@ -1,4 +1,4 @@
-var gnarApp = angular.module('GnarApp', ['ngResource', 'uiGmapgoogle-maps'])
+var gnarApp = angular.module('GnarApp', ['ngResource', 'uiGmapgoogle-maps', 'ngGeolocation'])
 
 
 .config(function(uiGmapGoogleMapApiProvider) {
