@@ -4,7 +4,7 @@ describe('factory: ApiFactory', function() {
   beforeEach(module('GnarApp'));
 
   beforeEach(inject(function(ApiFactory) {
-    api = new ApiFactory();
+    apiFactory = new ApiFactory();
   }));
 
   describe('making a request to the rails api', function() {
@@ -31,7 +31,7 @@ describe('factory: ApiFactory', function() {
 
     it('returns the name of the beach', function() {
         httpBackend.flush();
-        expect(api.info).toEqual(result);
+        expect(apiFactory.info).toEqual(result);
     });
 
   });
