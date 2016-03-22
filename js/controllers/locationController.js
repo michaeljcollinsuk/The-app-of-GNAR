@@ -2,7 +2,7 @@ gnarApp.controller('locationController', ['$http', 'apiService', function($http,
   var self = this;
 
 
-  apiService.getBeaches().then(function(response){ self.info = response });
+  apiService.getBeaches().then(function(response){ self.info = response; });
 
 
 }]);
