@@ -1,8 +1,6 @@
-gnarApp.controller('locationController', ['$http', 'apiService', function($http, apiService) {
+gnarApp.controller('locationController', ['$http', 'ApiFactory', function($http, ApiFactory) {
   var self = this;
 
-
-  apiService.getBeaches().then(function(response){ self.info = response; });
-
+  self.factory = new ApiFactory();
 
 }]);
