@@ -21,6 +21,7 @@ module.exports = function(config) {
       'bower_components/angular-google-maps/dist/angular-google-maps.min.js',
       'bower_components/angular-resource/angular-resource.js',
       'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/ngGeolocation/ngGeolocation.min.js',
       'js/**/*.js',
       'test/**/*.spec.js'
     ],
