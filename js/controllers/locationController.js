@@ -1,8 +1,8 @@
-gnarApp.controller('locationController', ['$http', function($http) {
+gnarApp.controller('locationController', ['$http', 'apiService', function($http, apiService) {
   var self = this;
-  self.info = [];
 
-  $http.get('http://localhost:3000/beaches').then(function(response){
-    self.info = response.data;
-  });
+
+  apiService.getBeaches().then(function(response){ self.info = response });
+
+
 }]);
