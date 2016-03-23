@@ -36,6 +36,4 @@ describe('factory: ApiFactory', function() {
 
   });
 
-
-
 });

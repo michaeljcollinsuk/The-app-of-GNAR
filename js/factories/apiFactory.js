@@ -5,7 +5,6 @@ gnarApp.factory('ApiFactory',['$http', function($http) {
     .then(function(response){
       self.info = response.data;
       // angular.extend(self,response.data[0]);
-      // debugger
     });
   };
 
