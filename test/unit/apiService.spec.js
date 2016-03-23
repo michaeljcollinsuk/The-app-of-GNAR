@@ -16,6 +16,6 @@ describe('service: apiService', function() {
     api.getBeaches().then(function(response) {
       expect(response.data.name).toEqual('Bude');
     });
-    httpBackend.flush();
+    httpBackend.flush()
   });
 });
