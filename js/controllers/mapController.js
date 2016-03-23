@@ -1,4 +1,4 @@
-gnarApp.controller("mapController", function($scope, uiGmapGoogleMapApi, $geolocation) {
+gnarApp.controller("mapController", function(uiGmapGoogleMapApi, $geolocation) {
   var self = this;
   $geolocation.getCurrentPosition()
   .then(function(location){
@@ -7,7 +7,7 @@ gnarApp.controller("mapController", function($scope, uiGmapGoogleMapApi, $geoloc
   .then(function(){
     uiGmapGoogleMapApi
     .then(function(maps) {
-      $scope.map = { center: { latitude: self.coords.latitude, longitude: self.coords.longitude }, zoom: 8 };
+      self.map = { center: { latitude: self.coords.latitude, longitude: self.coords.longitude }, zoom: 8 };
     });
   });
 });

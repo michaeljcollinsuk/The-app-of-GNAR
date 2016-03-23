@@ -15,15 +15,19 @@
     <script src="js/app.js"></script>
     <script src='js/controllers/mapController.js'></script>
     <script src='js/controllers/locationController.js'></script>
-    <script src='js/services/apiService.js'></script>
+    <script src='js/factories/apiFactory.js'></script>
   </head>
 
   <body>
-    <div class="angular-google-map-container" ng-controller="mapController">
-      <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+    <div class="angular-google-map-container" ng-controller="mapController as mapCtrl">
+      <ui-gmap-google-map center='mapCtrl.map.center' zoom='mapCtrl.map.zoom'></ui-gmap-google-map>
     </div>
     <section ng-controller="locationController as locationCtrl">
-      {{locationCtrl.info[0].name}}
+      <div ng-repeat="obj in locationCtrl.factory.info">
+        Name: {{obj.name}}
+        Longitude: {{obj.longitude}}
+        Latitude: {{obj.latitude}}
+      </div>
     </section>
   </body>
 </html>
