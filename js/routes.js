@@ -4,12 +4,8 @@ gnarApp.config(function ($routeProvider) {
           templateUrl: "js/templates/map.html",
           controller: "mapController as mapCtrl"
         })
-        .when("/locations", {
-          templateUrl: "js/templates/locations.html",
-          controller: "locationController as locationCtrl"
-        })
-        .when("/locations/:id", {
-          templateUrl: "js/templates/location-details.html",
+        .when("/location/:id", {
+          templateUrl: "js/templates/location.html",
           controller: "locationController as locationCtrl"
         })
         .otherwise({redirectTo: "/map"});
