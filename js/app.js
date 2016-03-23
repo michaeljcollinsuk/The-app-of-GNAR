@@ -6,5 +6,7 @@ var gnarApp = angular.module('GnarApp', ['ngResource', 'uiGmapgoogle-maps', 'ngG
         key: 'AIzaSyCEB4CX4SEb3NzorvQZQ18SjB3JpGO8mpw',
         v: '3.22',
         libraries: 'weather,geometry,visualization'
+        // libraries: 'places'
     });
+
 });

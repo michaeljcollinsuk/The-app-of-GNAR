@@ -20,7 +20,7 @@
 
   <body>
     <div class="angular-google-map-container" ng-controller="mapController">
-      <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+      <ui-gmap-google-map center='map.center' zoom='map.zoom' options="options"></ui-gmap-google-map>
     </div>
     <section ng-controller="locationController as locationCtrl">
       {{locationCtrl.info[0].name}}
