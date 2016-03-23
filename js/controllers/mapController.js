@@ -1,8 +1,8 @@
-gnarApp.controller("mapController", function($scope, uiGmapGoogleMapApi, $geolocation) {
+gnarApp.controller("mapController", function(uiGmapGoogleMapApi, $geolocation) {
 
   var self = this;
 
-  $scope.options ={ styles: [
+  self.options ={ styles: [
   {
     featureType: "all",
     stylers: [
@@ -31,7 +31,7 @@ gnarApp.controller("mapController", function($scope, uiGmapGoogleMapApi, $geoloc
   .then(function(){
     uiGmapGoogleMapApi
     .then(function(maps) {
-      $scope.map = { center: { latitude: self.coords.latitude, longitude: self.coords.longitude }, zoom: 8 };
-   });
+      self.map = { center: { latitude: self.coords.latitude, longitude: self.coords.longitude }, zoom: 8 };
+    });
   });
 });
