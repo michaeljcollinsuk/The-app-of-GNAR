@@ -1,9 +1,12 @@
 describe('service: apiService', function() {
   var api;
 
-  beforeEach(module('GnarApp'));
+  beforeEach(module('GnarApp', function ($routeProvider) {
+      $routeProvider.otherwise(function(){return false;});
+  }));
 
-  beforeEach(inject(function(apiService) {
+  beforeEach(inject(function(apiService
+  ) {
     api = apiService;
   }));
 
