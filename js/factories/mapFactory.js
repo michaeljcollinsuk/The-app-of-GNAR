@@ -107,7 +107,7 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', function(uiG
     });
 
 
-  }
+  };
 
   return MapFactory;
 }]);
