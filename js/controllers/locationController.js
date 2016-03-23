@@ -1,4 +1,4 @@
-gnarApp.controller('locationController', ['$http', 'ApiFactory', function($http, ApiFactory) {
+gnarApp.controller('locationController', ['ApiFactory', function( ApiFactory) {
   var self = this;
 
   self.factory = new ApiFactory();
