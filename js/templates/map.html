@@ -9,6 +9,7 @@
     <ui-gmap-marker   ng-repeat='marker in mapCtrl.ids' idKey='marker.id' coords='marker.coords'>
       <ui-gmap-window show="show" >
         <div>{{marker.name}}<br>
+            Temperature: {{marker.weather.main.temp}}
         <a  ng-href="#/location/{{marker.id}}"> More info</a>
         </div>
       </ui-gmap-window>
