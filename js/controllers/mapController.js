@@ -1,12 +1,20 @@
-gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapFactory', function(uiGmapGoogleMapApi, $geolocation, MapFactory) {
+gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapFactory', 'apiService', function(uiGmapGoogleMapApi, $geolocation, MapFactory, apiService) {
+
+  apiService.getBeaches().then(function(response){
+    self.beachLocations = response;
+
+    self.ids = [];
+
+    for(i=0; i<self.beachLocations.length; i++){
+      self.ids.push({id: self.beachLocations[i].id, coords: {latitude: self.beachLocations[i].latitude, longitude: self.beachLocations[i].longitude}})
+    }
+
+   });
 
   var self = this;
 
   self.factory = new MapFactory();
 
-  self.ids = [
-    {id: 1, coords: {latitude: 50.83, longitude: -4.55}},
-    {id: 2, coords: {latitude: 52.83, longitude: -3.55}}
-  ]
+
 
 }]);
