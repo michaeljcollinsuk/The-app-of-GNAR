@@ -1,4 +1,4 @@
-var gnarApp = angular.module('GnarApp', ['ngResource', 'uiGmapgoogle-maps', 'ngGeolocation'])
+var gnarApp = angular.module('GnarApp', ['ngResource', 'uiGmapgoogle-maps', 'ngGeolocation', 'ngRoute'])
 
 
 .config(function(uiGmapGoogleMapApiProvider) {
@@ -7,5 +7,4 @@ var gnarApp = angular.module('GnarApp', ['ngResource', 'uiGmapgoogle-maps', 'ngG
         v: '3.22',
         libraries: 'weather,geometry,visualization,places'
     });
-
 });

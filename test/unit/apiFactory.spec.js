@@ -1,7 +1,11 @@
 describe('factory: ApiFactory', function() {
   var apiFactory;
 
-  beforeEach(module('GnarApp'));
+  // beforeEach(module('GnarApp', function));
+
+  beforeEach(module('GnarApp', function ($routeProvider) {
+      $routeProvider.otherwise(function(){return false;});
+  }));
 
   beforeEach(inject(function(ApiFactory) {
     apiFactory = new ApiFactory();

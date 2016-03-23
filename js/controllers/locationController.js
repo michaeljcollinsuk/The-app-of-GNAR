@@ -1,6 +1,12 @@
-gnarApp.controller('locationController', ['ApiFactory', function( ApiFactory) {
+gnarApp.controller('locationController', ['ApiFactory', '$routeParams', 'apiService',function(ApiFactory, $routeParams, apiService) {
   var self = this;
 
-  self.factory = new ApiFactory();
+
+  apiService.getBeaches().then(function(response){
+    self.chosenLocation = response[($routeParams.id)-1];
+   });
+  // self.factory = new ApiFactory();
+  
+
 
 }]);

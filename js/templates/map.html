@@ -1,0 +1,9 @@
+
+<div class="angular-google-map-container" >
+  <script type="text/ng-template" id="searchbox.tpl.html">
+    <input type="text" placeholder="Search Box">
+  </script>
+  <ui-gmap-google-map center='mapCtrl.factory.map.center' zoom='mapCtrl.factory.map.zoom' options="mapCtrl.factory.options">
+    <ui-gmap-search-box template="mapCtrl.factory.searchbox.template" events="mapCtrl.factory.searchbox.events"></ui-gmap-search-box>
+  </ui-gmap-google-map>
+</div>
