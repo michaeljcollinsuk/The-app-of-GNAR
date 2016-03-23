@@ -1,37 +1,7 @@
-gnarApp.controller("mapController", function(uiGmapGoogleMapApi, $geolocation) {
+gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapFactory', function(uiGmapGoogleMapApi, $geolocation, MapFactory) {
 
   var self = this;
 
-  self.options ={ styles: [
-  {
-    featureType: "all",
-    stylers: [
-      { saturation: -80 }
-    ]
-  },{
-    featureType: "road.arterial",
-    elementType: "geometry",
-    stylers: [
-      { hue: "#00ffee" },
-      { saturation: 50 }
-    ]
-  },{
-    featureType: "poi.business",
-    elementType: "labels",
-    stylers: [
-      { visibility: "off" }
-    ]
-  }
-]};
+  self.factory = new MapFactory();
 
-  $geolocation.getCurrentPosition()
-  .then(function(location){
-    self.coords = location.coords;
-  })
-  .then(function(){
-    uiGmapGoogleMapApi
-    .then(function(maps) {
-      self.map = { center: { latitude: self.coords.latitude, longitude: self.coords.longitude }, zoom: 8 };
-    });
-  });
-});
+}]);
