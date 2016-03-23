@@ -8,26 +8,20 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
     <script src='bower_components/lodash/lodash.js'></script>
     <script src='bower_components/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
     <script src='bower_components/angular-google-maps/dist/angular-google-maps.min.js'></script>
     <script src='bower_components/ngGeolocation/ngGeolocation.min.js'></script>
     <script src="js/app.js"></script>
+    <script src="js/routes.js"></script>
     <script src='js/controllers/mapController.js'></script>
     <script src='js/controllers/locationController.js'></script>
     <script src='js/factories/apiFactory.js'></script>
   </head>
 
   <body>
-    <div class="angular-google-map-container" ng-controller="mapController as mapCtrl">
-      <ui-gmap-google-map center='mapCtrl.map.center' zoom='mapCtrl.map.zoom' options="mapCtrl.options"></ui-gmap-google-map>
-    </div>
-    <section ng-controller="locationController as locationCtrl">
-      <div ng-repeat="obj in locationCtrl.factory.info">
-        Name: {{obj.name}}
-        Longitude: {{obj.longitude}}
-        Latitude: {{obj.latitude}}
-      </div>
-    </section>
+    <div ng-view></div>
+
   </body>
 </html>
