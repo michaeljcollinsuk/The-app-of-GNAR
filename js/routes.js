@@ -8,5 +8,5 @@ gnarApp.config(function ($routeProvider) {
           templateUrl: "js/templates/location.html",
           controller: "locationController as locationCtrl"
         })
-        .otherwise({redirectTo: "/map"});
+        // .otherwise({redirectTo: "/map"});
 });
