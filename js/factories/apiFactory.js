@@ -4,7 +4,6 @@ gnarApp.factory('ApiFactory',['$http', function($http) {
     $http.get('http://localhost:3000/beaches')
     .then(function(response){
       self.info = response.data;
-      // angular.extend(self,response.data[0]);
     });
   };
 
