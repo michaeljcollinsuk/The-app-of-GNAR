@@ -1,0 +1,5 @@
+describe('factory: MapFactory', function() {
+
+
+
+});
