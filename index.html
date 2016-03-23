@@ -16,6 +16,7 @@
     <script src='js/controllers/mapController.js'></script>
     <script src='js/controllers/locationController.js'></script>
     <script src='js/factories/apiFactory.js'></script>
+    <script src='js/factories/mapFactory.js'></script>
   </head>
 
   <body>
@@ -23,8 +24,8 @@
       <script type="text/ng-template" id="searchbox.tpl.html">
         <input type="text" placeholder="Search Box">
       </script>
-      <ui-gmap-google-map center='mapCtrl.map.center' zoom='mapCtrl.map.zoom' options="mapCtrl.options">
-        <ui-gmap-search-box template="mapCtrl.searchbox.template" events="mapCtrl.searchbox.events"></ui-gmap-search-box>
+      <ui-gmap-google-map center='mapCtrl.factory.map.center' zoom='mapCtrl.factory.map.zoom' options="mapCtrl.factory.options">
+        <ui-gmap-search-box template="mapCtrl.factory.searchbox.template" events="mapCtrl.factory.searchbox.events"></ui-gmap-search-box>
       </ui-gmap-google-map>
     </div>
     <section ng-controller="locationController as locationCtrl">
