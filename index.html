@@ -21,7 +21,12 @@
 
   <body>
     <div class="angular-google-map-container" ng-controller="mapController as mapCtrl">
-      <ui-gmap-google-map center='mapCtrl.factory.map.center' zoom='mapCtrl.factory.map.zoom' options="mapCtrl.factory.options"></ui-gmap-google-map>
+      <script type="text/ng-template" id="searchbox.tpl.html">
+        <input type="text" placeholder="Search Box">
+      </script>
+      <ui-gmap-google-map center='mapCtrl.factory.map.center' zoom='mapCtrl.factory.map.zoom' options="mapCtrl.factory.options">
+        <ui-gmap-search-box template="mapCtrl.factory.searchbox.template" events="mapCtrl.factory.searchbox.events"></ui-gmap-search-box>
+      </ui-gmap-google-map>
     </div>
     <section ng-controller="locationController as locationCtrl">
       <div ng-repeat="obj in locationCtrl.factory.info">
