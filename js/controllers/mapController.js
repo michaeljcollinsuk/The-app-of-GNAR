@@ -5,8 +5,12 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
 
     self.ids = [];
 
-    for(i=0; i<self.beachLocations.length; i++){
-      self.ids.push({id: self.beachLocations[i].id, coords: {latitude: self.beachLocations[i].latitude, longitude: self.beachLocations[i].longitude}})
+    for(var i=0; i<self.beachLocations.length; i++){
+      self.ids.push(
+        {id: self.beachLocations[i].id,
+          coords: {latitude: self.beachLocations[i].latitude,
+            longitude: self.beachLocations[i].longitude}}
+          )
     }
 
    });
