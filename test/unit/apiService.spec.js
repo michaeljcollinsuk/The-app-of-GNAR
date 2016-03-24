@@ -5,8 +5,7 @@ describe('service: apiService', function() {
       $routeProvider.otherwise(function(){return false;});
   }));
 
-  beforeEach(inject(function(apiService
-  ) {
+  beforeEach(inject(function(apiService) {
     api = apiService;
   }));
 
@@ -19,6 +18,6 @@ describe('service: apiService', function() {
     api.getBeaches().then(function(response) {
       expect(response.data.name).toEqual('Bude');
     });
-    httpBackend.flush()
+    httpBackend.flush();
   });
 });
