@@ -15,13 +15,16 @@
     position="BOTTOM_RIGHT">
     </ui-gmap-search-box>
 
-    <ui-gmap-marker   ng-repeat='marker in mapCtrl.ids' idKey='marker.id' coords='marker.coords'>
-      <ui-gmap-window show="show" >
-        <div>{{marker.name}}<br>
-        <a  ng-href="#/location/{{marker.id}}"> More info</a>
-        </div>
-      </ui-gmap-window>
+    <ui-gmap-marker   ng-repeat='marker in mapCtrl.ids' idKey='marker.id' coords='marker.coords' click='mapCtrl.getWeather(marker.id, marker.coords)'>
     </ui-gmap-marker>
 
   </ui-gmap-google-map>
+</div>
+
+<div ng-show='mapCtrl.show' id='locationPopup'>
+      {{mapCtrl.selected.name}}<br>
+      Temperature: {{mapCtrl.selected.weather.main.temp}}<br>
+      Windspeed: {{mapCtrl.selected.weather.wind.speed}}<br>
+  <a ng-click="mapCtrl.storeLocation(mapCtrl.selected.id)" href="#/location/{{mapCtrl.selected.name}}" > More info</a>
+
 </div>
