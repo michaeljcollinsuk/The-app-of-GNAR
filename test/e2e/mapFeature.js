@@ -2,15 +2,21 @@ describe('Map page', function() {
 
 
 
-  it('plots markers', function() {
+  it('can find a marker', function() {
     browser.get('http://localhost:8080');
     setTimeout(function(){
       element(by.id('markers')).click();
-      expect(browser.getTitle()).toEqual('The App of GNAR');
     }, 10000);
+    expect(browser.getTitle()).toEqual('The App of GNAR');
   });
 
   it('display weather info when marker clicked', function() {
+    browser.get('http://localhost:8080');
+    setTimeout(function(){
+      element(by.id('markers')).click();
+      console.log();
+    }, 10000);
+      expect(element(by.css('#locationPopup')).getText()).toBe("Temperature");
 
   });
 
