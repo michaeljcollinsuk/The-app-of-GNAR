@@ -1,20 +1,15 @@
-gnarApp.controller('locationController', ['ApiFactory', 'WeatherApiFactory', '$routeParams', 'apiService', '$http' ,function(ApiFactory, WeatherApiFactory, $routeParams, apiService, $http) {
+gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationService', function(WeatherApiFactory, chosenLocationService) {
+
   var self = this;
   var weatherApiFactory = new WeatherApiFactory();
 
-  apiService.getBeaches().then(function(response){
+    self.location = chosenLocationService.selectedLocation;
 
-    self.chosenLocation = response[($routeParams.id)-1];
-
-    var long = self.chosenLocation.longitude;
-    var lat = self.chosenLocation.latitude;
+    var long = self.location.longitude;
+    var lat = self.location.latitude;
 
     weatherApiFactory.getWeather(long, lat).then(function(response){
       self.weather = response;
     });
-
-   });
-
-
 
 }]);
