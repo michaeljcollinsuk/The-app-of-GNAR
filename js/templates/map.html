@@ -6,10 +6,11 @@
   <ui-gmap-google-map center='mapCtrl.factory.map.center' zoom='mapCtrl.factory.map.zoom' options="mapCtrl.factory.options">
 
 
-    <ui-gmap-marker   ng-repeat='marker in mapCtrl.ids' idKey='marker.id' coords='marker.coords'>
+    <ui-gmap-marker   ng-repeat='marker in mapCtrl.ids' idKey='marker.id' coords='marker.coords' click='mapCtrl.getWeather(marker.id, marker.coords)'>
       <ui-gmap-window show="show" >
         <div>{{marker.name}}<br>
-            Temperature: {{mapCtrl.weather.main.temp}}
+            Temperature: {{marker.weather.main.temp}}<br>
+            Windspeed: {{marker.weather.wind.speed}}<br>
         <a  ng-href="#/location/{{marker.id}}"> More info</a>
         </div>
       </ui-gmap-window>
