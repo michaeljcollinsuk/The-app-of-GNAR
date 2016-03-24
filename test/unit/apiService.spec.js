@@ -5,8 +5,7 @@ describe('service: apiService', function() {
       $routeProvider.otherwise(function(){return false;});
   }));
 
-  beforeEach(inject(function(apiService
-  ) {
+  beforeEach(inject(function(apiService) {
     api = apiService;
   }));
 
