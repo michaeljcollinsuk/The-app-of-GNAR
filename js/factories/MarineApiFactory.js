@@ -6,6 +6,7 @@ gnarApp.factory('MarineApiFactory',['$http', function($http){
     var url = 'http://api.worldweatheronline.com/premium/v1/marine.ashx?' + key + '&?=' + lat + ',' + long + '&tide=yes&format=json';
     return $http.get(url)
     .then(function(response) {
+      console.log(response.data)
       return response.data;
     });
   };
