@@ -1,32 +1,35 @@
 <!doctype html>
 <html lang="en" ng-app="GnarApp">
-  <head>
-    <meta charset="utf-8">
-    <title>The App of GNAR</title>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="stylesheet/index.css">
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src='bower_components/lodash/lodash.js'></script>
-    <script src='bower_components/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
-    <script src='bower_components/angular-google-maps/dist/angular-google-maps.min.js'></script>
-    <script src='bower_components/ngGeolocation/ngGeolocation.min.js'></script>
-    <script src="js/app.js"></script>
-    <script src="js/routes.js"></script>
-    <script src='js/controllers/mapController.js'></script>
-    <script src='js/controllers/locationController.js'></script>
-    <script src='js/factories/apiFactory.js'></script>
-    <script src='js/factories/mapFactory.js'></script>
-    <script src='js/services/apiService.js'></script>
-    <!-- <script src='js/services/weatherApiService.js'></script> -->
-    <script src='js/factories/weatherApiFactory.js'></script>
+<head>
+  <meta charset="utf-8">
+  <title>The App of GNAR</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="stylesheet/index.css">
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src='bower_components/lodash/lodash.js'></script>
+  <script src='bower_components/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
+  <script src='bower_components/angular-google-maps/dist/angular-google-maps.min.js'></script>
+  <script src='bower_components/ngGeolocation/ngGeolocation.min.js'></script>
+  <script src="js/app.js"></script>
+  <script src="js/routes.js"></script>
+  <script src='js/controllers/mapController.js'></script>
+  <script src='js/controllers/locationController.js'></script>
+  <script src='js/factories/apiFactory.js'></script>
+  <script src='js/factories/mapFactory.js'></script>
+  <script src='js/services/apiService.js'></script>
+  <script src='js/factories/weatherApiFactory.js'></script>
+</head>
 
+<body>
+  <nav class="navbar"></nav>
+  <div class="container">
+    <div class="navbar-left"</div>
+  </div>
 
-  </head>
+      <div ng-view></div>
 
-  <body>
-    <div ng-view></div>
-  </body>
-</html>
+    </body>
+    </html>
