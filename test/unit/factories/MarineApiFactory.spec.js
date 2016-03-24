@@ -1,4 +1,4 @@
-describe('factory: marineApiFactory', function() {
+describe('factory: MarineApiFactory', function() {
   var marineFactory;
   var long;
   var lat;
@@ -10,6 +10,11 @@ describe('factory: marineApiFactory', function() {
   beforeEach(inject(function(MarineApiFactory) {
     marineFactory = new MarineApiFactory();
   }));
+
+  it('has a getMarineInfo function', function() {
+    expect(marineFactory.getMarineInfo()).toBeDefined();
+  });
+
 
   describe('making a request to Marine Weather Api', function(){
 
