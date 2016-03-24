@@ -1,7 +1,7 @@
 .angular-google-map-container {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 80%;
   top:0;
   left:0;
 }
@@ -61,4 +61,10 @@ nav hr{
     width:44px;
     margin-top: 15px;
     margin-left: 10px;
+}
+
+#locationPopup {
+  position: absolute;
+  bottom:0;
+  left:0;
 }

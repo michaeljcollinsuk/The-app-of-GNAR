@@ -3,6 +3,7 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
   apiService.getBeaches().then(function(response){
     self.beachLocations = response;
     self.ids = [];
+    self.show = false;
 
     for(var i=0; i<self.beachLocations.length; i++){
 
@@ -20,27 +21,25 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
 
   self.factory = new MapFactory();
 
-  self.getWeather = function(id, coords) { 
+  self.getWeather = function(id, coords) {
+    self.show = true;
     weatherApiFactory.getWeather(coords.longitude, coords.latitude).then(function(response){
       for(i=0; i < self.ids.length; i++) {
         if(self.ids[i].id === id) {
           self.ids[i].weather = response;
-        }
-        if(self.beachLocations[i].id === id) {
-          chosenLocationService.selectedLocation = self.beachLocations[i]
+          self.selected = self.ids[i]
         }
       }
     });
   };
 
-  // self.storeLocation = function(id) {
-  //   for(i = 0; i < self.beachLocations.length; i++){
-  //     debugger;
-  //     if(self.beachLocations[i].id === id) {
-  //       chosenLocationService.selectedLocation = self.beachLocations[i]
-  //     }
-  //   }
-  // };
+  self.storeLocation = function(id) {
+    for(i = 0; i < self.beachLocations.length; i++){
+      if(self.beachLocations[i].id === id) {
+        chosenLocationService.selectedLocation = self.beachLocations[i]
+      }
+    }
+  };
 
 
 
