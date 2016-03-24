@@ -20,7 +20,7 @@
         <div>{{marker.name}}<br>
             Temperature: {{marker.weather.main.temp}}<br>
             Windspeed: {{marker.weather.wind.speed}}<br>
-        <a  ng-href="#/location/{{marker.id}}" ng-click='mapCtrl.storeLocation()'> More info</a>
+        <a href="#/location/{{marker.name}}" ng-click="mapCtrl.storeLocation(marker.id)"> More info</a>
         </div>
       </ui-gmap-window>
     </ui-gmap-marker>
