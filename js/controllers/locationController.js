@@ -10,6 +10,9 @@ gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationSe
 
     weatherApiFactory.getWeather(long, lat).then(function(response){
       self.weather = response;
+      
     });
+
+
 
 }]);

@@ -28,7 +28,7 @@ describe('factory: weatherApiFactory', function() {
         .respond(result);
     }));
 
-    it('makes a call to the open weather api', function() {
+    it('returns a response from the open weather api', function() {
       weatherFactory.getWeather(long, lat, function(data) {
         expect(data).toEqual(result);
       });
