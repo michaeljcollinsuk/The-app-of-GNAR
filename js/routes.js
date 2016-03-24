@@ -4,7 +4,7 @@ gnarApp.config(function ($routeProvider) {
           templateUrl: "js/templates/map.html",
           controller: "mapController as mapCtrl"
         })
-        .when("/location/:id", {
+        .when("/location/:name", {
           templateUrl: "js/templates/location.html",
           controller: "locationController as locationCtrl"
         })
