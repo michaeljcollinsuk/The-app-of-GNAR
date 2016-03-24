@@ -20,24 +20,27 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
 
   self.factory = new MapFactory();
 
-  self.getWeather = function(id, coords) {
+  self.getWeather = function(id, coords) { 
     weatherApiFactory.getWeather(coords.longitude, coords.latitude).then(function(response){
       for(i=0; i < self.ids.length; i++) {
         if(self.ids[i].id === id) {
           self.ids[i].weather = response;
         }
+        if(self.beachLocations[i].id === id) {
+          chosenLocationService.selectedLocation = self.beachLocations[i]
+        }
       }
     });
   };
 
-  self.storeLocation = function(id) {
-    for(i = 0; i < self.beachLocations.length; i++){
-      debugger;
-      if(self.beachLocations[i].id === id) {
-        chosenLocationService.selectedLocation = self.beachLocations[i]
-      }
-    }
-  };
+  // self.storeLocation = function(id) {
+  //   for(i = 0; i < self.beachLocations.length; i++){
+  //     debugger;
+  //     if(self.beachLocations[i].id === id) {
+  //       chosenLocationService.selectedLocation = self.beachLocations[i]
+  //     }
+  //   }
+  // };
 
 
 
