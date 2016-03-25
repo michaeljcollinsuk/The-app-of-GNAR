@@ -1,4 +1,4 @@
-gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationService', function(WeatherApiFactory, chosenLocationService) {
+gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationService', '$scope', function(WeatherApiFactory, chosenLocationService, $scope) {
 
   var self = this;
   var weatherApiFactory = new WeatherApiFactory();
