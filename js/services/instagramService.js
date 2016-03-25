@@ -19,4 +19,10 @@ self.loadInstagram = function(tagName){
   }).run();
 };
 
+self.generateTag = function(beachName) {
+  tag = beachName.toLowerCase().replace(/\s/g, '');
+  return tag;
+};
+
+
 }]);

@@ -12,6 +12,7 @@ gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationSe
       self.weather = response;
     });
 
-    instagramService.loadInstagram(self.location.name);
+    self.tag = instagramService.generateTag(self.location.name);
+    instagramService.loadInstagram(self.tag);
 
 }]);
