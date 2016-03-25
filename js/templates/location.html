@@ -4,12 +4,8 @@
   Temp: {{locationCtrl.weather.main.temp}}
 </div>
 
-<div class='container'>
-	<div ng-controller="instagram as instagramCtrl">
-    <div class="thin">
-        <h1>#bude</h1>
-    </div>
-
-    <div id='instafeed'></div>
-  </div>
+<div class="thin">
+    <h1>#{{locationCtrl.location.name}}</h1>
 </div>
+
+<div id='instafeed'></div>
