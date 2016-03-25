@@ -5,13 +5,9 @@
 </div>
 
 <div class='container'>
-	<div ng-controller="indexInfo">
+	<div ng-controller="instagram as instagramCtrl">
     <div class="thin">
-        <h1>Search Instagram Photos</h1>
-      <span id="hashtag">#</span>
-        <input id="search" ng-model="search" type="text" placeholder="Enter a hashtag to search..." autofocus>
-      	<input ng-if="search" ng-click="clear()" type="button" class="clearable" value="x">
-      	<button ng-click="searchTag()" ng-enter="search" id="submit" value="Submit">Search</button>
+        <h1>#bude</h1>
     </div>
 
     <div id='instafeed'></div>
