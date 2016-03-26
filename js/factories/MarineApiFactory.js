@@ -3,13 +3,22 @@ gnarApp.factory('MarineApiFactory',['$http', function($http){
 
   marineApiFactory.prototype.getMarineInfo = function(lat, long) {
     var key = 'key=13b7cf31eb9c40758b7144945162403';
-    var url = 'http://api.worldweatheronline.com/premium/v1/marine.ashx?' + key + '&?=' + lat + ',' + long + '&tide=yes&format=json';
+    var url = 'http://api.worldweatheronline.com/premium/v1/marine.ashx?' + key + '&q=' + lat + ',' + long + '&tide=yes&format=json';
+    console.log(url);
     return $http.get(url)
     .then(function(response) {
-      console.log(response.data)
-      return response.data;
+      console.log(response)
+      return response.data.data;
     });
   };
 
   return marineApiFactory;
 }]);
+
+
+
+// http://api.worldweatheronline.com/premium/v1/marine.ashx?key=13b7cf31eb9c40758b7144945162403&q=50.8305,-4.55064&tide=yes&format=json
+
+// http://api.worldweatheronline.com/premium/v1/marine.ashx?key=13b7cf31eb9c40758b7144945162403&?=50.8305,-4.55064&tide=yes&format=json
+
+// http://api.worldweatheronline.com/premium/v1/marine.ashx?key=13b7cf31eb9c40758b7144945162403&q=50.8305,-4.55064&tide=yes&format=json
