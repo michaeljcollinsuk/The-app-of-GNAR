@@ -1,4 +1,4 @@
-gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationService', 'MarineApiFactory', function(WeatherApiFactory, chosenLocationService, MarineApiFactory) {
+gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationService', 'instagramService', '$scope', 'MarineApiFactory', function(WeatherApiFactory, chosenLocationService, instagramService, $scope, MarineApiFactory) {
 
   var self = this;
   self.oneDayForecast = true;
@@ -10,7 +10,6 @@ gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationSe
 
     var long = self.location.longitude;
     var lat = self.location.latitude;
-    console.log(self.location)
 
 
 
@@ -28,5 +27,7 @@ gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationSe
     // weatherApiFactory.getWeather(long, lat).then(function(response){
     //   self.weather = response;
     // });
+    self.tag = instagramService.generateTag(self.location.name);
+    instagramService.loadInstagram(self.tag);
 
 }]);
