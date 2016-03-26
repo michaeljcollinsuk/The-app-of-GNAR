@@ -8,5 +8,9 @@ gnarApp.config(function ($routeProvider) {
           templateUrl: "js/templates/location.html",
           controller: "locationController as locationCtrl"
         })
+        .when("/location/:name/instagram", {
+          templateUrl: "js/templates/instagram.html",
+          controller: "socialMediaController as socialCtrl"
+        })
         .otherwise({redirectTo: "/map"});
 });
