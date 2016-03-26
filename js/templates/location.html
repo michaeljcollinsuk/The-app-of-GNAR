@@ -10,7 +10,9 @@
     Swell Height: {{hour.swellHeight_ft}} Period(secs): {{hour.swellPeriod_secs}} Direction: {{hour.swellDir16Point}}<br>
     Temp: {{hour.tempC}}&#8451 Sea: {{hour.waterTemp_C}}&#8451
   </div>
-  <a ng-click="locationCtrl.showSevenDayForcast()">Click for seven day forecast</a>
+  <a ng-click="locationCtrl.showSevenDayForcast()">Click to see seven day forecast</a>
+  <br>
+  <a href="#/location/{{locationCtrl.location.name}}/instagram" >Click to see Instagram feed</a>
 </section>
 <section ng-show='locationCtrl.sevenDayShow' id='fiveDay'>
   <h1>{{locationCtrl.location.name}}</h1><br>
@@ -28,9 +30,3 @@
   <br>
 </div>
 </section>
-
-<div class="thin" ng-controller="socialMediaController as socialCtrl">
-    <h1>#{{socialCtrl.tag}}</h1>
-</div>
-
-<div id='instafeed'></div>
