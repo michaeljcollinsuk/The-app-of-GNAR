@@ -1,4 +1,4 @@
-gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationService', function(WeatherApiFactory, chosenLocationService) {
+gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationService', 'instagramService', '$scope', function(WeatherApiFactory, chosenLocationService, instagramService, $scope) {
 
   var self = this;
   var weatherApiFactory = new WeatherApiFactory();
@@ -11,5 +11,8 @@ gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationSe
     weatherApiFactory.getWeather(long, lat).then(function(response){
       self.weather = response;
     });
+
+    self.tag = instagramService.generateTag(self.location.name);
+    instagramService.loadInstagram(self.tag);
 
 }]);
