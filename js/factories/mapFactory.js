@@ -85,22 +85,9 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', function(uiG
     ]};
 
     var events = {
-      places_changed: function (searchBox) {
-        var place = searchBox.getPlaces();
-        if (!place || place === 'undefined' || place.length === 0) {
-          console.log('no place data :(');
-          return;
-        }
-
-
-      }
+      places_changed: function (searchBox) {}
     };
-    self.searchbox = { template:'searchbox.tpl.html', events:events, };
-
-    options="mapCtrl.searchbox.options";
-    template="mapCtrl.factory.searchbox.template";
-    events="mapCtrl.factory.searchbox.events";
-    position="mapCtrl.factory.searchbox.position";
+    self.searchbox = { template:'searchbox.tpl.html', events:events };
 
     $geolocation.getCurrentPosition()
     .then(function(location){
