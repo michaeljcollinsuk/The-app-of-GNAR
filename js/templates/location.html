@@ -1,5 +1,12 @@
 <div>
   Name: {{locationCtrl.location.name}}<br>
-  Wind speed : {{locationCtrl.weather.wind.speed}}<br>
-  Temp: {{locationCtrl.weather.main.temp}}
+  <div ng-repeat='tide in locationCtrl.tideInfo[0].tide_data'>
+  Tide: {{tide.tide_type}} Time: {{tide.tideTime}}
+</div>
+  <div ng-repeat='hour in locationCtrl.marineWeather.hourly'>
+  Time: {{hour.time}} <img src="{{hour.weatherIconUrl[0].value}}"><br>
+  Wind dir: {{hour.winddir16Point}} Speed: {{hour.windspeedMiles}}mph Chill:{{hour.WindChillC}}&#8451<br>
+  Swell Height: {{hour.swellHeight_ft}} Period(secs): {{hour.swellPeriod_secs}} Direction: {{hour.swellDir16Point}}<br>
+  Temp: {{hour.tempC}}&#8451 Sea: {{hour.waterTemp_C}}&#8451
+  </div>
 </div>

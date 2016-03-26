@@ -26,7 +26,7 @@ describe('factory: MarineApiFactory', function() {
       long = -4.55064;
       lat = 50.8305;
       var key = 'key=13b7cf31eb9c40758b7144945162403';
-      var url = 'http://api.worldweatheronline.com/premium/v1/marine.ashx?'+ key + '&?=' + lat + ',' + long + '&tide=yes&format=json';
+      var url = 'http://api.worldweatheronline.com/premium/v1/marine.ashx?'+ key + '&q=' + lat + ',' + long + '&tide=yes&format=json';
       httpBackend
         .expectGET(url)
         .respond(result);

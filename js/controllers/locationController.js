@@ -1,7 +1,7 @@
 gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationService', 'MarineApiFactory', function(WeatherApiFactory, chosenLocationService, MarineApiFactory) {
 
   var self = this;
-  var weatherApiFactory = new WeatherApiFactory();
+  // var weatherApiFactory = new WeatherApiFactory();
   var marineApiFactory = new MarineApiFactory();
 
     self.location = chosenLocationService.selectedLocation;
@@ -12,13 +12,14 @@ gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationSe
 
 
     marineApiFactory.getMarineInfo(lat, long).then(function(response){
-      self.marineInfo = response;
+      self.marineWeather = response.weather[0];
+      self.tideInfo = response.weather[0].tides;
+      console.log(response);
     });
 
 
-    weatherApiFactory.getWeather(long, lat).then(function(response){
-      self.weather = response;
-      console.log(self.weather)
-    });
+    // weatherApiFactory.getWeather(long, lat).then(function(response){
+    //   self.weather = response;
+    // });
 
 }]);

@@ -11,7 +11,7 @@ describe('locationController', function(){
 
 
   beforeEach(function() {
-    response = {swell_height: 1, swell_period: 3 };
+    response = {weather:[{tides:2}]};
     marineApiFactoryMock = function() {};
     marineApiFactoryMock.prototype.getMarineInfo = jasmine.createSpy('spy');
     module('GnarApp', {
@@ -28,7 +28,8 @@ describe('locationController', function(){
   describe('interacting with the marineApiFactory', function() {
     it('initializes with marine info from the marineApiFactory', function() {
       $rootScope.$digest();
-      expect(ctrl.marineInfo).toEqual(response);
+      expect(ctrl.marineWeather).toEqual(response.weather[0]);
+      expect(ctrl.tideInfo).toEqual(response.weather[0].tides);
     });
   });
 });
