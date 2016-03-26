@@ -1,12 +1,30 @@
-<div>
-  Name: {{locationCtrl.location.name}}<br>
+<section id='oneDayForecast' ng-show='locationCtrl.oneDayForecast'>
+  <h1>{{locationCtrl.location.name}}</h1><br>
+  <h3>Forecast for {{locationCtrl.marineWeather[0].date}}</h3>
   <div ng-repeat='tide in locationCtrl.tideInfo[0].tide_data'>
-  Tide: {{tide.tide_type}} Time: {{tide.tideTime}}
-</div>
-  <div ng-repeat='hour in locationCtrl.marineWeather.hourly'>
-  Time: {{hour.time}} <img src="{{hour.weatherIconUrl[0].value}}"><br>
-  Wind dir: {{hour.winddir16Point}} Speed: {{hour.windspeedMiles}}mph Chill:{{hour.WindChillC}}&#8451<br>
-  Swell Height: {{hour.swellHeight_ft}} Period(secs): {{hour.swellPeriod_secs}} Direction: {{hour.swellDir16Point}}<br>
-  Temp: {{hour.tempC}}&#8451 Sea: {{hour.waterTemp_C}}&#8451
+    Tide: {{tide.tide_type}} Time: {{tide.tideTime}}
   </div>
+  <div ng-repeat='hour in locationCtrl.marineWeather[0].hourly'>
+    Time: {{hour.time}} <img src="{{hour.weatherIconUrl[0].value}}"><br>
+    Wind dir: {{hour.winddir16Point}} Speed: {{hour.windspeedMiles}}mph Chill:{{hour.WindChillC}}&#8451<br>
+    Swell Height: {{hour.swellHeight_ft}} Period(secs): {{hour.swellPeriod_secs}} Direction: {{hour.swellDir16Point}}<br>
+    Temp: {{hour.tempC}}&#8451 Sea: {{hour.waterTemp_C}}&#8451
+  </div>
+  <a ng-click="locationCtrl.showSevenDayForcast()">Click for seven day forecast</a>
+</section>
+<section ng-show='locationCtrl.sevenDayShow' id='fiveDay'>
+  <h1>{{locationCtrl.location.name}}</h1><br>
+<div ng-repeat='day in locationCtrl.marineWeather'>
+   <h3>Forecast for {{day.date}}</h3>
+  <div ng-repeat='tide in day.tides[0].tide_data'>
+    Tide: {{tide.tide_type}} Time: {{tide.tideTime}}
+  </div>
+  <div ng-repeat='hour in day.hourly'>
+    Time: {{hour.time}} <img src="{{hour.weatherIconUrl[0].value}}"><br>
+    Wind dir: {{hour.winddir16Point}} Speed: {{hour.windspeedMiles}}mph Chill:{{hour.WindChillC}}&#8451<br>
+    Swell Height: {{hour.swellHeight_ft}} Period(secs): {{hour.swellPeriod_secs}} Direction: {{hour.swellDir16Point}}<br>
+    Temp: {{hour.tempC}}&#8451 Sea: {{hour.waterTemp_C}}&#8451
+  <div>
+  <br>
 </div>
+</section>
