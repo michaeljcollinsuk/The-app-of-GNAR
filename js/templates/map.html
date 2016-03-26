@@ -15,7 +15,7 @@
     position="BOTTOM_RIGHT">
     </ui-gmap-search-box>
 
-    <ui-gmap-marker   ng-repeat='marker in mapCtrl.ids' idKey='marker.id' coords='marker.coords' click='mapCtrl.getWeather(marker.id, marker.coords)'>
+    <ui-gmap-marker id='markers' ng-repeat='marker in mapCtrl.ids' idKey='marker.id' coords='marker.coords' click='mapCtrl.getWeather(marker.id, marker.coords)'>
     </ui-gmap-marker>
 
   </ui-gmap-google-map>

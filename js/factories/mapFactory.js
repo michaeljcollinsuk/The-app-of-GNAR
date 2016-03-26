@@ -92,7 +92,7 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', function(uiG
           return;
         }
 
-        
+
       }
     };
     self.searchbox = { template:'searchbox.tpl.html', events:events, };
@@ -109,7 +109,7 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', function(uiG
     .then(function(){
       uiGmapGoogleMapApi
       .then(function(maps) {
-        self.map = { center: { latitude: self.coords.latitude, longitude: self.coords.longitude }, zoom: 8 };
+        self.map = { center: { latitude: self.coords.latitude, longitude: self.coords.longitude }, zoom: 5 };
       });
     });
 
