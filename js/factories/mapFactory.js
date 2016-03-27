@@ -97,11 +97,6 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', function(uiG
     };
     self.searchbox = { template:'searchbox.tpl.html', events:events, };
 
-    options="mapCtrl.searchbox.options";
-    template="mapCtrl.factory.searchbox.template";
-    events="mapCtrl.factory.searchbox.events";
-    position="mapCtrl.factory.searchbox.position";
-
     $geolocation.getCurrentPosition()
     .then(function(location){
       self.coords = location.coords;
