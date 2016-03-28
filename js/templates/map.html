@@ -1,18 +1,17 @@
-
 <div class="angular-google-map-container" >
   <script type="text/ng-template" id="searchbox.tpl.html">
-    <input type="text" placeholder="Search Box">
+  <input type="text" placeholder="Search Box">
   </script>
 
   <ui-gmap-google-map
-  center='mapCtrl.factory.map.center'
-  zoom='mapCtrl.factory.map.zoom'
-  options="mapCtrl.factory.options">
+    center='mapCtrl.factory.map.center'
+    zoom='mapCtrl.factory.map.zoom'
+    options="mapCtrl.factory.options">
 
     <ui-gmap-search-box id="search-box"
-    template="mapCtrl.factory.searchbox.template"
-    events="mapCtrl.factory.searchbox.events"
-    position="'TOP_RIGHT'">
+      template="mapCtrl.factory.searchbox.template"
+      events="mapCtrl.factory.searchbox.events"
+      position="'TOP_RIGHT'">
     </ui-gmap-search-box>
 
     <ui-gmap-marker id='markers' ng-repeat='marker in mapCtrl.ids' idKey='marker.id' coords='marker.coords' click='mapCtrl.getWeather(marker.id, marker.coords)'>
@@ -22,9 +21,9 @@
 </div>
 
 <div ng-show='mapCtrl.show' id='locationPopup'>
-      {{mapCtrl.selected.name}}<br>
-      Temperature: {{mapCtrl.selected.weather.main.temp}}<br>
-      Windspeed: {{mapCtrl.selected.weather.wind.speed}}<br>
+  {{mapCtrl.selected.name}}<br>
+  Temperature: {{mapCtrl.selected.weather.main.temp}}<br>
+  Windspeed: {{mapCtrl.selected.weather.wind.speed}}<br>
   <a ng-click="mapCtrl.storeLocation(mapCtrl.selected.id)" href="#/location/{{mapCtrl.selected.name}}" > More info</a>
 
 </div>

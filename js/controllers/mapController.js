@@ -14,7 +14,6 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
         coords: {latitude: self.beachLocations[i].latitude, longitude: self.beachLocations[i].longitude}
         }
       )};
-
    });
 
   var self = this;
