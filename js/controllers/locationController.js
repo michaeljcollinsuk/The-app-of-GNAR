@@ -22,4 +22,15 @@ gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationSe
     self.sevenDayShow = true;
   };
 
+  self.time = function(time) {
+    if (time.length === 3 ) return '0' + time;
+    if (time.length === 1) return '000' + time;
+    return time;
+  };
+
+  self.date = function(date) {
+    array = date.match(/.{1,4}/g);
+    return array.reverse().join('');
+  };
+
 }]);
