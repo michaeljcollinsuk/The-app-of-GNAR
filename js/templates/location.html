@@ -1,11 +1,64 @@
 <section id='oneDayForecast' ng-show='locationCtrl.oneDayForecast'>
+  <table class="table table-bordered">
+    <tr>
+      <th></th>
+      <th>00:00</th>
+      <th>03:00</th>
+      <th>06:00</th>
+      <th>09:00</th>
+      <th>12:00</th>
+      <th>15:00</th>
+      <th>18:00</th>
+      <th>21:00</th>
+    </tr>
+    <tr>
+      <td>Summary</td>
+      <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'><img src="{{hour.weatherIconUrl[0].value}}"></td>
+
+    </tr>
+    <tr>
+      <td>Wind direction</td>
+      <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'>{{hour.winddir16Point}}</td>
+    </tr>
+    <tr>
+      <td>Wind speed</td>
+      <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'>{{hour.windspeedMiles}}mph</td>
+    </tr>
+    <tr>
+      <td>Chill</td>
+      <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'>{{hour.WindChillC}}&#8451</td>
+    </tr>
+    <tr>
+      <td>Swell height</td>
+      <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'>{{hour.swellHeight_ft}}</td>
+    </tr>
+    <tr>
+      <td>Period</td>
+      <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'>{{hour.swellPeriod_secs}}</td>
+    </tr>
+    <tr>
+      <td>Swell direction</td>
+      <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'>{{hour.swellDir16Point}}</td>
+    </tr>
+    <tr>
+      <td>Air temp</td>
+      <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'>{{hour.tempC}}&#8451</td>
+    </tr>
+    <tr>
+      <td>Sea temp</td>
+      <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'> {{hour.waterTemp_C}}&#8451</td>
+    </tr>
+  </table>
+</section>
+
+<!-- <section id='oneDayForecast' ng-show='locationCtrl.oneDayForecast'>
   <h1>{{locationCtrl.location.name}}</h1><br>
-  <h3>Forecast for {{locationCtrl.marineWeather[0].date}}</h3>
+  <h3>Forecast for {{locationCtrl.date(locationCtrl.marineWeather[0].date)}}</h3>
   <div ng-repeat='tide in locationCtrl.tideInfo[0].tide_data'>
     Tide: {{tide.tide_type}} Time: {{tide.tideTime}}
   </div>
   <div ng-repeat='hour in locationCtrl.marineWeather[0].hourly'>
-    Time: {{hour.time}} <img src="{{hour.weatherIconUrl[0].value}}"><br>
+    Time: {{locationCtrl.time(hour.time)}} <img src="{{hour.weatherIconUrl[0].value}}"><br>
     Wind dir: {{hour.winddir16Point}} Speed: {{hour.windspeedMiles}}mph Chill:{{hour.WindChillC}}&#8451<br>
     Swell Height: {{hour.swellHeight_ft}} Period(secs): {{hour.swellPeriod_secs}} Direction: {{hour.swellDir16Point}}<br>
     Temp: {{hour.tempC}}&#8451 Sea: {{hour.waterTemp_C}}&#8451
@@ -13,30 +66,22 @@
   <a ng-click="locationCtrl.showSevenDayForcast()">Click to see seven day forecast</a>
   <br>
   <a href="#/location/{{locationCtrl.location.name}}/instagram" >Click to see Instagram feed</a>
-</section>
-<section ng-show='locationCtrl.sevenDayShow' id='fiveDay'>
+</section> -->
+
+<section id='fiveDay' ng-show='locationCtrl.sevenDayShow'>
   <h1>{{locationCtrl.location.name}}</h1><br>
 <div ng-repeat='day in locationCtrl.marineWeather'>
-   <h3>Forecast for {{day.date}}</h3>
-
-<table class="table table-bordered">
-  <tr>
-    <th style="text-align:center">Tide</th>
-    <th style="text-align:center">Time</th>
-    <th></th>
-  </tr>
-  <tr style="width: 100%" ng-repeat='tide in day.tides[0].tide_data'>
-    <td>{{tide.tide_type}}</td>
-    <td>{{tide.tideTime}}</td>
-  </tr>
- </table>
-
+ <h3>Forecast for {{locationCtrl.date(day.date)}}</h3>
+  <div ng-repeat='tide in day.tides[0].tide_data'>
+    Tide: {{tide.tide_type}} Time: {{tide.tideTime}}
+  </div>
   <div ng-repeat='hour in day.hourly'>
-    Time: {{hour.time}} <img src="{{hour.weatherIconUrl[0].value}}"><br>
+    Time: {{locationCtrl.time(hour.time)}} <img src="{{hour.weatherIconUrl[0].value}}"><br>
     Wind dir: {{hour.winddir16Point}} Speed: {{hour.windspeedMiles}}mph Chill:{{hour.WindChillC}}&#8451<br>
     Swell Height: {{hour.swellHeight_ft}} Period(secs): {{hour.swellPeriod_secs}} Direction: {{hour.swellDir16Point}}<br>
     Temp: {{hour.tempC}}&#8451 Sea: {{hour.waterTemp_C}}&#8451
-  <div>
+  </div>
   <br>
 </div>
+<a ng-click="locationCtrl.showOneDayForecast()">Click to go back to today's forecast</a>
 </section>
