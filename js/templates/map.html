@@ -1,16 +1,10 @@
 
-<div class="logo">
-  <img src="assets/img/logo.png" width="50" height="50"/>
-  <h1>The App of Gnar</h1>
-</div>
-
 <div ng-show='mapCtrl.show' class='locationPopup'>
   <h2>{{mapCtrl.selected.name}}</h2>
       Temperature: {{mapCtrl.selected.weather.main.temp}}<br>
-      Windspeed: {{mapCtrl.selected.weather.wind.speed}}<br>
+      Windspeed: {{mapCtrl.selected.weather.wind.speed}}mph<br>
   <a ng-click="mapCtrl.storeLocation(mapCtrl.selected.id)" href="#/location/{{mapCtrl.selected.name}}" > More info</a>
 </div>
-
 
 <div class="angular-google-map-container" >
   <script type="text/ng-template" id="searchbox.tpl.html">
