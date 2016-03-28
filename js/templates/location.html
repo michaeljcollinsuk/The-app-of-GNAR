@@ -19,17 +19,17 @@
 <div ng-repeat='day in locationCtrl.marineWeather'>
    <h3>Forecast for {{day.date}}</h3>
 
-  <table class="table table-bordered">
-    <tr>
-      <th>Tide</th>
-      <th>Time</th>
-    </tr>
-
-    <tr ng-repeat='tide in day.tides[0].tide_data'>
-      <td>{{tide.tide_type}}</td>
-      <td>{{tide.tideTime}}</td>
-    </tr>
-  </table>
+<table class="table table-bordered">
+  <tr>
+    <th style="text-align:center">Tide</th>
+    <th style="text-align:center">Time</th>
+    <th></th>
+  </tr>
+  <tr style="width: 100%" ng-repeat='tide in day.tides[0].tide_data'>
+    <td>{{tide.tide_type}}</td>
+    <td>{{tide.tideTime}}</td>
+  </tr>
+ </table>
 
   <div ng-repeat='hour in day.hourly'>
     Time: {{hour.time}} <img src="{{hour.weatherIconUrl[0].value}}"><br>
