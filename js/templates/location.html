@@ -59,6 +59,7 @@
   <h1>{{locationCtrl.location.name}}</h1><br>
   <div ng-repeat='day in locationCtrl.marineWeather'>
    <h3>Forecast for {{locationCtrl.date(day.date)}}</h3>
+
     <div ng-repeat='tide in day.tides[0].tide_data'>
       Tide: {{tide.tide_type}} Time: {{tide.tideTime}}
     </div>
@@ -69,7 +70,6 @@
       Swell Height: {{hour.swellHeight_ft}} Period(secs): {{hour.swellPeriod_secs}} Direction: {{hour.swellDir16Point}}<br>
       Temp: {{hour.tempC}}&#8451 Sea: {{hour.waterTemp_C}}&#8451
     </div>
-    <br>
   </div>
   <a ng-click="locationCtrl.showOneDayForecast()">Click to go back to today's forecast</a>
 </section>
