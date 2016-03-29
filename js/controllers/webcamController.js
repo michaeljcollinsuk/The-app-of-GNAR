@@ -1,7 +1,11 @@
 gnarApp.controller('webcamController',
-['chosenLocationService',
-function(chosenLocationService) {
+['chosenLocationService', '$sce',
+function(chosenLocationService, $sce) {
   var self = this;
+
+  self.trustSrc = function(src) {
+    return $sce.trustAsResourceUrl(src);
+  }
 
   self.webcam = chosenLocationService.selectedLocation.webcam;
 

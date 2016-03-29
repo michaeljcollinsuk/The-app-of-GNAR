@@ -4,5 +4,6 @@
 </div>
 
 <div ng-hide='webcamCtrl.show'>
-  <iframe src="webcamCtrl.webcam" ></iframe>
+  {{webcamCtrl.webcam}}
+  <iframe ng-src="{{webcamCtrl.trustSrc(webcamCtrl.webcam)}}" ></iframe>
 </div>
