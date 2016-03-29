@@ -12,7 +12,10 @@
   </div>
   <a ng-click="locationCtrl.showSevenDayForcast()">Click to see seven day forecast</a>
   <br>
-  <a href="#/location/{{locationCtrl.location.name}}/instagram" >Click to see Instagram feed</a>
+  <a href="#/location/{{locationCtrl.location.name}}/webcam" >Click to see Webcam</a> <br>
+  <a href="#/location/{{locationCtrl.location.name}}/instagram" >Click to see Instagram feed</a><br>
+
+
 </section>
 <section ng-show='locationCtrl.sevenDayShow' id='fiveDay'>
   <h1>{{locationCtrl.location.name}}</h1><br>
@@ -30,5 +33,4 @@
   <br>
 </div>
 <a ng-click="locationCtrl.showOneDayForecast()">Click to go back to today's forecast</a>
-<a ng-click="webcamCtrl.showWebcam()">See webcam feed</a>
 </section>
