@@ -17,6 +17,11 @@
     <ui-gmap-marker id='markers' ng-repeat='marker in mapCtrl.ids' idKey='marker.id' coords='marker.coords' click='mapCtrl.getWeather(marker.id, marker.coords)'>
     </ui-gmap-marker>
 
+    <ui-gmap-marker
+    coords="mapCtrl.factory.marker.coords" options="mapCtrl.factory.marker.options" events="mapCtrl.factory.marker.events"
+    idkey="mapCtrl.factory.marker.id">
+      </ui-gmap-marker>
+
   </ui-gmap-google-map>
 </div>
 

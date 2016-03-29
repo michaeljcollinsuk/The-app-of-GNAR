@@ -108,12 +108,20 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', function(uiG
     })
     .then(function(){
       uiGmapGoogleMapApi
-      .then(function(maps) {
-      self.map = { center: { latitude: self.coords.latitude, longitude: self.coords.longitude }, zoom: 5, icon: 'pin.png'
-      };
-      var marker = new google.maps.Marker({         
-                   });
-                   return marker;
+      .then(function() {
+      self.map = Geolcation.generateMap(self.coords);
+
+      // { center: { latitude: self.coords.latitude, longitude: self.coords.longitude }, zoom: 5
+      // };
+      // self.marker = ({
+      //   id:0,
+      //   coords: {
+      //   latitude: 40.1451,
+      //   longitude: -99.6680
+      // },
+      //
+      // });
+
       });
     });
 
