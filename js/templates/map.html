@@ -22,7 +22,8 @@
     position="'TOP_RIGHT'">
     </ui-gmap-search-box>
 
-    <ui-gmap-marker id='markers' ng-repeat='marker in mapCtrl.ids' idKey='marker.id' coords='marker.coords' click='mapCtrl.getWeather(marker.id, marker.coords)'>
+    <ui-gmap-marker id='markers' ng-repeat='marker in mapCtrl.ids' idKey='marker.id' coords='marker.coords' click='mapCtrl.getWeather(marker.id, marker.coords)'
+    icon='{url:"//developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png" }'>
     </ui-gmap-marker>
 
   </ui-gmap-google-map>
