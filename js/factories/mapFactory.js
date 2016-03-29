@@ -98,6 +98,7 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', function(uiG
         };
       }
     };
+
     self.searchbox = { template:'searchbox.tpl.html', events: events };
 
     $geolocation.getCurrentPosition()
