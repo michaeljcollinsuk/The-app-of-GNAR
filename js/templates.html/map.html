@@ -1,13 +1,8 @@
 <div ng-show='mapCtrl.show' class='locationPopup'>
-
-  <h2>{{mapCtrl.beachName}}</h2>
-      Temperature: {{mapCtrl.temp}}<br>
-      Windspeed: {{mapCtrl.windSpeed}}mph<br>
-      Swell height: {{mapCtrl.swellFeet}}<br>
-      Swell period: {{mapCtrl.swellPeriod}}<br>
-      Gnarometer: {{mapCtrl.gnarLevel}}/10<br>
-  <a ng-click="mapCtrl.storeLocation(mapCtrl.beachId)" href="#/location/{{mapCtrl.beachName}}" > More info</a>
-
+  <h2>{{mapCtrl.selected.name}}</h2>
+      Temperature: {{mapCtrl.selected.weather.main.temp}}<br>
+      Windspeed: {{mapCtrl.selected.weather.wind.speed}}mph<br>
+  <a ng-click="mapCtrl.storeLocation(mapCtrl.selected.id)" href="#/location/{{mapCtrl.selected.name}}" > More info</a>
 </div>
 
 <div class="angular-google-map-container" >

@@ -2,6 +2,17 @@ body {
   background-color: #e3e3e3;
 }
 
+h1{
+  position:relative;
+  font-size: 100%;
+  float:right;
+  word-wrap: break-word;
+}
+
+iframe {
+  height: 500px;
+  width: 800px;
+}
 .locationPopup {
   position: absolute;
   top:100px;
