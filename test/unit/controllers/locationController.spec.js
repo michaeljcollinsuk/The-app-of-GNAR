@@ -31,6 +31,17 @@ describe('locationController', function(){
       expect(ctrl.marineWeather).toEqual(response.weather);
       expect(ctrl.oneDayTideInfo).toEqual(response.weather[0].tides);
     });
+
+    it('initializes with loaded false', function() {
+      expect(ctrl.loaded).toEqual(false);
+    });
+
+    it('changes loaded to true after the promise is fulfilled', function() {
+      $rootScope.$digest();
+      expect(ctrl.loaded).toEqual(true);
+    });
+
+
   });
 
   describe('displaying forecasts', function() {

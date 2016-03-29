@@ -22,15 +22,16 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
   self.factory = new MapFactory();
 
   self.getWeather = function(id, coords) {
-    self.show = true;
     weatherApiFactory.getWeather(coords.longitude, coords.latitude).then(function(response){
       for(i=0; i < self.ids.length; i++) {
         if(self.ids[i].id === id) {
           self.ids[i].weather = response;
-          self.selected = self.ids[i]
+          self.selected = self.ids[i];
         }
       }
+      self.show = true;
     });
+
   };
 
   self.storeLocation = function(id) {
