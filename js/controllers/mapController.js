@@ -13,7 +13,6 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
         coords: {latitude: self.beachLocations[i].latitude, longitude: self.beachLocations[i].longitude}
         }
       )};
-
    });
 
   var self = this;
@@ -38,7 +37,7 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
         }
       }
       self.gnarLevel = gnarlometer.calculateGnar(self.windSpeed, self.swellFeet, self.swellPeriod);
-    });
+    })
   };
 
   self.storeLocation = function(id) {
@@ -48,7 +47,5 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
       }
     }
   };
-
-
 
 }]);

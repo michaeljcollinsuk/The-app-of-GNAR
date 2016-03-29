@@ -4,6 +4,7 @@ gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationSe
   self.oneDayForecast = true;
   self.sevenDayShow = false;
   var marineApiFactory = new MarineApiFactory();
+  self.loaded = false;
 
   self.location = chosenLocationService.selectedLocation;
 
@@ -15,7 +16,9 @@ gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationSe
   marineApiFactory.getMarineInfo(lat, long).then(function(response){
     self.marineWeather = response.weather;
     self.oneDayTideInfo = response.weather[0].tides;
+    self.loaded = true;
   });
+
 
   self.showSevenDayForcast = function() {
     self.oneDayForecast = false;
@@ -29,7 +32,6 @@ gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationSe
 
   self.time = function(time) {
     if (time.length === 3 ) return '0' + time;
-    if (time.length === 1) return '000' + time;
     return time;
   };
 

@@ -3,7 +3,9 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', function(uiG
   var MapFactory = function() {
     var self = this;
 
-    self.options ={ styles: [
+    self.options =
+    {
+      styles: [
       {
         "featureType": "administrative",
         "elementType": "labels.text.fill",
@@ -106,9 +108,21 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', function(uiG
       self.coords = location.coords;
     })
     .then(function(){
-      uiGmapGoogleMapApi
-      .then(function(maps) {
-        self.map = { center: { latitude: self.coords.latitude, longitude: self.coords.longitude }, zoom: 5 };
+      return uiGmapGoogleMapApi
+      .then(function() {
+        var lat = self.coords.latitude;
+        var long = self.coords.longitude;
+        var coords = {latitude: lat, longitude: long};
+        self.map = { center: coords, zoom: 5 };
+        self.myLocation = {
+          id: 420,
+          coords: {
+            latitude: lat,
+            longitude: long
+          },
+          options: {icon:'../../images/myLocation.svg'}
+        };
+
       });
     });
 
