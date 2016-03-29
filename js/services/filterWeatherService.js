@@ -10,7 +10,11 @@ gnarApp.service('filterWeatherService', function() {
       var obj = {};
       obj['date'] = data[day].date;
       obj['hourly'] = data[day].hourly;
+      if (data[day].tides === null) {
+        obj['tides'] = undefined;
+      } else {
       obj['tides'] = data[day].tides[0].tide_data;
+      }
       arr.push(obj);
     }
     return arr;
