@@ -1,17 +1,8 @@
 gnarApp.service('filterWeatherService', function() {
   var self = this;
 
-  self.extractWeatherData = function(data) {
-    // ;
-    // console.log(weatherData);
-    // setTimeout(function(){
-    //   self.;
-    // }, 10000);
-    //
-    // console.log(data)
-    // return weatherData;
-    var weatherData = self.deleteForecasts(data.data.data.weather);
-    return weatherData;
+  self.extractWeatherData = function(response) {
+    return self.deleteForecasts(response.data.data.weather);
   };
 
   self.deleteForecasts = function(data) {

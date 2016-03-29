@@ -2,7 +2,6 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
   apiService.getBeaches().then(function(response){
     self.beachLocations = response;
     self.ids = [];
-    self.show = false;
 
     for(var i=0; i<self.beachLocations.length; i++){
 
@@ -25,7 +24,6 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
 
   self.getWeather = function(id, coords) {
     marineApiFactory.getMarineInfo(coords.latitude, coords.longitude).then(function(response){
-      self.show = true;
       for(i=0; i < self.ids.length; i++) {
         if(self.ids[i].id === id) {
           self.beachName = self.ids[i].name;
@@ -47,5 +45,10 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
       }
     }
   };
+
+  self.isLoaded = function() {
+    return (typeof self.temp !== 'undefined' );
+  };
+
 
 }]);
