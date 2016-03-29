@@ -68,9 +68,6 @@ describe('locationController', function(){
   });
 
   describe('returning the time in 24 hour format', function() {
-    it("converts a single digit time to the correct format", function() {
-      expect(ctrl.time('0')).toEqual('0000');
-    });
 
     it("converts a three digit time to the correct format", function() {
       expect(ctrl.time('300')).toEqual('0300');
