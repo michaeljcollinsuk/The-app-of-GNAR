@@ -1,4 +1,4 @@
-<section id='oneDayForecast' ng-show='locationCtrl.loaded'>
+<section id='oneDayForecast' ng-show='locationCtrl.isLoaded()'>
   <h1>{{locationCtrl.location.name}}</h1><br>
   <h3>Forecast for {{locationCtrl.date(locationCtrl.marineWeather[0].date)}}</h3>
   <div ng-repeat='tide in locationCtrl.tideInfo[0].tide_data'>
