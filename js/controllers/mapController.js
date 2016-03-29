@@ -11,8 +11,8 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
         name: self.beachLocations[i].name,
         weather: {},
         coords: {latitude: self.beachLocations[i].latitude, longitude: self.beachLocations[i].longitude}
-        }
-      )};
+      }
+    );}
    });
 
   var self = this;
@@ -30,20 +30,20 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
         if(self.ids[i].id === id) {
           self.beachName = self.ids[i].name;
           self.beachId = self.ids[i].id;
-          self.temp = response.weather[0].hourly[4].tempC;
-          self.windSpeed = response.weather[0].hourly[4].windspeedMiles;
-          self.swellFeet = response.weather[0].hourly[4].swellHeight_ft;
-          self.swellPeriod = response.weather[0].hourly[4].swellPeriod_secs;
+          self.temp = response[0].hourly[2].tempC;
+          self.windSpeed = response[0].hourly[2].windspeedMiles;
+          self.swellFeet = response[0].hourly[2].swellHeight_ft;
+          self.swellPeriod = response[0].hourly[2].swellPeriod_secs;
         }
       }
       self.gnarLevel = gnarlometer.calculateGnar(self.windSpeed, self.swellFeet, self.swellPeriod);
-    })
+    });
   };
 
   self.storeLocation = function(id) {
     for(i = 0; i < self.beachLocations.length; i++){
       if(self.beachLocations[i].id === id) {
-        chosenLocationService.selectedLocation = self.beachLocations[i]
+        chosenLocationService.selectedLocation = self.beachLocations[i];
       }
     }
   };
