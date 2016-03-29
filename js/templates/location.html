@@ -59,7 +59,8 @@
   <h1>{{locationCtrl.location.name}}</h1>
    <h3>Forecast for {{locationCtrl.marineWeather[0].date}}</h3>
    <div ng-repeat='tide in locationCtrl.marineWeather[0].tides[0].tide_data'>
-     Tide: {{tide.tide_type}} Time: {{tide.tideTime}}
+       <span class="tide-type">{{tide.tide_type}}</span>
+       tide: <span class="tide-time">{{tide.tideTime}}</span>
    </div>
     <table class="table table-bordered">
         <tr>
