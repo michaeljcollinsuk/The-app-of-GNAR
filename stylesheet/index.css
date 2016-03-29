@@ -1,74 +1,46 @@
+body {
+  background-color: #e3e3e3;
+}
+
+h1{
+  position:relative;
+  font-size: 100%;
+  float:right;
+  word-wrap: break-word;
+}
+
+.locationPopup {
+  position: absolute;
+  top:100px;
+  left:20px;
+  width: 15%;
+}
+
+
+h2{
+  font-size: 200%;
+}
+
 .angular-google-map-container {
   position: absolute;
-  width: 100%;
-  height: 80%;
-  top:0;
-  left:0;
+  width: 85%;
+  height: 100%;
+  right:0;
 }
 
 nav {
   width: 100%;
   height: 70px;
-  background: white;
+  background: #9ad3de;
   border-radius: 0;
   position: fixed;
   top: 0;
   left: 0;
   border-bottom: 1px solid #edeeee;
-  text-transform: uppercase;
   opacity: 0.95;
-  color: #263248;
   z-index: 10;
-}
-
-nav hr{
-  margin:10px 0;
 }
 
 .navbar{
   margin-bottom: 0px;
-}
-
-.nav > li{
-  background-color: white;
-  padding-left: 10px;
-}
-
-.nav > li > a{
-  font-size:14px;
-  padding: 24px 7px;
-  color: #263248;
-}
-.nav > li > a:hover, .nav > li > a:focus, .nav > li > a:visited{
-  background-color: white;
-  opacity: 0.95;
-  color: #263248;
-}
-
-.navbar-center{
-  position: absolute;
-  margin: 0 auto;
-  width: 195px;
-  left: 43%;
-}
-
-.navbar-map {
-    background: url('../images/wave-pattern.svg') no-repeat center center;
-    background-size: contain;
-    display:block;
-    height:40px;
-    text-indent:-9999px;
-    width:44px;
-    margin-top: 15px;
-    margin-left: 10px;
-}
-
-#locationPopup {
-  position: absolute;
-  bottom:0;
-  left:0;
-}
-
-a[ng-click]{
-    cursor: pointer;
 }
