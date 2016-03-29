@@ -17,7 +17,6 @@ gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationSe
     self.marineWeather = response.weather;
     self.oneDayTideInfo = response.weather[0].tides;
     self.loaded = true;
-    debugger
   });
 
 
@@ -40,12 +39,5 @@ gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationSe
     array = date.match(/.{1,4}/g);
     return array.reverse().join('');
   };
-
-  // self.deleteMidnight = function(response) {
-  //
-  //   return response;
-  //   debugger
-  // };
-
 
 }]);
