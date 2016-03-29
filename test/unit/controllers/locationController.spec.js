@@ -31,6 +31,17 @@ describe('locationController', function(){
       expect(ctrl.marineWeather).toEqual(response.weather);
       expect(ctrl.oneDayTideInfo).toEqual(response.weather[0].tides);
     });
+
+    it('initializes with loaded false', function() {
+      expect(ctrl.loaded).toEqual(false);
+    });
+
+    it('changes loaded to true after the promise is fulfilled', function() {
+      $rootScope.$digest();
+      expect(ctrl.loaded).toEqual(true);
+    });
+
+
   });
 
   describe('displaying forecasts', function() {
@@ -57,9 +68,6 @@ describe('locationController', function(){
   });
 
   describe('returning the time in 24 hour format', function() {
-    it("converts a single digit time to the correct format", function() {
-      expect(ctrl.time('0')).toEqual('0000');
-    });
 
     it("converts a three digit time to the correct format", function() {
       expect(ctrl.time('300')).toEqual('0300');

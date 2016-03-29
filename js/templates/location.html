@@ -3,8 +3,6 @@
   <table class="table table-bordered">
     <tr>
       <th></th>
-      <th>00:00</th>
-      <th>03:00</th>
       <th>06:00</th>
       <th>09:00</th>
       <th>12:00</th>
@@ -50,6 +48,7 @@
       <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'> {{hour.waterTemp_C}}&#8451</td>
     </tr>
   </table>
+
   <a ng-click="locationCtrl.showSevenDayForcast()">Click to see seven day forecast</a>
   <br>
   <a href="#/location/{{locationCtrl.location.name}}/instagram" >Click to see Instagram feed</a>
@@ -65,8 +64,6 @@
   <table class="table table-bordered">
     <tr>
       <th></th>
-      <th>00:00</th>
-      <th>03:00</th>
       <th>06:00</th>
       <th>09:00</th>
       <th>12:00</th>
@@ -121,8 +118,6 @@
   <table class="table table-bordered">
     <tr>
       <th></th>
-      <th>00:00</th>
-      <th>03:00</th>
       <th>06:00</th>
       <th>09:00</th>
       <th>12:00</th>
@@ -177,8 +172,6 @@
   <table class="table table-bordered">
     <tr>
       <th></th>
-      <th>00:00</th>
-      <th>03:00</th>
       <th>06:00</th>
       <th>09:00</th>
       <th>12:00</th>
@@ -233,8 +226,6 @@
   <table class="table table-bordered">
     <tr>
       <th></th>
-      <th>00:00</th>
-      <th>03:00</th>
       <th>06:00</th>
       <th>09:00</th>
       <th>12:00</th>
@@ -289,8 +280,6 @@
   <table class="table table-bordered">
     <tr>
       <th></th>
-      <th>00:00</th>
-      <th>03:00</th>
       <th>06:00</th>
       <th>09:00</th>
       <th>12:00</th>
@@ -345,8 +334,6 @@
   <table class="table table-bordered">
     <tr>
       <th></th>
-      <th>00:00</th>
-      <th>03:00</th>
       <th>06:00</th>
       <th>09:00</th>
       <th>12:00</th>
@@ -401,8 +388,6 @@
   <table class="table table-bordered">
     <tr>
       <th></th>
-      <th>00:00</th>
-      <th>03:00</th>
       <th>06:00</th>
       <th>09:00</th>
       <th>12:00</th>
@@ -460,7 +445,6 @@
       Tide: {{tide.tide_type}} Time: {{tide.tideTime}}
     </div>
     <div ng-repeat='hour in day.hourly'>
-
       Time: {{locationCtrl.time(hour.time)}} <img src="{{hour.weatherIconUrl[0].value}}"><br>
       Wind dir: {{hour.winddir16Point}} Speed: {{hour.windspeedMiles}}mph Chill:{{hour.WindChillC}}&#8451<br>
       Swell Height: {{hour.swellHeight_ft}} Period(secs): {{hour.swellPeriod_secs}} Direction: {{hour.swellDir16Point}}<br>
