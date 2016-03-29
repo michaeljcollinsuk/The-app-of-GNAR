@@ -1,7 +1,7 @@
 <section id='oneDayForecast' ng-show='locationCtrl.isLoaded()'>
   <h1>{{locationCtrl.location.name}}</h1><br>
   <h3>Forecast for {{locationCtrl.date(locationCtrl.marineWeather[0].date)}}</h3>
-  <div ng-repeat='tide in locationCtrl.marineWeather[0].tides[0].tide_data'>
+  <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
     Tide: {{tide.tide_type}} Time: {{tide.tideTime}}
   </div>
   <div ng-repeat='hour in locationCtrl.marineWeather[0].hourly'>
@@ -18,7 +18,7 @@
   <h1>{{locationCtrl.location.name}}</h1><br>
 <div ng-repeat='day in locationCtrl.marineWeather'>
    <h3>Forecast for {{locationCtrl.date(day.date)}}</h3>
-  <div ng-repeat='tide in day.tides[0].tide_data'>
+  <div ng-repeat='tide in day.tides'>
     Tide: {{tide.tide_type}} Time: {{tide.tideTime}}
   </div>
   <div ng-repeat='hour in day.hourly'>
