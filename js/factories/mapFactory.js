@@ -107,21 +107,19 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', function(uiG
       self.coords = location.coords;
     })
     .then(function(){
-      uiGmapGoogleMapApi
+      return uiGmapGoogleMapApi
       .then(function() {
-      self.map = Geolcation.generateMap(self.coords);
-
-      // { center: { latitude: self.coords.latitude, longitude: self.coords.longitude }, zoom: 5
-      // };
-      // self.marker = ({
-      //   id:0,
-      //   coords: {
-      //   latitude: 40.1451,
-      //   longitude: -99.6680
-      // },
-      //
-      // });
-
+        var lat = self.coords.latitude;
+        var long = self.coords.longitude;
+        var coords = {latitude: lat, longitude: long};
+        self.map = { center: coords, zoom: 5 };
+        self.myLocation = {
+          id: 420,
+          coords: {
+            latitude: lat,
+            longitude: long
+          }
+        };
       });
     });
 
