@@ -15,6 +15,7 @@ gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationSe
   marineApiFactory.getMarineInfo(lat, long).then(function(response){
     self.marineWeather = response.weather;
     self.oneDayTideInfo = response.weather[0].tides;
+    debugger;
   });
 
   self.showSevenDayForcast = function() {
