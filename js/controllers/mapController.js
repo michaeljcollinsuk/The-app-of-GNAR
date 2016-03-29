@@ -1,4 +1,4 @@
-gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapFactory', 'apiService', 'WeatherApiFactory', 'chosenLocationService', function(uiGmapGoogleMapApi, $geolocation, MapFactory, apiService, WeatherApiFactory, chosenLocationService) {
+gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapFactory', 'apiService', 'WeatherApiFactory', 'chosenLocationService', 'GnarlometerFactory', function(uiGmapGoogleMapApi, $geolocation, MapFactory, apiService, WeatherApiFactory, chosenLocationService, GnarlometerFactory) {
   var weatherApiFactory = new WeatherApiFactory();
   apiService.getBeaches().then(function(response){
     self.beachLocations = response;
@@ -20,6 +20,8 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
   var self = this;
 
   self.factory = new MapFactory();
+  self.gnarlometer = new GnarlometerFactory(50,0);
+
 
   self.getWeather = function(id, coords) {
     self.show = true;
