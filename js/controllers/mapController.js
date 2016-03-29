@@ -1,4 +1,4 @@
-gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapFactory', 'apiService', 'WeatherApiFactory', 'chosenLocationService', 'GnarlometerFactory', function(uiGmapGoogleMapApi, $geolocation, MapFactory, apiService, WeatherApiFactory, chosenLocationService, GnarlometerFactory) {
+gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapFactory', 'apiService', 'WeatherApiFactory', 'chosenLocationService', 'GnarlometerFactory', 'MarineApiFactory', function(uiGmapGoogleMapApi, $geolocation, MapFactory, apiService, WeatherApiFactory, chosenLocationService, GnarlometerFactory, MarineApiFactory) {
   var weatherApiFactory = new WeatherApiFactory();
   apiService.getBeaches().then(function(response){
     self.beachLocations = response;
@@ -20,20 +20,38 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
   var self = this;
 
   self.factory = new MapFactory();
-  self.gnarlometer = new GnarlometerFactory(50,0);
+  self.gnarlometer = new GnarlometerFactory(-8.886,51.57);
 
+
+  var marineApiFactory = new MarineApiFactory();
 
   self.getWeather = function(id, coords) {
-    self.show = true;
-    weatherApiFactory.getWeather(coords.longitude, coords.latitude).then(function(response){
+    marineApiFactory.getMarineInfo(coords.latitude, coords.longitude).then(function(response){
+      self.show = true;
       for(i=0; i < self.ids.length; i++) {
         if(self.ids[i].id === id) {
-          self.ids[i].weather = response;
-          self.selected = self.ids[i]
+          self.beachName = self.ids[i].name;
+          self.beachId = self.ids[i].id;
+          self.temp = response.weather[0].hourly[4].tempC;
+          self.windSpeed = response.weather[0].hourly[4].windspeedMiles;
+          self.swellFeet = response.weather[0].hourly[4].swellHeight_ft;
+          self.swellPeriod = response.weather[0].hourly[4].swellPeriod_secs;
         }
-      }
+       }
     });
   };
+
+  // self.getWeather = function(id, coords) {
+  //   self.show = true;
+  //   weatherApiFactory.getWeather(coords.longitude, coords.latitude).then(function(response){
+  //     for(i=0; i < self.ids.length; i++) {
+  //       if(self.ids[i].id === id) {
+  //         self.ids[i].weather = response;
+  //         self.selected = self.ids[i]
+  //       }
+  //     }
+  //   });
+  // };
 
   self.storeLocation = function(id) {
     for(i = 0; i < self.beachLocations.length; i++){
