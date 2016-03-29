@@ -18,7 +18,7 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', function(uiG
         "elementType": "all",
         "stylers": [
           {
-            "color": "#f2f2f2"
+            "color": "#e3e3e3"
           }
         ]
       },
@@ -75,7 +75,7 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', function(uiG
         "elementType": "all",
         "stylers": [
           {
-            "color": "#46bcec"
+            "color": "#89bdd3"
           },
           {
             "visibility": "on"

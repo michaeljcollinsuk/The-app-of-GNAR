@@ -1,4 +1,11 @@
 
+<div ng-show='mapCtrl.show' class='locationPopup'>
+  <h2>{{mapCtrl.selected.name}}</h2>
+      Temperature: {{mapCtrl.selected.weather.main.temp}}<br>
+      Windspeed: {{mapCtrl.selected.weather.wind.speed}}mph<br>
+  <a ng-click="mapCtrl.storeLocation(mapCtrl.selected.id)" href="#/location/{{mapCtrl.selected.name}}" > More info</a>
+</div>
+
 <div class="angular-google-map-container" >
   <script type="text/ng-template" id="searchbox.tpl.html">
     <input type="text" placeholder="Search Box">
@@ -20,12 +27,4 @@
     </ui-gmap-marker>
 
   </ui-gmap-google-map>
-</div>
-
-<div ng-show='mapCtrl.show' id='locationPopup'>
-      {{mapCtrl.selected.name}}<br>
-      Temperature: {{mapCtrl.selected.weather.main.temp}}<br>
-      Windspeed: {{mapCtrl.selected.weather.wind.speed}}<br>
-  <a ng-click="mapCtrl.storeLocation(mapCtrl.selected.id)" href="#/location/{{mapCtrl.selected.name}}" > More info</a>
-
 </div>
