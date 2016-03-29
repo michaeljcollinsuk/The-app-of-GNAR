@@ -9,10 +9,10 @@
   zoom='mapCtrl.factory.map.zoom'
   options="mapCtrl.factory.options">
 
-    <ui-gmap-search-box
+    <ui-gmap-search-box id="search-box"
     template="mapCtrl.factory.searchbox.template"
     events="mapCtrl.factory.searchbox.events"
-    position="BOTTOM_RIGHT">
+    position="'TOP_RIGHT'">
     </ui-gmap-search-box>
 
     <ui-gmap-marker id='markers' ng-repeat='marker in mapCtrl.ids' idKey='marker.id' coords='marker.coords' click='mapCtrl.getWeather(marker.id, marker.coords)'

@@ -1,8 +1,6 @@
 gnarApp.factory('WeatherApiFactory',['$http', function($http) {
-  var WeatherApiFactory = function() {
-    // var self = this;
-  };
-  // var self = this;
+  var WeatherApiFactory = function() {};
+
   var key = '&appid=2c2eacccda9dcbe936dee48b6353bab0';
 
   WeatherApiFactory.prototype.getWeather = function(long, lat) {

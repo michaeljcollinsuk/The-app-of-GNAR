@@ -68,3 +68,7 @@ nav hr{
   bottom:0;
   left:0;
 }
+
+a[ng-click]{
+    cursor: pointer;
+}
