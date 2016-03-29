@@ -41,4 +41,11 @@ gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationSe
     return array.reverse().join('');
   };
 
+  // self.deleteMidnight = function(response) {
+  //
+  //   return response;
+  //   debugger
+  // };
+
+
 }]);
