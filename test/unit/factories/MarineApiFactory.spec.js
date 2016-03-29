@@ -34,7 +34,7 @@ describe('factory: MarineApiFactory', function() {
 
     it('returns a response from the weather api', function() {
       marineFactory.getMarineInfo(lat, long, function(data) {
-        expect(date).toEqual(result);
+        expect(data).toEqual(result);
       });
       httpBackend.flush();
     });

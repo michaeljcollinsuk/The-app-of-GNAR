@@ -32,7 +32,6 @@ gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationSe
 
   self.time = function(time) {
     if (time.length === 3 ) return '0' + time;
-    if (time.length === 1) return '000' + time;
     return time;
   };
 

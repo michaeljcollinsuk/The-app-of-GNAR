@@ -13,7 +13,6 @@ iframe {
   height: 500px;
   width: 800px;
 }
-
 .locationPopup {
   position: absolute;
   top:100px;
@@ -21,16 +20,20 @@ iframe {
   width: 15%;
 }
 
-
-h2{
-  font-size: 200%;
-}
-
 .angular-google-map-container {
   position: absolute;
   width: 85%;
   height: 100%;
   right:0;
+}
+
+
+.tide-type {
+  font-weight: bold;
+}
+
+.tide-time {
+  font-weight: bold;
 }
 
 nav {
