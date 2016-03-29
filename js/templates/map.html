@@ -2,6 +2,9 @@
   <h2>{{mapCtrl.selected.name}}</h2>
       Temperature: {{mapCtrl.selected.weather.main.temp}}<br>
       Windspeed: {{mapCtrl.selected.weather.wind.speed}}mph<br>
+
+      <iframe ></iframe>
+
   <a ng-click="mapCtrl.storeLocation(mapCtrl.selected.id)" href="#/location/{{mapCtrl.selected.name}}" > More info</a>
 </div>
 
