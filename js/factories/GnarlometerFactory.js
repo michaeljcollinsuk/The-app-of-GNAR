@@ -1,18 +1,16 @@
 gnarApp.factory('GnarlometerFactory', [function(){
-var lat;
-var long;
-// var self = {}
+  var windSpeed;
+  var swell;
+  var period;
+  var GnarlometerFactory = function(){};
 
-  var GnarlometerFactory = function(long,lat) {
-    long = long;
-    lat = lat;
+
+  GnarlometerFactory.prototype.calculateGnar = function(windSpeed,swell,period) {
+  windRatio = windSpeed/73;
+  swellRatio = swell/30;
+  periodRatio = period/16;
+  average = (windRatio + swellRatio + periodRatio)/3;
+  return Math.round(average*10);
   };
-
-
-  GnarlometerFactory.prototype.calculateGnar = function(wind,swell,period) {
-    return 3;
-  };
-
-
   return GnarlometerFactory;
 }]);

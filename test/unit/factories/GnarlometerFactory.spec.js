@@ -8,6 +8,6 @@ describe('factory: GnarlometerFactory', function() {
   }));
 
   it('can calculate the gnarly level', function() {
-    expect(gnarlometerFactory.calculateGnar(1,1,1)).toBe(3);
+    expect(gnarlometerFactory.calculateGnar(28,11.5,7)).toBe(4);
   });
 });

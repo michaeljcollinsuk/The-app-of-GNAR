@@ -1,5 +1,4 @@
-gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapFactory', 'apiService', 'WeatherApiFactory', 'chosenLocationService', 'GnarlometerFactory', 'MarineApiFactory', function(uiGmapGoogleMapApi, $geolocation, MapFactory, apiService, WeatherApiFactory, chosenLocationService, GnarlometerFactory, MarineApiFactory) {
-  var weatherApiFactory = new WeatherApiFactory();
+gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapFactory', 'apiService', 'chosenLocationService', 'GnarlometerFactory', 'MarineApiFactory', function(uiGmapGoogleMapApi, $geolocation, MapFactory, apiService, chosenLocationService, GnarlometerFactory, MarineApiFactory) {
   apiService.getBeaches().then(function(response){
     self.beachLocations = response;
     self.ids = [];
@@ -20,9 +19,9 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
   var self = this;
 
   self.factory = new MapFactory();
-  self.gnarlometer = new GnarlometerFactory(-8.886,51.57);
 
 
+  var gnarlometer = new GnarlometerFactory();
   var marineApiFactory = new MarineApiFactory();
 
   self.getWeather = function(id, coords) {
@@ -37,21 +36,10 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
           self.swellFeet = response.weather[0].hourly[4].swellHeight_ft;
           self.swellPeriod = response.weather[0].hourly[4].swellPeriod_secs;
         }
-       }
+      }
+      self.gnarLevel = gnarlometer.calculateGnar(self.windSpeed, self.swellFeet, self.swellPeriod);
     });
   };
-
-  // self.getWeather = function(id, coords) {
-  //   self.show = true;
-  //   weatherApiFactory.getWeather(coords.longitude, coords.latitude).then(function(response){
-  //     for(i=0; i < self.ids.length; i++) {
-  //       if(self.ids[i].id === id) {
-  //         self.ids[i].weather = response;
-  //         self.selected = self.ids[i]
-  //       }
-  //     }
-  //   });
-  // };
 
   self.storeLocation = function(id) {
     for(i = 0; i < self.beachLocations.length; i++){
