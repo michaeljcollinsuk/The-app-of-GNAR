@@ -7,17 +7,11 @@ gnarApp.factory('MarineApiFactory',['$http', 'filterWeatherService', function($h
     var url = 'http://api.worldweatheronline.com/premium/v1/marine.ashx?' + key + '&q=' + lat + ',' + long + '&tide=yes&format=json';
     return $http.get(url)
     .then(function(response) {
-      return filterWeatherService.extractWeatherData(response);
-      // return deleteTimes(response.data.data);
+      return filterWeatherService.deleteForecasts(response.data.data.weather);
     });
   };
 
-  // function deleteTimes(data) {
-  //   for (var i = 0; i < 7; i++ ) {
-  //     data.weather[i].hourly.splice(0,2);
-  //   }
-  //   return data;
-  // }
+
 
   return marineApiFactory;
 }]);
