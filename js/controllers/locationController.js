@@ -10,6 +10,7 @@ gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationSe
 
   marineApiFactory.getMarineInfo(self.location.latitude, self.location.longitude).then(function(response){
     self.marineWeather = response;
+    debugger
   });
 
   self.isLoaded = function() {
