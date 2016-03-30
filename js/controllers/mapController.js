@@ -1,24 +1,16 @@
-gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocationService', 'GnarlometerFactory',
-  'MarineApiFactory', 'markersFactory', 'locations', function(MapFactory, apiFactory, chosenLocationService,
-    GnarlometerFactory, MarineApiFactory, markersFactory, locations) {
-
+gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocationService', 'GnarlometerFactory', 'MarineApiFactory', 'markersFactory', 'locations', function(MapFactory, apiFactory, chosenLocationService, GnarlometerFactory, MarineApiFactory, markersFactory, locations) {
   var self = this;
 
   self.locations = locations.data;
   markersFactory.assignIds(self.locations);
   self.ids = markersFactory.allIds;
-
   self.mapFactory = new MapFactory();
 
   self.getWeather = function(id, coords) {
     MarineApiFactory.getMarineInfo(coords.latitude, coords.longitude).then(function(response){
-      self.beachName = self.ids[id-1].name;
-      self.beachId = self.ids[id-1].id;
-      self.temp = response[0].hourly[2].tempC;
-      self.windSpeed = response[0].hourly[2].windspeedMiles;
-      self.swellFeet = response[0].hourly[2].swellHeight_ft;
-      self.swellPeriod = response[0].hourly[2].swellPeriod_secs;
-      self.gnarLevel = GnarlometerFactory.calculateGnar(self.windSpeed, self.swellFeet, self.swellPeriod);
+      self.beach = self.ids[id-1];
+      self.beachWeather = response[0].hourly[2];
+      self.gnarLevel = GnarlometerFactory.calculateGnar(self.beachWeather.windspeedMiles, self.beachWeather.swellHeight_ft, self.beachWeather.swellPeriod_secs);
     });
   };
 
@@ -27,8 +19,7 @@ gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocation
   };
 
   self.isLoaded = function() {
-    return (typeof self.temp !== 'undefined' );
+    return (typeof self.beach !== 'undefined' );
   };
-
 
 }]);
