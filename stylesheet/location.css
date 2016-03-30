@@ -23,22 +23,23 @@ li {
     color: white;
 }
 
-
-
-
-
-
-
-
-/*.table {
-  background-color: white;
-  opacity: 0.7;
+.tide-info{
   text-align: center;
-  font-size: 18px;
-
 }
 
-th {
+
+.table {
+  background-color: white;
+  text-align: center;
+  font-size: 18px;
+}
+
+th{
+  background: black;
+  color: white;
+}
+
+/*th {
     background-color: #ff6600;
     color: black;
     white-space: nowrap;

@@ -40,10 +40,7 @@
       </tr>
       <tr>
         <td>
-          <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
-            <span class="tide-type">{{tide.tide_type}}</span>
-            tide: <span class="tide-time">{{tide.tideTime}}</span>
-          </div>
+
         </td>
         <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'><img src="{{hour.weatherIconUrl[0].value}}"></td>
 
@@ -81,6 +78,13 @@
         <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'> {{hour.waterTemp_C}}&#8451</td>
       </tr>
     </table>
+    <div class="tide-info">
+      <h3>Tide times</h3>
+        <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
+          <span class="tide-type">{{tide.tide_type}}</span>
+          tide: <span class="tide-time">{{tide.tideTime}}</span>
+        </div>
+    </div>
 		</div>
 	</script>
 
