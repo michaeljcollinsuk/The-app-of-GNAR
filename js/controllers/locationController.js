@@ -10,6 +10,28 @@ gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationSe
 
   marineApiFactory.getMarineInfo(self.location.latitude, self.location.longitude).then(function(response){
     self.marineWeather = response;
+    self.tabs = [{
+              title: self.marineWeather[0].date,
+              url: 'one.tpl.html'
+          }, {
+              title: self.marineWeather[1].date,
+              url: 'two.tpl.html'
+          }, {
+              title: self.marineWeather[2].date,
+              url: 'three.tpl.html'
+          }, {
+              title: self.marineWeather[3].date,
+              url: 'four.tpl.html'
+          }, {
+              title: self.marineWeather[4].date,
+              url: 'five.tpl.html'
+          }, {
+            title: self.marineWeather[5].date,
+            url: 'six.tpl.html'
+          }, {
+            title: self.marineWeather[6].date,
+            url: 'seven.tpl.html'
+      }];
   });
 
   self.isLoaded = function() {
@@ -37,6 +59,17 @@ gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationSe
   };
 
 
+
+
+    self.currentTab = 'one.tpl.html';
+
+    self.onClickTab = function (tab) {
+        self.currentTab = tab.url;
+    }
+
+    self.isActiveTab = function(tabUrl) {
+       return tabUrl == self.currentTab;
+   }
 
 
 

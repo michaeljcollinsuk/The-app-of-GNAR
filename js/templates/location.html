@@ -3,6 +3,7 @@
     <img src="assets/img/logo.png" width="50" height="50"/>
   </div>
   <div id='side-content'>
+    <h1>{{locationCtrl.location.name}}</h1>
     <a class="button-link" href="#/location/{{locationCtrl.location.name}}/webcam" >Click to see Webcam</a> <br>
     <a class="button-link" href="#/location/{{locationCtrl.location.name}}/instagram" >Click to see Instagram feed</a><br>
   </div>
@@ -13,95 +14,23 @@
 <div id="main-page">
 
 
-  <div ng-cloak>
-    <md-content>
-      <md-tabs md-dynamic-height md-border-bottom>
-        <md-tab label="one">
-          <md-content class="md-padding">
-            <h1 class="md-display-2">Tab One</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
-          </md-content>
-        </md-tab>
-        <md-tab label="two">
-          <md-content class="md-padding">
-            <h1 class="md-display-2">Tab Two</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
-            <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
-            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
-          </md-content>
-        </md-tab>
-        <md-tab label="three">
-          <md-content class="md-padding">
-            <h1 class="md-display-2">Tab Three</h1>
-            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
-          </md-content>
-        </md-tab>
-      </md-tabs>
-    </md-content>
-  </div>
 
+    <div id="tabs" >
+        <ul>
+            <li ng-repeat="tab in locationCtrl.tabs"
+                ng-class="{active:locationCtrl.isActiveTab(tab.url)}"
+                ng-click="locationCtrl.onClickTab(tab)">
+                {{tab.title}}
+            </li>
+        </ul>
+        <div id="mainView">
+            <div ng-include="locationCtrl.currentTab"></div>
+        </div>
+    </div>
 
-  <!-- <section id='oneDayForecast' ng-show='locationCtrl.isLoaded()'>
-    <h1>{{locationCtrl.location.name}}</h1>
-    <table class="table table-bordered">
-      <tr>
-        <th></th>
-        <th>06:00</th>
-        <th>09:00</th>
-        <th>12:00</th>
-        <th>15:00</th>
-        <th>18:00</th>
-        <th>21:00</th>
-      </tr>
-      <tr>
-        <td></td>
-        <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'><img src="{{hour.weatherIconUrl[0].value}}"></td>
+    <script type="text/ng-template" id="one.tpl.html">
+		<div id="viewOne">
 
-      </tr>
-      <tr>
-        <td><b>Wind direction</b></td>
-        <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'>{{hour.winddir16Point}}</td>
-      </tr>
-      <tr>
-        <td><b>Wind speed</b></td>
-        <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'>{{hour.windspeedMiles}}mph</td>
-      </tr>
-      <tr>
-        <td><b>Chill</b></td>
-        <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'>{{hour.WindChillC}}&#8451</td>
-      </tr>
-      <tr>
-        <td><b>Swell height</b></td>
-        <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'>{{hour.swellHeight_ft}}</td>
-      </tr>
-      <tr>
-        <td><b>Period</b></td>
-        <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'>{{hour.swellPeriod_secs}}</td>
-      </tr>
-      <tr>
-        <td><b>Swell direction</b></td>
-        <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'>{{hour.swellDir16Point}}</td>
-      </tr>
-      <tr>
-        <td><b>Air temp</b></td>
-        <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'>{{hour.tempC}}&#8451</td>
-      </tr>
-      <tr>
-        <td><b>Sea temp</b></td>
-        <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'> {{hour.waterTemp_C}}&#8451</td>
-      </tr>
-    </table>
-
-    <a ng-click="locationCtrl.showSevenDayForcast()">Click to see seven day forecast</a>
-    <br>
-
-
-
-  </section>
-
-  <section id='fiveDay' ng-show='locationCtrl.sevenDayShow'>
-    <h1>{{locationCtrl.location.name}}</h1>
-    <h3>Forecast for {{locationCtrl.marineWeather[0].date}}</h3>
       <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
         <span class="tide-type">{{tide.tide_type}}</span>
         tide: <span class="tide-time">{{tide.tideTime}}</span>
@@ -154,8 +83,12 @@
         <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'> {{hour.waterTemp_C}}&#8451</td>
       </tr>
     </table>
+		</div>
+	</script>
 
-    <h3>Forecast for {{locationCtrl.marineWeather[1].date}}</h3>
+	<script type="text/ng-template" id="two.tpl.html">
+		<div id="viewTwo">
+
       <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
         <span class="tide-type">{{tide.tide_type}}</span>
         tide: <span class="tide-time">{{tide.tideTime}}</span>
@@ -208,8 +141,12 @@
         <td ng-repeat='hour in locationCtrl.marineWeather[1].hourly'> {{hour.waterTemp_C}}&#8451</td>
       </tr>
     </table>
+		</div>
+	</script>
 
-    <h3>Forecast for {{locationCtrl.marineWeather[2].date}}</h3>
+	<script type="text/ng-template" id="three.tpl.html">
+		<div id="viewThree">
+
       <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
         <span class="tide-type">{{tide.tide_type}}</span>
         tide: <span class="tide-time">{{tide.tideTime}}</span>
@@ -262,8 +199,12 @@
         <td ng-repeat='hour in locationCtrl.marineWeather[2].hourly'> {{hour.waterTemp_C}}&#8451</td>
       </tr>
     </table>
+		</div>
+	</script>
 
-    <h3>Forecast for {{locationCtrl.marineWeather[3].date}}</h3>
+  <script type="text/ng-template" id="four.tpl.html">
+		<div id="viewFour">
+
       <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
         <span class="tide-type">{{tide.tide_type}}</span>
         tide: <span class="tide-time">{{tide.tideTime}}</span>
@@ -316,8 +257,12 @@
         <td ng-repeat='hour in locationCtrl.marineWeather[3].hourly'> {{hour.waterTemp_C}}&#8451</td>
       </tr>
     </table>
+		</div>
+	</script>
 
-    <h3>Forecast for {{locationCtrl.marineWeather[4].date}}</h3>
+  <script type="text/ng-template" id="five.tpl.html">
+		<div id="viewFive">
+
       <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
         <span class="tide-type">{{tide.tide_type}}</span>
         tide: <span class="tide-time">{{tide.tideTime}}</span>
@@ -370,8 +315,12 @@
         <td ng-repeat='hour in locationCtrl.marineWeather[4].hourly'> {{hour.waterTemp_C}}&#8451</td>
       </tr>
     </table>
+		</div>
+	</script>
 
-    <h3>Forecast for {{locationCtrl.marineWeather[5].date}}</h3>
+  <script type="text/ng-template" id="six.tpl.html">
+		<div id="viewSix">
+
       <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
         <span class="tide-type">{{tide.tide_type}}</span>
         tide: <span class="tide-time">{{tide.tideTime}}</span>
@@ -425,7 +374,12 @@
       </tr>
     </table>
 
-    <h3>Forecast for {{locationCtrl.marineWeather[6].date}}</h3>
+		</div>
+	</script>
+
+  <script type="text/ng-template" id="seven.tpl.html">
+		<div id="viewSeven">
+
       <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
         <span class="tide-type">{{tide.tide_type}}</span>
         tide: <span class="tide-time">{{tide.tideTime}}</span>
@@ -478,7 +432,9 @@
         <td ng-repeat='hour in locationCtrl.marineWeather[6].hourly'> {{hour.waterTemp_C}}&#8451</td>
       </tr>
     </table>
+		</div>
+	</script>
 
-    <a ng-click="locationCtrl.showOneDayForecast()">Click to go back to today's forecast</a>
-  </section> -->
+
+
 </div>
