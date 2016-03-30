@@ -1,4 +1,5 @@
 gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapFactory', 'apiService', 'chosenLocationService', 'GnarlometerFactory', 'MarineApiFactory', function(uiGmapGoogleMapApi, $geolocation, MapFactory, apiService, chosenLocationService, GnarlometerFactory, MarineApiFactory) {
+  
   apiService.getBeaches().then(function(response){
     self.beachLocations = response;
     self.ids = [];
