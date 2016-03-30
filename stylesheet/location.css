@@ -36,7 +36,7 @@ li {
 }
 
 .active {
-    background-color: black;
+    background-color: #89bdd3;
     color: white;
 }
 
@@ -49,6 +49,7 @@ li {
   background-color: white;
   text-align: center;
   font-size: 18px;
+  margin-top: 50px;
 }
 
 th{
