@@ -1,5 +1,5 @@
 gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapFactory', 'apiService', 'chosenLocationService', 'GnarlometerFactory', 'MarineApiFactory', function(uiGmapGoogleMapApi, $geolocation, MapFactory, apiService, chosenLocationService, GnarlometerFactory, MarineApiFactory) {
-  
+
   apiService.getBeaches().then(function(response){
     self.beachLocations = response;
     self.ids = [];
@@ -19,10 +19,6 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
 
   self.factory = new MapFactory();
 
-
-  var gnarlometer = new GnarlometerFactory();
-
-
   self.getWeather = function(id, coords) {
     MarineApiFactory.getMarineInfo(coords.latitude, coords.longitude).then(function(response){
       for(i=0; i < self.ids.length; i++) {
@@ -35,7 +31,7 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
           self.swellPeriod = response[0].hourly[2].swellPeriod_secs;
         }
       }
-      self.gnarLevel = gnarlometer.calculateGnar(self.windSpeed, self.swellFeet, self.swellPeriod);
+      self.gnarLevel = GnarlometerFactory.calculateGnar(self.windSpeed, self.swellFeet, self.swellPeriod);
     });
   };
 

@@ -1,4 +1,4 @@
-gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationService', 'MarineApiFactory', function(WeatherApiFactory, chosenLocationService, MarineApiFactory) {
+gnarApp.controller('locationController', ['chosenLocationService', 'MarineApiFactory', function(chosenLocationService, MarineApiFactory) {
 
   var self = this;
 
