@@ -4,8 +4,8 @@ gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocation
 
   var self = this;
 
-  self.locations = locations;
-  markersFactory.assignIds(self.locations.data);
+  self.locations = locations.data;
+  markersFactory.assignIds(self.locations);
   self.ids = markersFactory.allIds;
 
   self.mapFactory = new MapFactory();
@@ -27,9 +27,10 @@ gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocation
   };
 
   self.storeLocation = function(id) {
-    for(i = 0; i < self.beachLocations.length; i++){
-      if(self.beachLocations[i].id === id) {
-        chosenLocationService.selectedLocation = self.beachLocations[i];
+    debugger
+    for(i = 0; i < self.locations.length; i++){
+      if(self.locations[i].id === id) {
+        chosenLocationService.selectedLocation = self.locations[i];
       }
     }
   };

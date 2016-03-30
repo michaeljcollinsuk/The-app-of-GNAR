@@ -8,6 +8,7 @@ gnarApp.factory('filterWeatherFactory', function() {
   };
 
   function sortData(data) {
+    debugger
     deleteForecasts(data);
     var arr = [];
     for (var day in data) {
