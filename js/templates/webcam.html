@@ -1,0 +1,9 @@
+
+<div ng-show='webcamCtrl.show'>
+  No Webcam Available For this Beach
+</div>
+
+<div ng-hide='webcamCtrl.show'>
+  {{webcamCtrl.webcam}}
+  <iframe ng-src="{{webcamCtrl.trustSrc(webcamCtrl.webcam)}}" ></iframe>
+</div>

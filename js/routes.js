@@ -12,5 +12,9 @@ gnarApp.config(function ($routeProvider) {
           templateUrl: "js/templates/instagram.html",
           controller: "socialMediaController as socialCtrl"
         })
+        .when("/location/:name/webcam", {
+        templateUrl: "js/templates/webcam.html",
+        controller: "webcamController as webcamCtrl"
+        })
         .otherwise({redirectTo: "/map"});
 });
