@@ -4,9 +4,9 @@ gnarApp.config(function ($routeProvider) {
           templateUrl: "js/templates/map.html",
           controller: "mapController as mapCtrl",
           resolve: {
-            locations: ['locationsService',
-              function(locationsService) {
-                return locationsService.getLocations();
+            locations: ['apiFactory',
+              function(apiFactory) {
+                return apiFactory.getBeaches();
             }]
           }
         })

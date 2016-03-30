@@ -1,9 +1,11 @@
-gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocationService', 'GnarlometerFactory', 'MarineApiFactory', 'markersFactory', 'locationsService', 'locations', function(MapFactory, apiFactory, chosenLocationService, GnarlometerFactory, MarineApiFactory, markersFactory, locationsService, locations) {
+gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocationService', 'GnarlometerFactory',
+  'MarineApiFactory', 'markersFactory', 'locations', function(MapFactory, apiFactory, chosenLocationService,
+    GnarlometerFactory, MarineApiFactory, markersFactory, locations) {
+
   var self = this;
 
   self.locations = locations;
   markersFactory.assignIds(self.locations.data);
-
   self.ids = markersFactory.allIds;
 
   self.mapFactory = new MapFactory();
