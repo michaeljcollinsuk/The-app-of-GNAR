@@ -8,6 +8,8 @@ describe('locationController', function(){
     $routeProvider.otherwise(function(){return false;});
   }));
 
+  // above is a workaround for a karma bug
+
   beforeEach(function() {
     response = [{tides:2}];
     marineApiFactoryMock = jasmine.createSpyObj('MarineApiFactoryMock', ['getMarineInfo']
