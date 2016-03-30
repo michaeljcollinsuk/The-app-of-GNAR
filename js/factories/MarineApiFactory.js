@@ -1,11 +1,8 @@
 gnarApp.factory('MarineApiFactory',['$http', 'filterWeatherFactory', function($http, filterWeatherFactory){
+  self = {};
 
 
-  return {
-    getMarineInfo: getMarineInfo
-  };
-
-  function getMarineInfo(lat, long) {
+  self.getMarineInfo = function(lat, long) {
     var key = 'key=13b7cf31eb9c40758b7144945162403';
     var url = 'http://api.worldweatheronline.com/premium/v1/marine.ashx?' + key + '&q=' + lat + ',' + long + '&tide=yes&format=json';
     return $http.get(url)
@@ -13,5 +10,7 @@ gnarApp.factory('MarineApiFactory',['$http', 'filterWeatherFactory', function($h
       var data = filterWeatherFactory.sortData(response.data.data.weather);
       return data;
     });
-  }
+  };
+
+  return self;
 }]);
