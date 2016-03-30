@@ -11,7 +11,7 @@ describe('locationController', function(){
 
 
   beforeEach(function() {
-    response = {weather:[{tides:2}]};
+    response = [{tides:2}];
     marineApiFactoryMock = function() {};
     marineApiFactoryMock.prototype.getMarineInfo = jasmine.createSpy('spy');
     module('GnarApp', {
@@ -28,19 +28,8 @@ describe('locationController', function(){
   describe('interacting with the marineApiFactory', function() {
     it('initializes with marine info from the marineApiFactory', function() {
       $rootScope.$digest();
-      expect(ctrl.marineWeather).toEqual(response.weather);
-      expect(ctrl.oneDayTideInfo).toEqual(response.weather[0].tides);
+      expect(ctrl.marineWeather).toEqual(response);
     });
-
-    it('initializes with loaded false', function() {
-      expect(ctrl.loaded).toEqual(false);
-    });
-
-    it('changes loaded to true after the promise is fulfilled', function() {
-      $rootScope.$digest();
-      expect(ctrl.loaded).toEqual(true);
-    });
-
 
   });
 

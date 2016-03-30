@@ -1,4 +1,4 @@
-<section id='oneDayForecast' ng-show='locationCtrl.oneDayForecast'>
+<section id='oneDayForecast' ng-show='locationCtrl.isLoaded()'>
   <h1>{{locationCtrl.location.name}}</h1>
   <table class="table table-bordered">
     <tr>
@@ -60,7 +60,7 @@
 <section id='fiveDay' ng-show='locationCtrl.sevenDayShow'>
   <h1>{{locationCtrl.location.name}}</h1>
   <h3>Forecast for {{locationCtrl.marineWeather[0].date}}</h3>
-    <div ng-repeat='tide in locationCtrl.marineWeather[0].tides[0].tide_data'>
+    <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
       <span class="tide-type">{{tide.tide_type}}</span>
       tide: <span class="tide-time">{{tide.tideTime}}</span>
     </div>
@@ -114,7 +114,7 @@
   </table>
 
   <h3>Forecast for {{locationCtrl.marineWeather[1].date}}</h3>
-    <div ng-repeat='tide in locationCtrl.marineWeather[1].tides[0].tide_data'>
+    <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
       <span class="tide-type">{{tide.tide_type}}</span>
       tide: <span class="tide-time">{{tide.tideTime}}</span>
     </div>
@@ -168,7 +168,7 @@
   </table>
 
   <h3>Forecast for {{locationCtrl.marineWeather[2].date}}</h3>
-    <div ng-repeat='tide in locationCtrl.marineWeather[2].tides[0].tide_data'>
+    <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
       <span class="tide-type">{{tide.tide_type}}</span>
       tide: <span class="tide-time">{{tide.tideTime}}</span>
     </div>
@@ -222,7 +222,7 @@
   </table>
 
   <h3>Forecast for {{locationCtrl.marineWeather[3].date}}</h3>
-    <div ng-repeat='tide in locationCtrl.marineWeather[3].tides[0].tide_data'>
+    <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
       <span class="tide-type">{{tide.tide_type}}</span>
       tide: <span class="tide-time">{{tide.tideTime}}</span>
     </div>
@@ -276,7 +276,7 @@
   </table>
 
   <h3>Forecast for {{locationCtrl.marineWeather[4].date}}</h3>
-    <div ng-repeat='tide in locationCtrl.marineWeather[4].tides[0].tide_data'>
+    <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
       <span class="tide-type">{{tide.tide_type}}</span>
       tide: <span class="tide-time">{{tide.tideTime}}</span>
     </div>
@@ -330,7 +330,7 @@
   </table>
 
   <h3>Forecast for {{locationCtrl.marineWeather[5].date}}</h3>
-    <div ng-repeat='tide in locationCtrl.marineWeather[5].tides[0].tide_data'>
+    <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
       <span class="tide-type">{{tide.tide_type}}</span>
       tide: <span class="tide-time">{{tide.tideTime}}</span>
     </div>
@@ -384,7 +384,7 @@
   </table>
 
   <h3>Forecast for {{locationCtrl.marineWeather[6].date}}</h3>
-    <div ng-repeat='tide in locationCtrl.marineWeather[6].tides[0].tide_data'>
+    <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
       <span class="tide-type">{{tide.tide_type}}</span>
       tide: <span class="tide-time">{{tide.tideTime}}</span>
     </div>
@@ -439,21 +439,3 @@
 
   <a ng-click="locationCtrl.showOneDayForecast()">Click to go back to today's forecast</a>
 </section>
-
-<!-- <section id='fiveDay' ng-show='locationCtrl.sevenDayShow'>
-  <h1>{{locationCtrl.location.name}}</h1><br>
-  <div ng-repeat='day in locationCtrl.marineWeather'>
-   <h3>Forecast for {{locationCtrl.date(day.date)}}</h3>
-    <div ng-repeat='tide in day.tides[0].tide_data'>
-      Tide: {{tide.tide_type}} Time: {{tide.tideTime}}
-    </div>
-    <div ng-repeat='hour in day.hourly'>
-      Time: {{locationCtrl.time(hour.time)}} <img src="{{hour.weatherIconUrl[0].value}}"><br>
-      Wind dir: {{hour.winddir16Point}} Speed: {{hour.windspeedMiles}}mph Chill:{{hour.WindChillC}}&#8451<br>
-      Swell Height: {{hour.swellHeight_ft}} Period(secs): {{hour.swellPeriod_secs}} Direction: {{hour.swellDir16Point}}<br>
-      Temp: {{hour.tempC}}&#8451 Sea: {{hour.waterTemp_C}}&#8451
-    </div>
-    <br>
-  </div>
-  <a ng-click="locationCtrl.showOneDayForecast()">Click to go back to today's forecast</a>
-</section> -->
