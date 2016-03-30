@@ -1,16 +1,18 @@
 <div id="sidebar">
   <div id="logo">
-    <img src="assets/img/logo.png" width="50" height="50"/>
+    <img id='image' src="assets/img/logo.png" width="50" height="50"/>
   </div>
   <div id='side-content'>
-    <div ng-show='mapCtrl.isLoaded()' id='locationPopup'>
-      <h2>{{mapCtrl.beachName}}</h2>
-          Temperature: {{mapCtrl.temp}}<br>
-          Windspeed: {{mapCtrl.windSpeed}}mph<br>
-          Swell height: {{mapCtrl.swellFeet}}<br>
-          Swell period: {{mapCtrl.swellPeriod}}<br>
-          Gnarometer: {{mapCtrl.gnarLevel}}/10<br>
-      <a ng-click="mapCtrl.storeLocation(mapCtrl.beachId)" href="#/location/{{mapCtrl.beachName}}" > More info</a>
+    <div ng-show='mapCtrl.isLoaded()' >
+      <div id='locationPopup'>
+        <h2>{{mapCtrl.beachName}}</h2>
+            Temperature: {{mapCtrl.temp}}<br>
+            Windspeed: {{mapCtrl.windSpeed}}mph<br>
+            Swell height: {{mapCtrl.swellFeet}}<br>
+            Swell period: {{mapCtrl.swellPeriod}}<br>
+            Gnarometer: {{mapCtrl.gnarLevel}}/10<br>
+            <a class="button-link" ng-click="mapCtrl.storeLocation(mapCtrl.beachId)" href="#/location/{{mapCtrl.beachName}}" > More info</a>
+      </div>
     </div>
   </div>
 </div>
