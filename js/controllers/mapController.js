@@ -23,11 +23,7 @@ gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocation
   };
 
   self.storeLocation = function(id) {
-    for(i = 0; i < self.locations.length; i++){
-      if(self.locations[i].id === id) {
-        chosenLocationService.selectedLocation = self.locations[i];
-      }
-    }
+    chosenLocationService.selectedLocation = self.locations[id-1];
   };
 
   self.isLoaded = function() {
