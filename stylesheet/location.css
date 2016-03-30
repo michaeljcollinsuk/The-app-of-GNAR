@@ -1,4 +1,4 @@
-
+/*
 ul {
     list-style: none;
     padding: 0;
@@ -8,13 +8,30 @@ ul {
 li {
     float: left;
     margin: 10px 10px 0px 10px;
-    padding: 5px 5px 0px 5px;
+    padding: 5px 5px 5px 5px;
     color: black;
+}*/
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+li {
+    float: left;
+    display: block;
+   color: grey;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+   border-right: 1px solid #bbb;
 }
 
 #mainView {
 	clear: both;
-	padding: 0 1em;
   z-index: -1;
 }
 
@@ -37,17 +54,5 @@ li {
 th{
   background: black;
   color: white;
+  text-align: center;
 }
-
-/*th {
-    background-color: #ff6600;
-    color: black;
-    white-space: nowrap;
-    overflow:hidden;
-
-}
-
-.form-group{
-  font-size: 18px;
-  color: white;
-}*/
