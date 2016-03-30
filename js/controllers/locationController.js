@@ -36,4 +36,11 @@ gnarApp.controller('locationController', ['WeatherApiFactory', 'chosenLocationSe
     return array.reverse().join('');
   };
 
+
+
+
+
+
+
+
 }]);

@@ -113,7 +113,7 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', function(uiG
         var lat = self.coords.latitude;
         var long = self.coords.longitude;
         var coords = {latitude: lat, longitude: long};
-        self.map = { center: coords, zoom: 5 };
+        self.map = { center: coords, zoom: 8 };
         self.myLocation = {
           id: 420,
           coords: {
