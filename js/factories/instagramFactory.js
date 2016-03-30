@@ -1,4 +1,4 @@
-gnarApp.service("instagramService", [ function () {
+gnarApp.factory("instagramFactory", [ function () {
 
   return {
     loadInstagram: loadInstagram,

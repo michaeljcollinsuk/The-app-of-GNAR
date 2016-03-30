@@ -1,8 +1,8 @@
-gnarApp.controller('socialMediaController', ['chosenLocationService', 'instagramService', function(chosenLocationService, instagramService) {
+gnarApp.controller('socialMediaController', ['chosenLocationService', 'instagramFactory', function(chosenLocationService, instagramFactory) {
   var self = this;
   self.currentLocation = chosenLocationService.selectedLocation;
 
-  self.tag = instagramService.generateTag(self.currentLocation.name);
-  instagramService.loadInstagram(self.tag);
+  self.tag = instagramFactory.generateTag(self.currentLocation.name);
+  instagramFactory.loadInstagram(self.tag);
 
 }]);

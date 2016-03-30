@@ -1,6 +1,6 @@
 /*jshint -W069 */
 
-gnarApp.service('filterWeatherService', function() {
+gnarApp.factory('filterWeatherFactory', function() {
 
   return {
     sortData: sortData,

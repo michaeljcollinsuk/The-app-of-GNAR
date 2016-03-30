@@ -1,4 +1,4 @@
-gnarApp.factory('MarineApiFactory',['$http', 'filterWeatherService', function($http, filterWeatherService){
+gnarApp.factory('MarineApiFactory',['$http', 'filterWeatherFactory', function($http, filterWeatherFactory){
 
 
   return {
@@ -10,7 +10,7 @@ gnarApp.factory('MarineApiFactory',['$http', 'filterWeatherService', function($h
     var url = 'http://api.worldweatheronline.com/premium/v1/marine.ashx?' + key + '&q=' + lat + ',' + long + '&tide=yes&format=json';
     return $http.get(url)
     .then(function(response) {
-      var data = filterWeatherService.sortData(response.data.data.weather);
+      var data = filterWeatherFactory.sortData(response.data.data.weather);
       return data;
     });
   }
