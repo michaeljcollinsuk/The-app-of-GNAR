@@ -103,31 +103,62 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', function(uiG
 
     self.searchbox = { template:'searchbox.tpl.html', events: events };
 
-    $geolocation.getCurrentPosition()
-    .then(function(location){
-      self.coords = location.coords;
-    })
-    .then(function(){
-      return uiGmapGoogleMapApi
-      .then(function() {
-        var lat = self.coords.latitude;
-        var long = self.coords.longitude;
-        var coords = {latitude: lat, longitude: long};
-        self.map = { center: coords, zoom: 5 };
+    // $geolocation.getCurrentPosition()
+    // .then(function(location){
+    //   self.coords = location.coords;
+    // })
+    // .then(function(){
+    //   return
+    //   uiGmapGoogleMapApi
+    //   .then(function() {
+    //     var lat = self.coords.latitude;
+    //     var long = self.coords.longitude;
+    //     var coords = {latitude: lat, longitude: long};
+    //     self.map = { center: coords, zoom: 5 };
+    //     self.myLocation = {
+    //       id: 420,
+    //       coords: {
+    //         latitude: lat,
+    //         longitude: long
+    //       },
+    //       options: {icon:'../../images/myLocation.svg'}
+    //     };
+    //   });
+    // });
+
+
+    self.loadMap = function(coords){
+      uiGmapGoogleMapApi.then(function(maps) {
+        self.map = { center: coords, zoom: 8 };
         self.myLocation = {
           id: 420,
           coords: {
-            latitude: lat,
-            longitude: long
+            latitude: coords.latitude,
+            longitude: coords.longitude
           },
           options: {icon:'../../images/myLocation.svg'}
         };
-
       });
-    });
+    };
 
+    // self.center = function(){
+    //   setTimeout(function(){
+    //     var center = self.map.center;
+    //     console.log(center);
+    //     return center;
+    //   }, 5000);
+    // };
+
+    self.searchboxTemplate = function() {
+      return self.searchbox.template;
+    };
+
+    self.searchboxEvents = function() {
+      return self.searchbox.events;
+    };
 
   };
+
 
   return MapFactory;
 }]);
