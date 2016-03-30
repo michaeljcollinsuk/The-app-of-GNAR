@@ -10,7 +10,7 @@ self.loadInstagram = function(tagName){
               sortBy: 'most-recent',
               limit: 20,
               resolution: 'standard_resolution',
-    template: '<a title="{{caption}}" class="fancybox" rel="group" href="{{image}}"><img src="{{image}}" title="{{caption}}" /><div class="info"><p>{{model.created_time}}</p><p class="location" ng-model="location"><i class="icon-location"></i>{{location}}</p><p class="user"><i class="icon-user"></i>@{{model.user.username}}</p><p><i class="icon-comment"></i>{{caption}}</p><br></div></a>',
+    template: '<p>{{model.created_time}}</p><img src="{{image}}" title="{{caption}}" />',
     filter: function(image) {
 
   		var date = new Date(image.created_time*1000);

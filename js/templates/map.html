@@ -4,8 +4,9 @@
   </div>
   <div id='side-content'>
     <div ng-show='mapCtrl.isLoaded()' >
+      <h1 class="side-title">{{mapCtrl.beachName}}</h1>
       <div id='locationPopup'>
-        <h2>{{mapCtrl.beachName}}</h2>
+
             Temperature: {{mapCtrl.temp}}<br>
             Windspeed: {{mapCtrl.windSpeed}}mph<br>
             Swell height: {{mapCtrl.swellFeet}}<br>
