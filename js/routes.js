@@ -2,7 +2,13 @@ gnarApp.config(function ($routeProvider) {
       $routeProvider
         .when("/map", {
           templateUrl: "js/templates/map.html",
-          controller: "mapController as mapCtrl"
+          controller: "mapController as mapCtrl",
+          resolve: {
+            locations: ['locationsService',
+              function(locationsService) {
+                return locationsService.getLocations();
+            }]
+          }
         })
         .when("/location/:name", {
           templateUrl: "js/templates/location.html",

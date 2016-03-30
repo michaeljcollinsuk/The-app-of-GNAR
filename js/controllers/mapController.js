@@ -1,21 +1,10 @@
-gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapFactory', 'apiFactory', 'chosenLocationService', 'GnarlometerFactory', 'MarineApiFactory', function(uiGmapGoogleMapApi, $geolocation, MapFactory, apiFactory, chosenLocationService, GnarlometerFactory, MarineApiFactory) {
-
-  apiFactory.getBeaches().then(function(response){
-    self.beachLocations = response;
-    self.ids = [];
-
-    for(var i=0; i<self.beachLocations.length; i++){
-
-      self.ids.push(
-        {id: self.beachLocations[i].id,
-        name: self.beachLocations[i].name,
-        weather: {},
-        coords: {latitude: self.beachLocations[i].latitude, longitude: self.beachLocations[i].longitude}
-      }
-    );}
-   });
-
+gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocationService', 'GnarlometerFactory', 'MarineApiFactory', 'markersFactory', 'locationsService', 'locations', function(MapFactory, apiFactory, chosenLocationService, GnarlometerFactory, MarineApiFactory, markersFactory, locationsService, locations) {
   var self = this;
+
+  self.locations = locations;
+  markersFactory.assignIds(self.locations.data);
+
+  self.ids = markersFactory.allIds;
 
   self.mapFactory = new MapFactory();
 

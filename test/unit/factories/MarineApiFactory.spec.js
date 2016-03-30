@@ -9,29 +9,13 @@ describe('factory: MarineApiFactory', function() {
   }));
 
   beforeEach(function(){
-    filterWeatherFactoryMock = jasmine.createSpyObj(
-      'filterWeatherFactory',
-      ['deleteForecasts']
-    );
-
-
+    filterWeatherFactoryMock = jasmine.createSpyObj('filterWeatherFactory', ['deleteForecasts']);
     module('GnarApp',{
       filterWeatherFactory: filterWeatherFactoryMock
     });
-    inject(function(MarineApiFactory){
-      marineFactory = MarineApiFactory();
-    });
-    // $routeProvider
-    // $routeProvider.otherwise(function(){return false;});
   });
 
-
-
-
-  // inject(function(MarineApiFactory) {
-  //   marineFactory = MarineApiFactory;
-  // }));
-
+  // beforeEach(inject(function()))
 
   xit('has a getMarineInfo function', function() {
     expect(marineFactory.getMarineInfo()).toBeDefined();

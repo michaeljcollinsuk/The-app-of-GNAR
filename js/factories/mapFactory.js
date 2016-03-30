@@ -125,20 +125,12 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', function(uiG
       });
     });
 
-    // self.center = function(){
-    //   setTimeout(function(){
-    //     var h = self.map.center;
-    //     console.log(h);
-    //     return h;
-    //   }, 5000);
-    // };
-
     self.searchboxTemplate = function() {
       return self.searchbox.template;
     };
 
     self.searchboxEvents = function() {
-      return self.searchbox.events;
+      return events;
     };
 
   };
