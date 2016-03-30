@@ -20,10 +20,10 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
 
 
   var gnarlometer = new GnarlometerFactory();
-  var marineApiFactory = new MarineApiFactory();
+
 
   self.getWeather = function(id, coords) {
-    marineApiFactory.getMarineInfo(coords.latitude, coords.longitude).then(function(response){
+    MarineApiFactory.getMarineInfo(coords.latitude, coords.longitude).then(function(response){
       for(i=0; i < self.ids.length; i++) {
         if(self.ids[i].id === id) {
           self.beachName = self.ids[i].name;
