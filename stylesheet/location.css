@@ -6,10 +6,8 @@ ul {
 }
 li {
     float: left;
-
     margin: 3px 3px 0px 3px;
     padding: 5px 5px 0px 5px;
-
     color: black;
 }
 #mainView {
@@ -20,10 +18,8 @@ li {
   z-index: -1;
 }
 .active {
-    background-color: #4E9CAF;
-
-
-    color: #000;
+    background-color: black;
+    color: white;
 }
 
 

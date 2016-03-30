@@ -1,6 +1,6 @@
 <div id="sidebar">
   <div id="logo">
-    <img src="assets/img/logo.png" width="50" height="50"/>
+    <img src="assets/img/black.png" id="image"/>
   </div>
   <div id='side-content'>
     <h1>{{locationCtrl.location.name}}</h1>
@@ -12,8 +12,6 @@
 
 
 <div id="main-page">
-
-
 
     <div id="tabs" >
         <ul>
@@ -30,11 +28,6 @@
 
     <script type="text/ng-template" id="one.tpl.html">
 		<div id="viewOne">
-
-      <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
-        <span class="tide-type">{{tide.tide_type}}</span>
-        tide: <span class="tide-time">{{tide.tideTime}}</span>
-      </div>
     <table class="table table-bordered">
       <tr>
         <th></th>
@@ -46,7 +39,12 @@
         <th>21:00</th>
       </tr>
       <tr>
-        <td></td>
+        <td>
+          <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
+            <span class="tide-type">{{tide.tide_type}}</span>
+            tide: <span class="tide-time">{{tide.tideTime}}</span>
+          </div>
+        </td>
         <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'><img src="{{hour.weatherIconUrl[0].value}}"></td>
 
       </tr>
@@ -88,11 +86,6 @@
 
 	<script type="text/ng-template" id="two.tpl.html">
 		<div id="viewTwo">
-
-      <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
-        <span class="tide-type">{{tide.tide_type}}</span>
-        tide: <span class="tide-time">{{tide.tideTime}}</span>
-      </div>
     <table class="table table-bordered">
       <tr>
         <th></th>
@@ -104,7 +97,12 @@
         <th>21:00</th>
       </tr>
       <tr>
-        <td></td>
+        <td>
+          <div ng-repeat='tide in locationCtrl.marineWeather[1].tides'>
+            <span class="tide-type">{{tide.tide_type}}</span>
+            tide: <span class="tide-time">{{tide.tideTime}}</span>
+          </div>
+        </td>
         <td ng-repeat='hour in locationCtrl.marineWeather[1].hourly'><img src="{{hour.weatherIconUrl[0].value}}"></td>
 
       </tr>
@@ -146,11 +144,6 @@
 
 	<script type="text/ng-template" id="three.tpl.html">
 		<div id="viewThree">
-
-      <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
-        <span class="tide-type">{{tide.tide_type}}</span>
-        tide: <span class="tide-time">{{tide.tideTime}}</span>
-      </div>
     <table class="table table-bordered">
       <tr>
         <th></th>
@@ -162,7 +155,12 @@
         <th>21:00</th>
       </tr>
       <tr>
-        <td></td>
+        <td>
+          <div ng-repeat='tide in locationCtrl.marineWeather[2].tides'>
+            <span class="tide-type">{{tide.tide_type}}</span>
+            tide: <span class="tide-time">{{tide.tideTime}}</span>
+          </div>
+        </td>
         <td ng-repeat='hour in locationCtrl.marineWeather[2].hourly'><img src="{{hour.weatherIconUrl[0].value}}"></td>
 
       </tr>
@@ -204,11 +202,6 @@
 
   <script type="text/ng-template" id="four.tpl.html">
 		<div id="viewFour">
-
-      <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
-        <span class="tide-type">{{tide.tide_type}}</span>
-        tide: <span class="tide-time">{{tide.tideTime}}</span>
-      </div>
     <table class="table table-bordered">
       <tr>
         <th></th>
@@ -220,7 +213,12 @@
         <th>21:00</th>
       </tr>
       <tr>
-        <td></td>
+        <td>
+          <div ng-repeat='tide in locationCtrl.marineWeather[3].tides'>
+            <span class="tide-type">{{tide.tide_type}}</span>
+            tide: <span class="tide-time">{{tide.tideTime}}</span>
+          </div>
+        </td>
         <td ng-repeat='hour in locationCtrl.marineWeather[3].hourly'><img src="{{hour.weatherIconUrl[0].value}}"></td>
 
       </tr>
@@ -262,11 +260,6 @@
 
   <script type="text/ng-template" id="five.tpl.html">
 		<div id="viewFive">
-
-      <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
-        <span class="tide-type">{{tide.tide_type}}</span>
-        tide: <span class="tide-time">{{tide.tideTime}}</span>
-      </div>
     <table class="table table-bordered">
       <tr>
         <th></th>
@@ -278,7 +271,12 @@
         <th>21:00</th>
       </tr>
       <tr>
-        <td></td>
+        <td>
+          <div ng-repeat='tide in locationCtrl.marineWeather[4].tides'>
+            <span class="tide-type">{{tide.tide_type}}</span>
+            tide: <span class="tide-time">{{tide.tideTime}}</span>
+          </div>
+        </td>
         <td ng-repeat='hour in locationCtrl.marineWeather[4].hourly'><img src="{{hour.weatherIconUrl[0].value}}"></td>
 
       </tr>
@@ -321,10 +319,7 @@
   <script type="text/ng-template" id="six.tpl.html">
 		<div id="viewSix">
 
-      <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
-        <span class="tide-type">{{tide.tide_type}}</span>
-        tide: <span class="tide-time">{{tide.tideTime}}</span>
-      </div>
+
     <table class="table table-bordered">
       <tr>
         <th></th>
@@ -336,7 +331,12 @@
         <th>21:00</th>
       </tr>
       <tr>
-        <td></td>
+        <td>
+          <div ng-repeat='tide in locationCtrl.marineWeather[5].tides'>
+            <span class="tide-type">{{tide.tide_type}}</span>
+            tide: <span class="tide-time">{{tide.tideTime}}</span>
+          </div>
+        </td>
         <td ng-repeat='hour in locationCtrl.marineWeather[5].hourly'><img src="{{hour.weatherIconUrl[0].value}}"></td>
 
       </tr>
@@ -379,11 +379,6 @@
 
   <script type="text/ng-template" id="seven.tpl.html">
 		<div id="viewSeven">
-
-      <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
-        <span class="tide-type">{{tide.tide_type}}</span>
-        tide: <span class="tide-time">{{tide.tideTime}}</span>
-      </div>
     <table class="table table-bordered">
       <tr>
         <th></th>
@@ -395,7 +390,12 @@
         <th>21:00</th>
       </tr>
       <tr>
-        <td></td>
+        <td>
+          <div ng-repeat='tide in locationCtrl.marineWeather[6].tides'>
+            <span class="tide-type">{{tide.tide_type}}</span>
+            tide: <span class="tide-time">{{tide.tideTime}}</span>
+          </div>
+        </td>
         <td ng-repeat='hour in locationCtrl.marineWeather[6].hourly'><img src="{{hour.weatherIconUrl[0].value}}"></td>
 
       </tr>
