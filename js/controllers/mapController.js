@@ -1,4 +1,5 @@
 gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapFactory', 'apiService', 'chosenLocationService', 'GnarlometerFactory', 'MarineApiFactory', function(uiGmapGoogleMapApi, $geolocation, MapFactory, apiService, chosenLocationService, GnarlometerFactory, MarineApiFactory) {
+
   apiService.getBeaches().then(function(response){
     self.beachLocations = response;
     self.ids = [];
@@ -12,8 +13,19 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
         weather: {},
         coords: {latitude: self.beachLocations[i].latitude, longitude: self.beachLocations[i].longitude}
         }
-      )};
-   });
+      );
+
+    }
+
+    marker = self.ids;
+
+		var image = "../images/surfboard.png";
+
+			angular.forEach(self.beachLocations, function(coords) {
+				marker.icon = image;
+			});
+	});
+
 
   var self = this;
 
@@ -37,13 +49,13 @@ gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapF
         }
       }
       self.gnarLevel = gnarlometer.calculateGnar(self.windSpeed, self.swellFeet, self.swellPeriod);
-    })
+    });
   };
 
   self.storeLocation = function(id) {
     for(i = 0; i < self.beachLocations.length; i++){
       if(self.beachLocations[i].id === id) {
-        chosenLocationService.selectedLocation = self.beachLocations[i]
+        chosenLocationService.selectedLocation = self.beachLocations[i];
       }
     }
   };
