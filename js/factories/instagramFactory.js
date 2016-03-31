@@ -14,7 +14,7 @@ gnarApp.factory("instagramFactory", [ function () {
       sortBy: 'most-recent',
       limit: 21,
       resolution: 'standard_resolution',
-      template: '<div class="insta"><div class="seperate"><p class="insta-title">{{model.created_time}}</p> <img class="insta-image" src="{{image}}"/> </div></div>',
+      template: '<div class="seperate"><p class="insta-title">{{model.created_time}}</p> <img class="insta-image" src="{{image}}"/> </div>',
       filter: function(image) {
 
         var date = new Date(image.created_time*1000);
