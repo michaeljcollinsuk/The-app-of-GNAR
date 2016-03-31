@@ -10,25 +10,25 @@ gnarApp.controller('locationController', ['chosenLocationService', 'MarineApiFac
   MarineApiFactory.getMarineInfo(self.location.latitude, self.location.longitude).then(function(response){
     self.marineWeather = response;
     self.tabs = [{
-              title: self.marineWeather[0].date,
+              title: 'Today',
               url: 'one.tpl.html'
           }, {
-              title: self.marineWeather[1].date,
+              title: 'Tomorrow',
               url: 'two.tpl.html'
           }, {
-              title: self.marineWeather[2].date,
+              title: self.date(self.marineWeather[2].date),
               url: 'three.tpl.html'
           }, {
-              title: self.marineWeather[3].date,
+              title: self.date(self.marineWeather[3].date),
               url: 'four.tpl.html'
           }, {
-              title: self.marineWeather[4].date,
+              title: self.date(self.marineWeather[4].date),
               url: 'five.tpl.html'
           }, {
-            title: self.marineWeather[5].date,
+            title: self.date(self.marineWeather[5].date),
             url: 'six.tpl.html'
           }, {
-            title: self.marineWeather[6].date,
+            title: self.date(self.marineWeather[6].date),
             url: 'seven.tpl.html'
       }];
   });

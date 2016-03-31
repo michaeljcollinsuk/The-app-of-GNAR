@@ -34,7 +34,7 @@
 		<div id="viewOne">
     <table class="table">
       <tr>
-        <th></th>
+        <th class='top-left-cell'></th>
         <th>06:00</th>
         <th>09:00</th>
         <th>12:00</th>
@@ -44,7 +44,10 @@
       </tr>
       <tr>
         <td>
-
+          <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
+            <span class="tide-type">{{tide.tide_type}}</span>
+            tide: <span class="tide-time">{{tide.tideTime}}</span>
+          </div>
         </td>
         <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'><img src="{{hour.weatherIconUrl[0].value}}"></td>
 
@@ -82,19 +85,12 @@
         <td ng-repeat='hour in locationCtrl.marineWeather[0].hourly'> {{hour.waterTemp_C}}&#8451</td>
       </tr>
     </table>
-    <div class="tide-info">
-      <h3>Tide times</h3>
-        <div ng-repeat='tide in locationCtrl.marineWeather[0].tides'>
-          <span class="tide-type">{{tide.tide_type}}</span>
-          tide: <span class="tide-time">{{tide.tideTime}}</span>
-        </div>
-    </div>
 		</div>
 	</script>
 
 	<script type="text/ng-template" id="two.tpl.html">
 		<div id="viewTwo">
-    <table class="table table-bordered">
+    <table class="table">
       <tr>
         <th></th>
         <th>06:00</th>
@@ -152,7 +148,7 @@
 
 	<script type="text/ng-template" id="three.tpl.html">
 		<div id="viewThree">
-    <table class="table table-bordered">
+    <table class="table">
       <tr>
         <th></th>
         <th>06:00</th>
@@ -210,7 +206,7 @@
 
   <script type="text/ng-template" id="four.tpl.html">
 		<div id="viewFour">
-    <table class="table table-bordered">
+    <table class="table">
       <tr>
         <th></th>
         <th>06:00</th>
@@ -268,7 +264,7 @@
 
   <script type="text/ng-template" id="five.tpl.html">
 		<div id="viewFive">
-    <table class="table table-bordered">
+    <table class="table">
       <tr>
         <th></th>
         <th>06:00</th>
@@ -328,7 +324,7 @@
 		<div id="viewSix">
 
 
-    <table class="table table-bordered">
+    <table class="table">
       <tr>
         <th></th>
         <th>06:00</th>
@@ -387,7 +383,7 @@
 
   <script type="text/ng-template" id="seven.tpl.html">
 		<div id="viewSeven">
-    <table class="table table-bordered">
+    <table class="table">
       <tr>
         <th></th>
         <th>06:00</th>
