@@ -11,9 +11,11 @@
             Swell height: {{mapCtrl.beachWeather.swellHeight_ft}}<br>
             Swell period: {{mapCtrl.beachWeather.swellPeriod_secs}}<br>
             Gnarometer: {{mapCtrl.gnarLevel}}/10<br>
-        <a class='button-link' ng-click="mapCtrl.storeLocation(mapCtrl.beach.id)" href="#/location/{{mapCtrl.beach.name}}" > More info</a>
       </div>
     </div>
+  </div>
+  <div id="side-buttons">
+    <a class='button-link' ng-click="mapCtrl.storeLocation(mapCtrl.beach.id)" href="#/location/{{mapCtrl.beach.name}}" > More info</a>
   </div>
 </div>
 

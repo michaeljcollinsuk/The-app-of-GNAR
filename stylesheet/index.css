@@ -54,6 +54,17 @@ body {
   top: 0;
   background: #e6af4b;
 
+
+}
+
+#side-buttons {
+  position: absolute;
+  width: 350px;
+  left: 0;
+  bottom: 0;
+  height: 200px;
+  border: 1px solid #e6af4b;
+  border-top-color: white; 
 }
 
 #main-page {
