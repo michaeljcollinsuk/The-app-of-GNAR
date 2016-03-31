@@ -1,4 +1,4 @@
-gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocationService', 'GnarlometerFactory', 'MarineApiFactory', 'markersFactory', 'locations', function(MapFactory, apiFactory, chosenLocationService, GnarlometerFactory, MarineApiFactory, markersFactory, locations) {
+gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocationService', 'GnarlometerFactory', 'MarineApiFactory', 'markersFactory', 'locations', 'uiGmapIsReady', '$rootScope', function(MapFactory, apiFactory, chosenLocationService, GnarlometerFactory, MarineApiFactory, markersFactory, locations, uiGmapIsReady, $rootScope) {
   var self = this;
 
   self.locations = locations.data;
@@ -12,7 +12,7 @@ gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocation
       self.beachWeather = response[0].hourly[2];
       self.gnarLevel = GnarlometerFactory.calculateGnar(self.beachWeather.windspeedMiles, self.beachWeather.swellHeight_ft, self.beachWeather.swellPeriod_secs);
     });
-    
+
   };
 
   self.storeLocation = function(id) {
@@ -22,5 +22,12 @@ gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocation
   self.isLoaded = function() {
     return (typeof self.beach !== 'undefined' );
   };
+
+  uiGmapIsReady.promise()
+  .then(function(instances) {
+    $rootScope.status = "ready";
+  });
+
+
 
 }]);

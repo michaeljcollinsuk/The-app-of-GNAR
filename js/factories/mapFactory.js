@@ -1,4 +1,4 @@
-gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', function(uiGmapGoogleMapApi, $geolocation){
+gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', '$rootScope', function(uiGmapGoogleMapApi, $geolocation, $rootScope){
 
   var MapFactory = function() {
     var self = this;
@@ -177,6 +177,7 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', function(uiG
 
       $geolocation.getCurrentPosition()
       .then(function(location){
+        $rootScope.status = "loading";
         self.coords = location.coords;
       })
       .then(function(){
