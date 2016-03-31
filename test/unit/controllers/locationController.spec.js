@@ -1,8 +1,9 @@
 describe('locationController', function(){
   var ctrl;
-  var chosenLocationFactoryMock;
+  // var chosenLocationFactoryMock;
   var response;
   var $rootScope;
+  var forecast;
 
   beforeEach(module('GnarApp', function($routeProvider) {
     $routeProvider.otherwise(function(){return false;});
@@ -12,22 +13,23 @@ describe('locationController', function(){
 
   beforeEach(function() {
     response = [{tides:2}];
-    chosenLocationFactoryMock = jasmine.createSpyObj('chosenLocationFactoryMock', ['getMarineInfo']
-  );
+    forecast = {};
+  //   chosenLocationFactoryMock = jasmine.createSpyObj('chosenLocationFactoryMock', ['getMarineInfo']
+  // );
   module('GnarApp', {
-    chosenLocationFactory: chosenLocationFactoryMock
+    // chosenLocationFactory: chosenLocationFactoryMock
   });
 });
 
 beforeEach(inject(function($controller, $q, _$rootScope_) {
-  chosenLocationFactoryMock.getMarineInfo.and.returnValue($q.when(response));
-  ctrl = $controller('locationController');
+  // chosenLocationFactoryMock.getMarineInfo.and.returnValue($q.when(response));
+  ctrl = $controller('locationController', {forecast: forecast});
   $rootScope = _$rootScope_;
 }));
 
 it('initializes with information from the chosenLocationFactory', function() {
-  $rootScope.$digest();
-  expect(ctrl.marineWeather).toEqual(response);
+  // $rootScope.$digest();
+  expect(ctrl.marineWeather).not.toBeUndefined();
 });
 
 describe('displaying forecasts', function() {
