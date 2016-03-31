@@ -14,9 +14,9 @@ gnarApp.config(function ($routeProvider) {
           templateUrl: "js/templates/location.html",
           controller: "locationController as locationCtrl",
           resolve: {
-            forecast: ['MarineApiFactory',
-              function(MarineApiFactory) {
-                return MarineApiFactory.getForecast();
+            forecast: ['chosenLocationFactory',
+              function(chosenLocationFactory) {
+                return chosenLocationFactory.getForecast();
             }]
           }
         })

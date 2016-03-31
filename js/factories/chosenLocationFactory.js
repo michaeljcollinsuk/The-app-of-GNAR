@@ -1,4 +1,4 @@
-gnarApp.factory('MarineApiFactory',['$http', 'filterWeatherFactory', function($http, filterWeatherFactory){
+gnarApp.factory('chosenLocationFactory',['$http', 'filterWeatherFactory', function($http, filterWeatherFactory){
   self = {};
 
   self.location = {};

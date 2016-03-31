@@ -1,6 +1,6 @@
 describe('locationController', function(){
   var ctrl;
-  var marineApiFactoryMock;
+  var chosenLocationFactoryMock;
   var response;
   var $rootScope;
 
@@ -12,20 +12,20 @@ describe('locationController', function(){
 
   beforeEach(function() {
     response = [{tides:2}];
-    marineApiFactoryMock = jasmine.createSpyObj('MarineApiFactoryMock', ['getMarineInfo']
+    chosenLocationFactoryMock = jasmine.createSpyObj('chosenLocationFactoryMock', ['getMarineInfo']
   );
   module('GnarApp', {
-    MarineApiFactory: marineApiFactoryMock
+    chosenLocationFactory: chosenLocationFactoryMock
   });
 });
 
 beforeEach(inject(function($controller, $q, _$rootScope_) {
-  marineApiFactoryMock.getMarineInfo.and.returnValue($q.when(response));
+  chosenLocationFactoryMock.getMarineInfo.and.returnValue($q.when(response));
   ctrl = $controller('locationController');
   $rootScope = _$rootScope_;
 }));
 
-it('initializes with information from the marineApiFactory', function() {
+it('initializes with information from the chosenLocationFactory', function() {
   $rootScope.$digest();
   expect(ctrl.marineWeather).toEqual(response);
 });

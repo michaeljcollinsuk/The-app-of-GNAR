@@ -1,8 +1,8 @@
-gnarApp.controller('locationController', ['MarineApiFactory','filterWeatherFactory', 'forecast', function(MarineApiFactory, filterWeatherFactory, forecast) {
+gnarApp.controller('locationController', ['chosenLocationFactory','filterWeatherFactory', 'forecast', function(chosenLocationFactory, filterWeatherFactory, forecast) {
   var self = this;
   self.oneDayForecast = true;
   self.sevenDayShow = false;
-  self.location = MarineApiFactory.location;
+  self.location = chosenLocationFactory.location;
   self.marineWeather = filterWeatherFactory.sortData(forecast.data.data.weather);
   self.tabs = filterWeatherFactory.setTabs(self.marineWeather);
 

@@ -1,4 +1,4 @@
-describe('factory: MarineApiFactory', function() {
+describe('factory: chosenLocationFactory', function() {
   var marineFactory;
   var filterWeatherFactoryMock;
   var long;

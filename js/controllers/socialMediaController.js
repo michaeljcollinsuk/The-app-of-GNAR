@@ -1,6 +1,6 @@
-gnarApp.controller('socialMediaController', ['MarineApiFactory', 'instagramFactory', function(MarineApiFactory, instagramFactory) {
+gnarApp.controller('socialMediaController', ['chosenLocationFactory', 'instagramFactory', function(chosenLocationFactory, instagramFactory) {
   var self = this;
-  self.currentLocation = MarineApiFactory.location;
+  self.currentLocation = chosenLocationFactory.location;
 
   self.tag = instagramFactory.generateTag(self.currentLocation.name);
   instagramFactory.loadInstagram(self.tag);
