@@ -8,7 +8,7 @@ gnarApp.factory('filterWeatherFactory', function() {
     deleteForecasts: deleteForecasts,
     setTabs: setTabs,
     date: date,
-    hours: HOURS
+    time: time
   };
 
   function sortData(data) {
@@ -66,10 +66,10 @@ gnarApp.factory('filterWeatherFactory', function() {
     return array.reverse().join('');
   }
 
-  // self.time = function(time) {
-  //   if (time.length === 3 ) return '0' + time;
-  //   return time;
-  // };
+  function time(time) {
+    if (time.length === 3 ) return '0' + time;
+    return time;
+  }
 
 
 });
