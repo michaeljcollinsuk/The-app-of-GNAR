@@ -5,12 +5,8 @@ iframe {
   width: 800px;
 }
 
-
-
 body {
-  /*font-family: 'Montserrat', sans-serif;*/
   font-family: AppleGothic, sans-serif;
-
 }
 
 .button-link {
@@ -62,6 +58,9 @@ body {
   left: 350px;
   height: 100%;
   top: 0;
+  background-image: url("../assets/img/white-beach-wave.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #side-content {
@@ -70,11 +69,3 @@ body {
   width: 100%;
   height: 100%;
 }
-
-/*.tide-type {
-  font-weight: bold;
-}
-
-.tide-time {
-  font-weight: bold;
-}*/
