@@ -1,7 +1,5 @@
 gnarApp.controller('locationController', ['chosenLocationFactory','filterWeatherFactory', 'forecast', function(chosenLocationFactory, filterWeatherFactory, forecast) {
   var self = this;
-  self.oneDayForecast = true;
-  self.sevenDayShow = false;
   self.location = chosenLocationFactory.location;
   self.marineWeather = filterWeatherFactory.sortData(forecast.data.data.weather);
   self.tabs = filterWeatherFactory.setTabs(self.marineWeather);
@@ -9,16 +7,6 @@ gnarApp.controller('locationController', ['chosenLocationFactory','filterWeather
   self.isLoaded = function() {
     return (typeof self.marineWeather !== 'undefined' );
   };
-
-  // self.showSevenDayForcast = function() {
-  //   self.oneDayForecast = false;
-  //   self.sevenDayShow = true;
-  // };
-  //
-  // self.showOneDayForecast = function() {
-  //   self.oneDayForecast = true;
-  //   self.sevenDayShow = false;
-  // };
 
   self.time = function(time) {
     if (time.length === 3 ) return '0' + time;
