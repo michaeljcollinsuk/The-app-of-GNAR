@@ -3,13 +3,13 @@
     <img src="assets/img/black.png" id="image"/>
   </div>
   <div id='side-content'>
-    <h1 class="side-title"></h1>
+    <h1 class="side-title"> {{webcamCtrl.currentLocation.name}}</h1>
   </div>
   <div id="side-buttons">
-    <a class="button-link" href="#/location/{{webcamCtrl.currentLocation.name}}" >Weather</a><br>
-    <a class="button-link" href="#/location/{{webcamCtrl.currentLocation.name}}/instagram" >Social</a><br>
-    <a class="button-link" >Webcam</a> <br>
-    <a class="button-link" href="#/map" >Map</a><br>
+    <a class="button-link" id="no-highlight" href="#/location/{{webcamCtrl.currentLocation.name}}" >Weather</a><br>
+    <a class="button-link" id="no-highlight" href="#/location/{{webcamCtrl.currentLocation.name}}/instagram" >Social</a><br>
+    <a class="button-link" id="highlight" >Webcam</a> <br>
+    <a class="button-link" id="no-highlight" href="#/map" >Map</a><br>
   </div>
 </div>
 

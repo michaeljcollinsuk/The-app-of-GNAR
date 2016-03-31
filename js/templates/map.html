@@ -5,7 +5,7 @@
   <div id='side-content'>
     <div ng-show='mapCtrl.isLoaded()' >
       <h1 class="side-title">{{mapCtrl.beach.name}}</h1>
-      <div id='locationPopup'>
+      <div id='informationPopup'>
             Temperature: {{mapCtrl.beachWeather.tempC}}<br>
             Windspeed: {{mapCtrl.beachWeather.windspeedMiles}}mph<br>
             Swell height: {{mapCtrl.beachWeather.swellHeight_ft}}<br>
@@ -13,9 +13,18 @@
             Gnarometer: {{mapCtrl.gnarLevel}}/10<br>
       </div>
     </div>
+    <div ng-hide='mapCtrl.isLoaded()' >
+      <h1 class="side-title">Get Me in the Water</h1>
+      <div id='informationPopup'>
+            Please search for your desired location and pick the beach that best suits you.
+      </div>
+    </div>
   </div>
   <div id="side-buttons">
-    <a ng-show='mapCtrl.isLoaded()' class='button-link' ng-click="mapCtrl.storeLocation(mapCtrl.beach.id)" href="#/location/{{mapCtrl.beach.name}}" > More info</a>
+    <div ng-hide='mapCtrl.isLoaded()' id='informationPopup'>
+      Saltydaze has been developed by Team Extreme & Sons. 
+    </div>
+    <a id="no-highlight" ng-show='mapCtrl.isLoaded()' class='button-link' ng-click="mapCtrl.storeLocation(mapCtrl.beach.id)" href="#/location/{{mapCtrl.beach.name}}" > More info</a>
   </div>
 </div>
 

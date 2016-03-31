@@ -18,11 +18,31 @@ body {
   display: block;
   width: 100%;
   height: 50px;
-  background: #f2cbbc;
+
   text-align: center;
   padding:15px;
-  color: black;
+
   font-weight: bold;
+
+}
+
+.side-title {
+  text-align: center;
+  font-weight: bold;
+}
+
+#no-highlight {
+  background: #f2cbbc;
+  border: 1px solid #f2cbbc;
+  border-bottom-color: white;
+  color: black;
+}
+
+#highlight {
+  background: #334431;
+  border: 1px solid #334431;
+  border-bottom-color: white;
+  color: white;
 }
 
 
@@ -64,7 +84,7 @@ body {
   bottom: 0;
   height: 200px;
   border: 1px solid #e6af4b;
-  border-top-color: white; 
+  border-top-color: white;
 }
 
 #main-page {
