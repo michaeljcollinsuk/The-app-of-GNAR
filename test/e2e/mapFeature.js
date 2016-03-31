@@ -10,7 +10,7 @@ describe('Map page', function() {
     expect(browser.getTitle()).toEqual('The App of GNAR');
   });
 
-  it('display weather info when marker clicked', function() {
+  xit('display weather info when marker clicked', function() {
     browser.get('http://localhost:8080');
     setTimeout(function(){
       element(by.id('markers')).click();
@@ -20,8 +20,5 @@ describe('Map page', function() {
 
   });
 
-  it('routes to correct location when more info clicked', function() {
-
-  });
 
 });

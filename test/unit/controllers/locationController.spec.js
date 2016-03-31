@@ -1,6 +1,6 @@
 describe('locationController', function(){
   var ctrl;
-  // var chosenLocationFactoryMock;
+  var filterWeatherFactoryMock;
   var response;
   var $rootScope;
   var forecast;
@@ -13,46 +13,24 @@ describe('locationController', function(){
 
   beforeEach(function() {
     response = [{tides:2}];
-    forecast = {};
-  //   chosenLocationFactoryMock = jasmine.createSpyObj('chosenLocationFactoryMock', ['getMarineInfo']
-  // );
+    forecast = {data: {data: {weather: {}}}};
+    filterWeatherFactoryMock = jasmine.createSpyObj('filterWeatherFactoryMock', ['sortData', 'setTabs']
+  );
   module('GnarApp', {
-    // chosenLocationFactory: chosenLocationFactoryMock
+    filterWeatherFactory: filterWeatherFactoryMock
   });
 });
 
 beforeEach(inject(function($controller, $q, _$rootScope_) {
-  // chosenLocationFactoryMock.getMarineInfo.and.returnValue($q.when(response));
+  filterWeatherFactoryMock.sortData.and.returnValue({data: {data: {weather: {}}}});
   ctrl = $controller('locationController', {forecast: forecast});
   $rootScope = _$rootScope_;
 }));
 
-xit('initializes with information from the chosenLocationFactory', function() {
-  // $rootScope.$digest();
-  expect(ctrl.marineWeather).not.toBeUndefined();
+it('initializes with information from the chosenLocationFactory', function() {
+  expect(ctrl.marineWeather).toEqual({data: {data: {weather: {}}}});
 });
 
-xdescribe('displaying forecasts', function() {
-  it('initializes displaying the one day forecast', function() {
-    expect(ctrl.oneDayForecast).toEqual(true);
-  });
 
-  it('sets the seven day forecast display to true', function() {
-    ctrl.showSevenDayForcast();
-    expect(ctrl.sevenDayShow).toEqual(true);
-  });
-
-  it('changes the one day forecast display to false', function() {
-    ctrl.showSevenDayForcast();
-    expect(ctrl.oneDayForecast).toEqual(false);
-  });
-
-  it('displays the one day forecase and hides the seven day forecast', function() {
-    ctrl.showSevenDayForcast();
-    ctrl.showOneDayForecast();
-    expect(ctrl.oneDayForecast).toEqual(true);
-    expect(ctrl.sevenDayShow).toEqual(false);
-  });
-});
 
 });
