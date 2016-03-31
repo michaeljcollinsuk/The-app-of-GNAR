@@ -7,13 +7,13 @@
 
 .insta-title {
   text-align: center;
-  /*font-weight: bold;*/
+  font-weight: bold;
   color: black;
-  /*text-shadow:
+  text-shadow:
   -1px -1px 0 white,
   1px -1px 0 white,
   -1px 1px 0 white,
-  1px 1px 0 white;*/
+  1px 1px 0 white;
 }
 
 .seperate {
@@ -28,5 +28,5 @@
   margin-right: auto;
   margin-bottom: 20px;*/
   width:100%;
-  /*border: 1px solid black;*/
+  border: 1px solid black;
 }
