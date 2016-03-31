@@ -5,11 +5,7 @@
   right: 0;
 }
 
-#informationPopup {
-  position: absolute;
-  padding: 30px;
-  width: 100%;
-}
+
 
 .search-box {
 width: 400px;
@@ -17,4 +13,9 @@ height: 30px;
 margin: 40px;
 border-radius: 10px;
 
+}
+
+#explain {
+  margin-top: 10px;
+  font-size: 10pt;
 }
