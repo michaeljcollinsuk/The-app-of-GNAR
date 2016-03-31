@@ -1,4 +1,4 @@
-gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocationService', 'GnarlometerFactory', 'MarineApiFactory', 'markersFactory', 'locations', 'uiGmapIsReady', '$rootScope', function(MapFactory, apiFactory, chosenLocationService, GnarlometerFactory, MarineApiFactory, markersFactory, locations, uiGmapIsReady, $rootScope) {
+gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocationService', 'GnarlometerFactory', 'MarineApiFactory', 'markersFactory', 'locations',  function(MapFactory, apiFactory, chosenLocationService, GnarlometerFactory, MarineApiFactory, markersFactory, locations) {
   var self = this;
 
   self.locations = locations.data;
@@ -22,12 +22,5 @@ gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocation
   self.isLoaded = function() {
     return (typeof self.beach !== 'undefined' );
   };
-
-  uiGmapIsReady.promise()
-  .then(function(instances) {
-    $rootScope.status = "ready";
-  });
-
-
 
 }]);

@@ -1,4 +1,4 @@
-gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', '$rootScope', function(uiGmapGoogleMapApi, $geolocation, $rootScope){
+gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', 'uiGmapIsReady', '$rootScope', function(uiGmapGoogleMapApi, $geolocation, uiGmapIsReady, $rootScope){
 
   var MapFactory = function() {
     var self = this;
@@ -198,6 +198,12 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', '$rootScope'
         });
       });
 
+      uiGmapIsReady.promise()
+      .then(function(instances) {
+        $rootScope.status = "ready";
+      });
+
+
       self.searchboxTemplate = function() {
         return self.searchbox.template;
       };
@@ -207,7 +213,6 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', '$rootScope'
       };
 
     };
-
 
     return MapFactory;
   }]);
