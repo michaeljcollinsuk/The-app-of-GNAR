@@ -10,8 +10,10 @@
             Windspeed: {{mapCtrl.beachWeather.windspeedMiles}} mph<br>
             Swell height: {{mapCtrl.beachWeather.swellHeight_ft}} ft<br>
             Swell period: {{mapCtrl.beachWeather.swellPeriod_secs}} s<br>
-            Gnarometer: {{mapCtrl.gnarLevel}}/10<br>
+            Gnarometer: {{mapCtrl.gnarLevel}}/10 <a ng-click="mapCtrl.showGnar= true">?</a><br>
+            <div id="explain" class="pullDown" ng-show="mapCtrl.showGnar"> The Gnarometer is an algorithmic analysis of the weather and marine conditions at any given location, ranging from 1 to 10. Condition 1 is suitible for your nan to get out there. Condition 10 will give Kelly Slater a hard time! </div>
       </div>
+
 
     <div id="side-buttons">
       <a class="button-link" id="highlight" >Map</a><br>
