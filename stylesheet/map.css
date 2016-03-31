@@ -5,11 +5,7 @@
   right: 0;
 }
 
-#informationPopup {
-  position: absolute;
-  padding: 30px;
-  width: 100%;
-}
+
 
 .search-box {
 width: 400px;
@@ -17,21 +13,4 @@ height: 30px;
 margin: 40px;
 border-radius: 10px;
 
-}
-
-.transformable {
-    -webkit-transition: height 100ms linear;
-    -moz-transition: height 100ms linear;
-    -o-transition: height 100ms linear;
-    -ms-transition: height 100ms linear;
-    transition: height 100ms linear;
-
-}
-
-.small {
-    height:100px;
-}
-
-.big {
-    height:300px;
 }

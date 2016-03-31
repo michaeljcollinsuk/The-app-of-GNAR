@@ -2,14 +2,14 @@
   <img src="assets/img/black.png" id="image"/>
 </div>
 
-<div id="sidebar" ng-show='mapCtrl.isLoaded()'>
+<div id="sidebar" class="pullDown" ng-show='mapCtrl.isLoaded()'>
 
       <h1 class="side-title">{{mapCtrl.beach.name}}</h1>
       <div id='informationPopup'>
-            Temperature: {{mapCtrl.beachWeather.tempC}}<br>
-            Windspeed: {{mapCtrl.beachWeather.windspeedMiles}}mph<br>
-            Swell height: {{mapCtrl.beachWeather.swellHeight_ft}}<br>
-            Swell period: {{mapCtrl.beachWeather.swellPeriod_secs}}<br>
+            Temperature: {{mapCtrl.beachWeather.tempC}} °C<br>
+            Windspeed: {{mapCtrl.beachWeather.windspeedMiles}} mph<br>
+            Swell height: {{mapCtrl.beachWeather.swellHeight_ft}} ft<br>
+            Swell period: {{mapCtrl.beachWeather.swellPeriod_secs}} s<br>
             Gnarometer: {{mapCtrl.gnarLevel}}/10<br>
       </div>
 
