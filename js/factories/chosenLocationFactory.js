@@ -9,8 +9,6 @@ gnarApp.factory('chosenLocationFactory',['$http', 'filterWeatherFactory', functi
     return $http.get(url)
     .then(function(response) {
       var data = filterWeatherFactory.sortData(response.data.data.weather);
-      debugger
-      console.log(data)
       return data;
     });
   };
