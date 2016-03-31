@@ -10,15 +10,15 @@ gnarApp.controller('locationController', ['chosenLocationFactory','filterWeather
     return (typeof self.marineWeather !== 'undefined' );
   };
 
-  self.showSevenDayForcast = function() {
-    self.oneDayForecast = false;
-    self.sevenDayShow = true;
-  };
-
-  self.showOneDayForecast = function() {
-    self.oneDayForecast = true;
-    self.sevenDayShow = false;
-  };
+  // self.showSevenDayForcast = function() {
+  //   self.oneDayForecast = false;
+  //   self.sevenDayShow = true;
+  // };
+  //
+  // self.showOneDayForecast = function() {
+  //   self.oneDayForecast = true;
+  //   self.sevenDayShow = false;
+  // };
 
   self.time = function(time) {
     if (time.length === 3 ) return '0' + time;
