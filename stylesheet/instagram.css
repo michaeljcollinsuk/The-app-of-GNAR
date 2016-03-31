@@ -1,0 +1,17 @@
+.insta {
+  padding: 20px;
+  border: 1px solid white;
+  border-bottom-color: black;
+}
+
+.insta-title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.insta-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}

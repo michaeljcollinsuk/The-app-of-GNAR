@@ -1,11 +1,5 @@
 
 
-iframe {
-  height: 500px;
-  width: 800px;
-}
-
-
 
 body {
   /*font-family: 'Montserrat', sans-serif;*/
@@ -99,7 +93,7 @@ body {
   position: absolute;
   top: 100px;
   width: 100%;
-  height: 100%;
+  bottom: 0;
 }
 
 /*.tide-type {
