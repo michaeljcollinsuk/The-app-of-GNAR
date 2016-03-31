@@ -23,15 +23,13 @@ ul {
 li {
     float: left;
     display: block;
-   color: grey;
+   color: #334431;
    text-align: center;
    padding: 14px 16px;
    text-decoration: none;
    border-right: 1px solid #bbb;
    border-left: 1px solid #bbb;
    border-top: 1px solid #bbb;
-
-
 }
 
 #mainView {
@@ -40,7 +38,7 @@ li {
 }
 
 .active {
-    background-color: #89bdd3;
+    background-color: #e05038;
     color: white;
 }
 
@@ -54,10 +52,11 @@ li {
   text-align: center;
   font-size: 18px;
   margin-top: 50px;
+  color: #334431;
 }
 
 th{
-  background: black;
+  background: #334431;
   color: white;
   text-align: center;
 }
