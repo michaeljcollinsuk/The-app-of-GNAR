@@ -15,7 +15,7 @@ li {
 ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 10px 10px 10px 10px;
     overflow: hidden;
     background-color: white;
 }
@@ -28,6 +28,10 @@ li {
    padding: 14px 16px;
    text-decoration: none;
    border-right: 1px solid #bbb;
+   border-left: 1px solid #bbb;
+   border-top: 1px solid #bbb;
+
+
 }
 
 #mainView {
