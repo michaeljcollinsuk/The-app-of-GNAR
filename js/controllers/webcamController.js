@@ -6,7 +6,7 @@ function(chosenLocationService, $sce) {
   self.trustSrc = function(src) {
     return $sce.trustAsResourceUrl(src);
   }
-
+  self.currentLocation = chosenLocationService.selectedLocation;
   self.webcam = chosenLocationService.selectedLocation.webcam;
 
   if (self.webcam === null) {

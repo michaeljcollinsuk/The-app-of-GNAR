@@ -12,9 +12,9 @@ gnarApp.factory("instagramFactory", [ function () {
       accessToken: '6678174.467ede5.205a03ebc4b74d4082823781c3149575',
       target: 'instafeed',
       sortBy: 'most-recent',
-      limit: 20,
+      limit: 21,
       resolution: 'standard_resolution',
-      template: '<a title="{{caption}}" class="fancybox" rel="group" href="{{image}}"><img src="{{image}}" title="{{caption}}" /><div class="info"><p>{{model.created_time}}</p><p class="location" ng-model="location"><i class="icon-location"></i>{{location}}</p><p class="user"><i class="icon-user"></i>@{{model.user.username}}</p><p><i class="icon-comment"></i>{{caption}}</p><br></div></a>',
+      template: '<div class="seperate"><p class="insta-title">{{model.created_time}}</p> <img class="insta-image" src="{{image}}"/> </div>',
       filter: function(image) {
 
         var date = new Date(image.created_time*1000);
