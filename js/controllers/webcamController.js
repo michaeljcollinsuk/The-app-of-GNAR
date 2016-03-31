@@ -8,6 +8,7 @@ function(chosenLocationFactory, $sce) {
   };
 
   self.webcam = chosenLocationFactory.location.webcam;
+  self.currentLocation = chosenLocationFactory.location;
 
   if (self.webcam === null) {
     self.show = true;

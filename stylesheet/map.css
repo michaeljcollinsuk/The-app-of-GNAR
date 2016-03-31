@@ -5,8 +5,8 @@
   right: 0;
 }
 
-#locationPopup {
+#informationPopup {
   position: absolute;
-  /*padding: 10px;*/
+  padding: 30px;
   width: 100%;
 }
