@@ -1,12 +1,14 @@
 /*jshint -W069 */
 
 gnarApp.factory('filterWeatherFactory', function() {
+  var HOURS = 7;
 
   return {
     sortData: sortData,
     deleteForecasts: deleteForecasts,
     setTabs: setTabs,
-    date: date
+    date: date,
+    hours: HOURS
   };
 
   function sortData(data) {
@@ -25,10 +27,8 @@ gnarApp.factory('filterWeatherFactory', function() {
     }
     return arr;
   }
-
-
   function deleteForecasts(data) {
-    for (var i = 0; i < 7; i++ ) {
+    for (var i = 0; i < HOURS; i++ ) {
       data[i].hourly.splice(0,2);
     }
     return data;
