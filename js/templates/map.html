@@ -1,40 +1,51 @@
-<div ng-show='mapCtrl.isLoaded()' class='locationPopup'>
-
-  <h2>{{mapCtrl.beach.name}}</h2>
-      Temperature: {{mapCtrl.beachWeather.tempC}}<br>
-      Windspeed: {{mapCtrl.beachWeather.windspeedMiles}}mph<br>
-      Swell height: {{mapCtrl.beachWeather.swellHeight_ft}}<br>
-      Swell period: {{mapCtrl.beachWeather.swellPeriod_secs}}<br>
-      Gnarometer: {{mapCtrl.gnarLevel}}/10<br>
-  <a ng-click="mapCtrl.storeLocation(mapCtrl.beach.id)" href="#/location/{{mapCtrl.beach.name}}" > More info</a>
-
+<div id="sidebar">
+  <div id="logo">
+    <img src="assets/img/black.png" id="image"/>
+  </div>
+  <div id='side-content'>
+    <div ng-show='mapCtrl.isLoaded()' >
+      <h1 class="side-title">{{mapCtrl.beach.name}}</h1>
+      <div id='locationPopup'>
+            Temperature: {{mapCtrl.beachWeather.tempC}}<br>
+            Windspeed: {{mapCtrl.beachWeather.windspeedMiles}}mph<br>
+            Swell height: {{mapCtrl.beachWeather.swellHeight_ft}}<br>
+            Swell period: {{mapCtrl.beachWeather.swellPeriod_secs}}<br>
+            Gnarometer: {{mapCtrl.gnarLevel}}/10<br>
+        <a class='button-link' ng-click="mapCtrl.storeLocation(mapCtrl.beach.id)" href="#/location/{{mapCtrl.beach.name}}" > More info</a>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="angular-google-map-container" >
-  <script type="text/ng-template" id="searchbox.tpl.html">
-  <input type="text" placeholder="Search Box">
-  </script>
 
-  <ui-gmap-google-map
-    center='mapCtrl.mapFactory.map.center'
-    zoom='mapCtrl.mapFactory.map.zoom'
-    options="mapCtrl.mapFactory.options">
 
-    <ui-gmap-search-box id="search-box"
-      template="mapCtrl.mapFactory.searchboxTemplate()"
-      events="mapCtrl.mapFactory.searchboxEvents()"
-      position="'TOP_RIGHT'">
-    </ui-gmap-search-box>
+<div id="main-page">
+  <div class="angular-google-map-container" >
+    <script type="text/ng-template" id="searchbox.tpl.html">
+    <input type="text" placeholder="Search Box">
+    </script>
 
-    <ui-gmap-marker id='markers' ng-repeat='marker in mapCtrl.ids' idKey='marker.id' coords='marker.coords' click='mapCtrl.getWeather(marker.id, marker.coords)'
-    icon='{url:"//developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png" }'>
-    </ui-gmap-marker>
+    <ui-gmap-google-map
+      center='mapCtrl.mapFactory.map.center'
+      zoom='mapCtrl.mapFactory.map.zoom'
+      options="mapCtrl.mapFactory.options">
 
-    <ui-gmap-marker
-    coords="mapCtrl.mapFactory.myLocation.coords"
-    options="mapCtrl.mapFactory.myLocation.options"
-    idkey="mapCtrl.mapFactory.myLocation.id">
-    </ui-gmap-marker>
+      <ui-gmap-search-box id="search-box"
+        template="mapCtrl.mapFactory.searchboxTemplate()"
+        events="mapCtrl.mapFactory.searchboxEvents()"
+        position="'TOP_RIGHT'">
+      </ui-gmap-search-box>
 
-  </ui-gmap-google-map>
+      <ui-gmap-marker id='markers' ng-repeat='marker in mapCtrl.ids' idKey='marker.id' coords='marker.coords' click='mapCtrl.getWeather(marker.id, marker.coords)'
+      icon='{url:"//developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png" }'>
+      </ui-gmap-marker>
+
+      <ui-gmap-marker
+      coords="mapCtrl.mapFactory.myLocation.coords"
+      options="mapCtrl.mapFactory.myLocation.options"
+      idkey="mapCtrl.mapFactory.myLocation.id">
+      </ui-gmap-marker>
+
+    </ui-gmap-google-map>
+  </div>
 </div>

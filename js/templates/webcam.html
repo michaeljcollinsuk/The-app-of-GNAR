@@ -1,9 +1,19 @@
-
-<div ng-show='webcamCtrl.show'>
-  No Webcam Available For this Beach
+<div id="sidebar">
+  <div id="logo">
+    <img src="assets/img/black.png" id="image"/>
+  </div>
+  <div id='side-content'>
+    <h1 class="side-title"></h1>
+  </div>
 </div>
 
-<div ng-hide='webcamCtrl.show'>
-  {{webcamCtrl.webcam}}
-  <iframe ng-src="{{webcamCtrl.trustSrc(webcamCtrl.webcam)}}" ></iframe>
+
+<div id="main-page">
+  <div ng-show='webcamCtrl.show'>
+    No Webcam Available For this Beach
+  </div>
+
+  <div ng-hide='webcamCtrl.show'>
+    <iframe ng-src="{{webcamCtrl.trustSrc(webcamCtrl.webcam)}}" ></iframe>
+  </div>
 </div>

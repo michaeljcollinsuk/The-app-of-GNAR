@@ -1,6 +1,16 @@
-<section ng-controller="socialMediaController as socialCtrl">
-<div class="thin">
+<div id="sidebar">
+  <div id="logo">
+    <img src="assets/img/black.png" id="image"/>
+  </div>
+  <div id='side-content'>
+    <h1 class="side-title"> {{socialCtrl.currentLocation.name}}</h1>
     <h1>#{{socialCtrl.tag}}</h1>
+  </div>
 </div>
-<div id='instafeed'></div>
-</section>
+
+
+<div id="main-page" style="overflow-y: scroll; height:100%;">
+  <div class="thin">
+  </div>
+  <div id='instafeed'></div>
+</div>

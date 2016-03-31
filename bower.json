@@ -22,10 +22,16 @@
     "angular-resource": "^1.5.2",
     "angular-google-maps": "^2.3.2",
     "ngGeolocation": "^0.0.8",
-    "instafeed.js": "^1.4.1"
+    "instafeed.js": "^1.4.1",
+    "angular-material": "^1.0.6",
+    "angular-aria": "^1.5.3",
+    "angular-messages": "^1.5.3"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.2",
     "angular-route": "^1.5.2"
+  },
+  "resolutions": {
+    "angular": "^1.5.2"
   }
 }
