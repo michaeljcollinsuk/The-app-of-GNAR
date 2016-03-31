@@ -6,135 +6,207 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', function(uiG
     self.options =
     {
       styles: [
-      {
-        "featureType": "administrative",
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#444444"
-          }
-        ]
-      },
-      {
-        "featureType": "landscape",
-        "elementType": "all",
-        "stylers": [
-          {
-            "color": "#e3e3e3"
-          }
-        ]
-      },
-      {
-        "featureType": "poi",
-        "elementType": "all",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "road",
-        "elementType": "all",
-        "stylers": [
-          {
-            "saturation": -100
-          },
-          {
-            "lightness": 45
-          }
-        ]
-      },
-      {
-        "featureType": "road.highway",
-        "elementType": "all",
-        "stylers": [
-          {
-            "visibility": "simplified"
-          }
-        ]
-      },
-      {
-        "featureType": "road.arterial",
-        "elementType": "labels.icon",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "transit",
-        "elementType": "all",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "water",
-        "elementType": "all",
-        "stylers": [
-          {
-            "color": "#9ad3de"
-          },
-          {
-            "visibility": "on"
-          }
-        ]
-      }
-    ]};
+        {
+          "featureType": "administrative",
+          "elementType": "labels.text",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative.locality",
+          "elementType": "labels.text",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative.neighborhood",
+          "elementType": "labels.text",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "landscape.man_made",
+          "elementType": "labels.text",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "landscape.natural",
+          "elementType": "geometry.fill",
+          "stylers": [
+            {
+              "visibility": "on"
+            },
+            {
+              "color": "#e0efef"
+            }
+          ]
+        },
+        {
+          "featureType": "landscape.natural",
+          "elementType": "labels.text",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "poi",
+          "elementType": "geometry.fill",
+          "stylers": [
+            {
+              "visibility": "on"
+            },
+            {
+              "hue": "#1900ff"
+            },
+            {
+              "color": "#c0e8e8"
+            }
+          ]
+        },
+        {
+          "featureType": "poi",
+          "elementType": "labels.text",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "poi",
+          "elementType": "labels.icon",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "road",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "lightness": 100
+            },
+            {
+              "visibility": "simplified"
+            }
+          ]
+        },
+        {
+          "featureType": "road",
+          "elementType": "labels",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "transit",
+          "elementType": "labels.text",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "transit",
+          "elementType": "labels.icon",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "transit.line",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "visibility": "on"
+            },
+            {
+              "lightness": 700
+            }
+          ]
+        },
+        {
+          "featureType": "water",
+          "elementType": "all",
+          "stylers": [
+            {
+              "color": "#7dcdcd"
+            }
+          ]
+        }
+      ]};
 
-    var events = {
-      places_changed: function (searchBox) {
-        var place = searchBox.getPlaces();
-        self.lat = place[0].geometry.location.lat();
-        self.lng = place[0].geometry.location.lng();
-        self.map = {
-                center:{
-                    latitude: place[0].geometry.location.lat(),
-                    longitude: place[0].geometry.location.lng()
-                },
+      var events = {
+        places_changed: function (searchBox) {
+          var place = searchBox.getPlaces();
+          self.lat = place[0].geometry.location.lat();
+          self.lng = place[0].geometry.location.lng();
+          self.map = {
+            center:{
+              latitude: place[0].geometry.location.lat(),
+              longitude: place[0].geometry.location.lng()
+            },
             zoom:8
-        };
-      }
-    };
+          };
+        }
+      };
 
-    self.searchbox = { template:'searchbox.tpl.html', events: events };
+      self.searchbox = { template:'searchbox.tpl.html', events: events };
 
-    $geolocation.getCurrentPosition()
-    .then(function(location){
-      self.coords = location.coords;
-    })
-    .then(function(){
-      return uiGmapGoogleMapApi
-      .then(function() {
-        var lat = self.coords.latitude;
-        var long = self.coords.longitude;
-        var coords = {latitude: lat, longitude: long};
-        self.map = { center: coords, zoom: 8 };
-        self.myLocation = {
-          id: 420,
-          coords: {
-            latitude: lat,
-            longitude: long
-          },
-          options: {icon:'../../images/myLocation.svg'}
-        };
+      $geolocation.getCurrentPosition()
+      .then(function(location){
+        self.coords = location.coords;
+      })
+      .then(function(){
+        return uiGmapGoogleMapApi
+        .then(function() {
+          var lat = self.coords.latitude;
+          var long = self.coords.longitude;
+          var coords = {latitude: lat, longitude: long};
+          self.map = { center: coords, zoom: 8 };
+          self.myLocation = {
+            id: 420,
+            coords: {
+              latitude: lat,
+              longitude: long
+            },
+            options: {icon:'../../images/userLocation.svg'}
+          };
+        });
       });
-    });
 
-    self.searchboxTemplate = function() {
-      return self.searchbox.template;
+      self.searchboxTemplate = function() {
+        return self.searchbox.template;
+      };
+
+      self.searchboxEvents = function() {
+        return events;
+      };
+
     };
 
-    self.searchboxEvents = function() {
-      return events;
-    };
 
-  };
-
-
-  return MapFactory;
-}]);
+    return MapFactory;
+  }]);
