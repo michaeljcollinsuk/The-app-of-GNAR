@@ -15,7 +15,7 @@
 
     <div id="tabs" >
         <ul>
-            <li ng-repeat="tab in locationCtrl.tabs()"
+            <li ng-repeat="tab in locationCtrl.tabs"
                 ng-class="{active:locationCtrl.isActiveTab(tab.url)}"
                 ng-click="locationCtrl.onClickTab(tab)">
                 {{tab.title}}

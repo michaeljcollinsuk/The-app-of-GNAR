@@ -1,39 +1,10 @@
 gnarApp.controller('locationController', ['MarineApiFactory','filterWeatherFactory', 'forecast', function(MarineApiFactory, filterWeatherFactory, forecast) {
-
   var self = this;
-
   self.oneDayForecast = true;
   self.sevenDayShow = false;
-
   self.location = MarineApiFactory.location;
-
   self.marineWeather = filterWeatherFactory.sortData(forecast.data.data.weather);
-
-  self.tabs = function() {
-    self.tabs = [{
-              title: self.marineWeather[0].date,
-              url: 'one.tpl.html'
-          }, {
-              title: self.marineWeather[1].date,
-              url: 'two.tpl.html'
-          }, {
-              title: self.marineWeather[2].date,
-              url: 'three.tpl.html'
-          }, {
-              title: self.marineWeather[3].date,
-              url: 'four.tpl.html'
-          }, {
-              title: self.marineWeather[4].date,
-              url: 'five.tpl.html'
-          }, {
-            title: self.marineWeather[5].date,
-            url: 'six.tpl.html'
-          }, {
-            title: self.marineWeather[6].date,
-            url: 'seven.tpl.html'
-      }];
-      return self.tabs;
-  };
+  self.tabs = filterWeatherFactory.setTabs(self.marineWeather);
 
   self.isLoaded = function() {
     return (typeof self.marineWeather !== 'undefined' );
@@ -59,22 +30,14 @@ gnarApp.controller('locationController', ['MarineApiFactory','filterWeatherFacto
     return array.reverse().join('');
   };
 
+  self.currentTab = 'one.tpl.html';
 
+  self.onClickTab = function (tab) {
+      self.currentTab = tab.url;
+  };
 
-
-    self.currentTab = 'one.tpl.html';
-
-    self.onClickTab = function (tab) {
-        self.currentTab = tab.url;
-    }
-
-    self.isActiveTab = function(tabUrl) {
-       return tabUrl == self.currentTab;
-   }
-
-
-
-
-
+  self.isActiveTab = function(tabUrl) {
+     return tabUrl == self.currentTab;
+ };
 
 }]);
