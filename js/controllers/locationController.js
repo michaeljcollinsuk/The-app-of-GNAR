@@ -26,6 +26,6 @@ gnarApp.controller('locationController', ['chosenLocationFactory','filterWeather
 
   self.isActiveTab = function(tabUrl) {
      return tabUrl == self.currentTab;
- };
+  };
 
 }]);
