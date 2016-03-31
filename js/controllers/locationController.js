@@ -1,4 +1,4 @@
-gnarApp.controller('locationController', ['chosenLocationService', 'MarineApiFactory','filterWeatherFactory', 'forecast', function(chosenLocationService, MarineApiFactory, filterWeatherFactory, forecast) {
+gnarApp.controller('locationController', ['MarineApiFactory','filterWeatherFactory', 'forecast', function(MarineApiFactory, filterWeatherFactory, forecast) {
 
   var self = this;
 
@@ -8,34 +8,6 @@ gnarApp.controller('locationController', ['chosenLocationService', 'MarineApiFac
   self.location = MarineApiFactory.location;
 
   self.marineWeather = filterWeatherFactory.sortData(forecast.data.data.weather);
-
-  debugger
-
-  // MarineApiFactory.getMarineInfo(self.location.latitude, self.location.longitude).then(function(response){
-  //   self.marineWeather = response;
-  //   // self.tabs = [{
-  //   //           title: self.marineWeather[0].date,
-  //   //           url: 'one.tpl.html'
-  //   //       }, {
-  //   //           title: self.marineWeather[1].date,
-  //   //           url: 'two.tpl.html'
-  //   //       }, {
-  //   //           title: self.marineWeather[2].date,
-  //   //           url: 'three.tpl.html'
-  //   //       }, {
-  //   //           title: self.marineWeather[3].date,
-  //   //           url: 'four.tpl.html'
-  //   //       }, {
-  //   //           title: self.marineWeather[4].date,
-  //   //           url: 'five.tpl.html'
-  //   //       }, {
-  //   //         title: self.marineWeather[5].date,
-  //   //         url: 'six.tpl.html'
-  //   //       }, {
-  //   //         title: self.marineWeather[6].date,
-  //   //         url: 'seven.tpl.html'
-  //   //   }];
-  // });
 
   self.tabs = function() {
     self.tabs = [{

@@ -1,4 +1,4 @@
-gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocationService', 'GnarlometerFactory', 'MarineApiFactory', 'markersFactory', 'locations', function(MapFactory, apiFactory, chosenLocationService, GnarlometerFactory, MarineApiFactory, markersFactory, locations) {
+gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'GnarlometerFactory', 'MarineApiFactory', 'markersFactory', 'locations', function(MapFactory, apiFactory, GnarlometerFactory, MarineApiFactory, markersFactory, locations) {
   var self = this;
 
   self.locations = locations.data;

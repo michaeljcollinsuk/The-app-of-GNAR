@@ -1,11 +1,9 @@
-gnarApp.factory('MarineApiFactory',['$http', 'filterWeatherFactory', 'chosenLocationService', function($http, filterWeatherFactory, chosenLocationService){
+gnarApp.factory('MarineApiFactory',['$http', 'filterWeatherFactory', function($http, filterWeatherFactory){
   self = {};
 
   self.location = {};
-  self.lat = self.location.latitude;
-  self.long = self.location.longitude;
 
-  self.getMarineInfo = function(lat = self.location.latitude, long = self.location.longitude) {
+  self.getMarineInfo = function(lat, long) {
     var key = 'key=13b7cf31eb9c40758b7144945162403';
     var url = 'http://api.worldweatheronline.com/premium/v1/marine.ashx?' + key + '&q=' + lat + ',' + long + '&tide=yes&format=json';
     return $http.get(url)
