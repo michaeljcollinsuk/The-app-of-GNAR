@@ -1,54 +1,25 @@
-gnarApp.controller("mapController", ['uiGmapGoogleMapApi', '$geolocation', 'MapFactory', 'apiService', 'chosenLocationService', 'GnarlometerFactory', 'MarineApiFactory', function(uiGmapGoogleMapApi, $geolocation, MapFactory, apiService, chosenLocationService, GnarlometerFactory, MarineApiFactory) {
-  apiService.getBeaches().then(function(response){
-    self.beachLocations = response;
-    self.ids = [];
-
-    for(var i=0; i<self.beachLocations.length; i++){
-
-      self.ids.push(
-        {id: self.beachLocations[i].id,
-        name: self.beachLocations[i].name,
-        weather: {},
-        coords: {latitude: self.beachLocations[i].latitude, longitude: self.beachLocations[i].longitude}
-      }
-    );}
-   });
-
+gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocationService', 'GnarlometerFactory', 'MarineApiFactory', 'markersFactory', 'locations', function(MapFactory, apiFactory, chosenLocationService, GnarlometerFactory, MarineApiFactory, markersFactory, locations) {
   var self = this;
 
-  self.factory = new MapFactory();
-
-
-  var gnarlometer = new GnarlometerFactory();
-  var marineApiFactory = new MarineApiFactory();
+  self.locations = locations.data;
+  markersFactory.assignIds(self.locations);
+  self.ids = markersFactory.allIds;
+  self.mapFactory = new MapFactory();
 
   self.getWeather = function(id, coords) {
-    marineApiFactory.getMarineInfo(coords.latitude, coords.longitude).then(function(response){
-      for(i=0; i < self.ids.length; i++) {
-        if(self.ids[i].id === id) {
-          self.beachName = self.ids[i].name;
-          self.beachId = self.ids[i].id;
-          self.temp = response[0].hourly[2].tempC;
-          self.windSpeed = response[0].hourly[2].windspeedMiles;
-          self.swellFeet = response[0].hourly[2].swellHeight_ft;
-          self.swellPeriod = response[0].hourly[2].swellPeriod_secs;
-        }
-      }
-      self.gnarLevel = gnarlometer.calculateGnar(self.windSpeed, self.swellFeet, self.swellPeriod);
+    MarineApiFactory.getMarineInfo(coords.latitude, coords.longitude).then(function(response){
+      self.beach = self.ids[id-1];
+      self.beachWeather = response[0].hourly[2];
+      self.gnarLevel = GnarlometerFactory.calculateGnar(self.beachWeather.windspeedMiles, self.beachWeather.swellHeight_ft, self.beachWeather.swellPeriod_secs);
     });
   };
 
   self.storeLocation = function(id) {
-    for(i = 0; i < self.beachLocations.length; i++){
-      if(self.beachLocations[i].id === id) {
-        chosenLocationService.selectedLocation = self.beachLocations[i];
-      }
-    }
+    chosenLocationService.selectedLocation = self.locations[id-1];
   };
 
   self.isLoaded = function() {
-    return (typeof self.temp !== 'undefined' );
+    return (typeof self.beach !== 'undefined' );
   };
-
 
 }]);
