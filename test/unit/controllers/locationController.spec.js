@@ -1,8 +1,9 @@
 describe('locationController', function(){
   var ctrl;
-  var marineApiFactoryMock;
+  var filterWeatherFactoryMock;
   var response;
   var $rootScope;
+  var forecast;
 
   beforeEach(module('GnarApp', function($routeProvider) {
     $routeProvider.otherwise(function(){return false;});
@@ -12,63 +13,59 @@ describe('locationController', function(){
 
   beforeEach(function() {
     response = [{tides:2}];
-    marineApiFactoryMock = jasmine.createSpyObj('MarineApiFactoryMock', ['getMarineInfo']
-  );
-  module('GnarApp', {
-    MarineApiFactory: marineApiFactoryMock
-  });
-});
-
-beforeEach(inject(function($controller, $q, _$rootScope_) {
-  marineApiFactoryMock.getMarineInfo.and.returnValue($q.when(response));
-  ctrl = $controller('locationController');
-  $rootScope = _$rootScope_;
-}));
-
-it('initializes with information from the marineApiFactory', function() {
-  $rootScope.$digest();
-  expect(ctrl.marineWeather).toEqual(response);
-});
-
-describe('displaying forecasts', function() {
-  it('initializes displaying the one day forecast', function() {
-    expect(ctrl.oneDayForecast).toEqual(true);
+    forecast = {data: {data: {weather: {}}}};
+    filterWeatherFactoryMock = jasmine.createSpyObj('filterWeatherFactoryMock', ['sortData', 'setTabs']
+    );
+    module('GnarApp', {
+      filterWeatherFactory: filterWeatherFactoryMock
+    });
   });
 
-  it('sets the seven day forecast display to true', function() {
-    ctrl.showSevenDayForcast();
-    expect(ctrl.sevenDayShow).toEqual(true);
+  beforeEach(inject(function($controller, $q, _$rootScope_) {
+    filterWeatherFactoryMock.sortData.and.returnValue({data: {data: {weather: {}}}});
+    filterWeatherFactoryMock.setTabs.and.returnValue({tabs: 10});
+    ctrl = $controller('locationController', {forecast: forecast});
+    $rootScope = _$rootScope_;
+  }));
+
+  describe('on intitialisation', function(){
+
+    it('initializes with information from the filterWeatherFactory', function() {
+      expect(ctrl.marineWeather).toEqual({data: {data: {weather: {}}}});
+    });
+
+    it('initializes with tabs from the filterWeatherFactory', function() {
+      expect(ctrl.tabs).toEqual({tabs: 10});
+    });
+
   });
 
-  it('changes the one day forecast display to false', function() {
-    ctrl.showSevenDayForcast();
-    expect(ctrl.oneDayForecast).toEqual(false);
+
+  describe('onClickTab', function(){
+
+    it('changes the current tab', function(){
+      var newTab = 'two.tpl.html'
+      ctrl.onClickTab(newTab)
+      expect(ctrl.currentTab).toEqual(newTab)
+    });
+
   });
 
-  it('displays the one day forecase and hides the seven day forecast', function() {
-    ctrl.showSevenDayForcast();
-    ctrl.showOneDayForecast();
-    expect(ctrl.oneDayForecast).toEqual(true);
-    expect(ctrl.sevenDayShow).toEqual(false);
-  });
-});
+  describe('isActiveTab', function(){
 
-describe('returning the time in 24 hour format', function() {
+    it('returns true if tab is active', function(){
+      var tabUrl = 'three.tpl.html'
+      ctrl.onClickTab(tabUrl)
+      expect(ctrl.isActiveTab(tabUrl)).toEqual(true)
+    });
 
-  it("converts a three digit time to the correct format", function() {
-    expect(ctrl.time('300')).toEqual('0300');
+    it('returns false if tab is not active', function(){
+      var tabUrl = 'three.tpl.html'
+      var inactiveTab = 'one.tpl.html'
+      ctrl.onClickTab(tabUrl)
+      expect(ctrl.isActiveTab(inactiveTab)).toEqual(false)
+    });
+
   });
 
-  it("does not change a four digit time", function() {
-    expect(ctrl.time('1200')).toEqual('1200');
-  });
-});
-
-describe('formatting the date', function() {
-  it("returns the date dd/mm/yyyy", function() {
-    var date = "2016-03-28";
-    var result = "28-03-2016";
-    expect(ctrl.date(date)).toEqual(result);
-  });
-});
 });

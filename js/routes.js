@@ -12,7 +12,13 @@ gnarApp.config(function ($routeProvider) {
         })
         .when("/location/:name", {
           templateUrl: "js/templates/location.html",
-          controller: "locationController as locationCtrl"
+          controller: "locationController as locationCtrl",
+          resolve: {
+            forecast: ['chosenLocationFactory',
+              function(chosenLocationFactory) {
+                return chosenLocationFactory.getForecast();
+            }]
+          }
         })
         .when("/location/:name/instagram", {
           templateUrl: "js/templates/instagram.html",

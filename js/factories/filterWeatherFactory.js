@@ -1,10 +1,14 @@
 /*jshint -W069 */
 
 gnarApp.factory('filterWeatherFactory', function() {
+  var HOURS = 7;
 
   return {
     sortData: sortData,
-    deleteForecasts: deleteForecasts
+    deleteForecasts: deleteForecasts,
+    setTabs: setTabs,
+    date: date,
+    hours: HOURS
   };
 
   function sortData(data) {
@@ -23,13 +27,49 @@ gnarApp.factory('filterWeatherFactory', function() {
     }
     return arr;
   }
-
-
-function deleteForecasts(data) {
-    for (var i = 0; i < 7; i++ ) {
+  function deleteForecasts(data) {
+    for (var i = 0; i < HOURS; i++ ) {
       data[i].hourly.splice(0,2);
     }
     return data;
   }
+
+  function setTabs(marineWeather) {
+    var tabs = [{
+              title: 'Today',
+              url: 'one.tpl.html'
+          }, {
+              title: 'Tomorrow',
+              url: 'two.tpl.html'
+          }, {
+              title: date(marineWeather[2].date),
+              url: 'three.tpl.html'
+          }, {
+              title: date(marineWeather[3].date),
+              url: 'four.tpl.html'
+          }, {
+              title: date(marineWeather[4].date),
+              url: 'five.tpl.html'
+          }, {
+            title: date(marineWeather[5].date),
+            url: 'six.tpl.html'
+          }, {
+            title: date(marineWeather[6].date),
+            url: 'seven.tpl.html'
+      }];
+    return tabs;
+  }
+
+
+  function date(date) {
+    array = date.match(/.{1,4}/g);
+    return array.reverse().join('');
+  }
+
+  // self.time = function(time) {
+  //   if (time.length === 3 ) return '0' + time;
+  //   return time;
+  // };
+
 
 });

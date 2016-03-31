@@ -1,18 +1,19 @@
 gnarApp.controller('webcamController',
-['chosenLocationService', '$sce',
-function(chosenLocationService, $sce) {
+['chosenLocationFactory', '$sce',
+function(chosenLocationFactory, $sce) {
   var self = this;
 
   self.trustSrc = function(src) {
     return $sce.trustAsResourceUrl(src);
-  }
-  self.currentLocation = chosenLocationService.selectedLocation;
-  self.webcam = chosenLocationService.selectedLocation.webcam;
+  };
+
+  self.webcam = chosenLocationFactory.location.webcam;
+  self.currentLocation = chosenLocationFactory.location;
 
   if (self.webcam === null) {
     self.show = true;
   } else {
     self.show = false;
-  };
+  }
 
 }]);
