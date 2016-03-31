@@ -4,13 +4,9 @@ gnarApp.controller('locationController', ['chosenLocationFactory','filterWeather
   self.marineWeather = filterWeatherFactory.sortData(forecast.data.data.weather);
   self.tabs = filterWeatherFactory.setTabs(self.marineWeather);
 
-  self.isLoaded = function() {
-    return (typeof self.marineWeather !== 'undefined' );
-  };
-
   self.currentTab = 'one.tpl.html';
 
-  self.onClickTab = function (tab) {
+  self.onClickTab = function(tab) {
       self.currentTab = tab;
   };
 
