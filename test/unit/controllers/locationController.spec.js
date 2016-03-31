@@ -31,6 +31,14 @@ it('initializes with information from the chosenLocationFactory', function() {
   expect(ctrl.marineWeather).toEqual({data: {data: {weather: {}}}});
 });
 
+describe('onClickTab', function(){
 
+  it('changes the current tab', function(){
+    var newTab = 'two.tpl.html'
+    ctrl.onClickTab(newTab)
+    expect(ctrl.currentTab).toEqual(newTab)
+  });
+
+});
 
 });

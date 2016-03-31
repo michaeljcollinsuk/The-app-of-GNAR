@@ -11,7 +11,7 @@ gnarApp.controller('locationController', ['chosenLocationFactory','filterWeather
   self.currentTab = 'one.tpl.html';
 
   self.onClickTab = function (tab) {
-      self.currentTab = tab.url;
+      self.currentTab = tab;
   };
 
   self.isActiveTab = function(tabUrl) {
