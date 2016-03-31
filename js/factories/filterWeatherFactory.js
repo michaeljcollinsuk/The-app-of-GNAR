@@ -66,4 +66,10 @@ gnarApp.factory('filterWeatherFactory', function() {
     return array.reverse().join('');
   }
 
+  // self.time = function(time) {
+  //   if (time.length === 3 ) return '0' + time;
+  //   return time;
+  // };
+
+
 });

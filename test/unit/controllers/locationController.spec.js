@@ -27,50 +27,32 @@ beforeEach(inject(function($controller, $q, _$rootScope_) {
   $rootScope = _$rootScope_;
 }));
 
-// it('initializes with information from the chosenLocationFactory', function() {
-//   // $rootScope.$digest();
-//   expect(ctrl.marineWeather).not.toBeUndefined();
-// });
-//
-// describe('displaying forecasts', function() {
-//   it('initializes displaying the one day forecast', function() {
-//     expect(ctrl.oneDayForecast).toEqual(true);
-//   });
-//
-//   it('sets the seven day forecast display to true', function() {
-//     ctrl.showSevenDayForcast();
-//     expect(ctrl.sevenDayShow).toEqual(true);
-//   });
-//
-//   it('changes the one day forecast display to false', function() {
-//     ctrl.showSevenDayForcast();
-//     expect(ctrl.oneDayForecast).toEqual(false);
-//   });
-//
-//   it('displays the one day forecase and hides the seven day forecast', function() {
-//     ctrl.showSevenDayForcast();
-//     ctrl.showOneDayForecast();
-//     expect(ctrl.oneDayForecast).toEqual(true);
-//     expect(ctrl.sevenDayShow).toEqual(false);
-//   });
-// });
+xit('initializes with information from the chosenLocationFactory', function() {
+  // $rootScope.$digest();
+  expect(ctrl.marineWeather).not.toBeUndefined();
+});
 
-describe('returning the time in 24 hour format', function() {
-
-  it("converts a three digit time to the correct format", function() {
-    expect(ctrl.time('300')).toEqual('0300');
+xdescribe('displaying forecasts', function() {
+  it('initializes displaying the one day forecast', function() {
+    expect(ctrl.oneDayForecast).toEqual(true);
   });
 
-  it("does not change a four digit time", function() {
-    expect(ctrl.time('1200')).toEqual('1200');
+  it('sets the seven day forecast display to true', function() {
+    ctrl.showSevenDayForcast();
+    expect(ctrl.sevenDayShow).toEqual(true);
+  });
+
+  it('changes the one day forecast display to false', function() {
+    ctrl.showSevenDayForcast();
+    expect(ctrl.oneDayForecast).toEqual(false);
+  });
+
+  it('displays the one day forecase and hides the seven day forecast', function() {
+    ctrl.showSevenDayForcast();
+    ctrl.showOneDayForecast();
+    expect(ctrl.oneDayForecast).toEqual(true);
+    expect(ctrl.sevenDayShow).toEqual(false);
   });
 });
 
-describe('formatting the date', function() {
-  it("returns the date dd/mm/yyyy", function() {
-    var date = "2016-03-28";
-    var result = "28-03-2016";
-    expect(ctrl.date(date)).toEqual(result);
-  });
-});
 });

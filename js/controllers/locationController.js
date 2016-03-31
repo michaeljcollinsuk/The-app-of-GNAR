@@ -8,11 +8,6 @@ gnarApp.controller('locationController', ['chosenLocationFactory','filterWeather
     return (typeof self.marineWeather !== 'undefined' );
   };
 
-  // self.time = function(time) {
-  //   if (time.length === 3 ) return '0' + time;
-  //   return time;
-  // };
-
   self.currentTab = 'one.tpl.html';
 
   self.onClickTab = function (tab) {
