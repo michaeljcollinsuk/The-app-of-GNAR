@@ -1,14 +1,43 @@
-gnarApp.controller('locationController', ['chosenLocationService', 'MarineApiFactory', function(chosenLocationService, MarineApiFactory) {
+gnarApp.controller('locationController', ['chosenLocationService', 'MarineApiFactory','filterWeatherFactory', 'forecast', function(chosenLocationService, MarineApiFactory, filterWeatherFactory, forecast) {
 
   var self = this;
 
   self.oneDayForecast = true;
   self.sevenDayShow = false;
 
-  self.location = chosenLocationService.selectedLocation;
+  self.location = MarineApiFactory.location;
 
-  MarineApiFactory.getMarineInfo(self.location.latitude, self.location.longitude).then(function(response){
-    self.marineWeather = response;
+  self.marineWeather = filterWeatherFactory.sortData(forecast.data.data.weather);
+
+  debugger
+
+  // MarineApiFactory.getMarineInfo(self.location.latitude, self.location.longitude).then(function(response){
+  //   self.marineWeather = response;
+  //   // self.tabs = [{
+  //   //           title: self.marineWeather[0].date,
+  //   //           url: 'one.tpl.html'
+  //   //       }, {
+  //   //           title: self.marineWeather[1].date,
+  //   //           url: 'two.tpl.html'
+  //   //       }, {
+  //   //           title: self.marineWeather[2].date,
+  //   //           url: 'three.tpl.html'
+  //   //       }, {
+  //   //           title: self.marineWeather[3].date,
+  //   //           url: 'four.tpl.html'
+  //   //       }, {
+  //   //           title: self.marineWeather[4].date,
+  //   //           url: 'five.tpl.html'
+  //   //       }, {
+  //   //         title: self.marineWeather[5].date,
+  //   //         url: 'six.tpl.html'
+  //   //       }, {
+  //   //         title: self.marineWeather[6].date,
+  //   //         url: 'seven.tpl.html'
+  //   //   }];
+  // });
+
+  self.tabs = function() {
     self.tabs = [{
               title: self.marineWeather[0].date,
               url: 'one.tpl.html'
@@ -31,7 +60,8 @@ gnarApp.controller('locationController', ['chosenLocationService', 'MarineApiFac
             title: self.marineWeather[6].date,
             url: 'seven.tpl.html'
       }];
-  });
+      return self.tabs;
+  };
 
   self.isLoaded = function() {
     return (typeof self.marineWeather !== 'undefined' );

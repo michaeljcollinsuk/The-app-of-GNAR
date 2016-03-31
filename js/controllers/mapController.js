@@ -15,7 +15,7 @@ gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocation
   };
 
   self.storeLocation = function(id) {
-    chosenLocationService.selectedLocation = self.locations[id-1];
+    MarineApiFactory.location = self.locations[id-1];
   };
 
   self.isLoaded = function() {
