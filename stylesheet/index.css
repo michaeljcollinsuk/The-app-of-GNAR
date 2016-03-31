@@ -102,10 +102,3 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-
-#side-content {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  bottom: 0;
-}

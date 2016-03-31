@@ -3,7 +3,7 @@
 </div>
 
 <div id="sidebar" ng-show='mapCtrl.isLoaded()'>
-  <div id='side-content'>
+
       <h1 class="side-title">{{mapCtrl.beach.name}}</h1>
       <div id='informationPopup'>
             Temperature: {{mapCtrl.beachWeather.tempC}}<br>
@@ -12,7 +12,7 @@
             Swell period: {{mapCtrl.beachWeather.swellPeriod_secs}}<br>
             Gnarometer: {{mapCtrl.gnarLevel}}/10<br>
       </div>
-    </div>
+
     <div id="side-buttons">
       <a class="button-link" id="highlight" >Map</a><br>
       <a class="button-link" id="no-highlight" ng-click="mapCtrl.storeLocation(mapCtrl.beach.id)" href="#/location/{{mapCtrl.beach.name}}" >Weather</a><br>
