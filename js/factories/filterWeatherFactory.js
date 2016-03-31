@@ -36,10 +36,10 @@ gnarApp.factory('filterWeatherFactory', function() {
 
   function setTabs(marineWeather) {
     var tabs = [{
-              title: date(marineWeather[0].date),
+              title: 'Today',
               url: 'one.tpl.html'
           }, {
-              title: date(marineWeather[1].date),
+              title: 'Tomorrow',
               url: 'two.tpl.html'
           }, {
               title: date(marineWeather[2].date),
@@ -65,5 +65,5 @@ gnarApp.factory('filterWeatherFactory', function() {
     array = date.match(/.{1,4}/g);
     return array.reverse().join('');
   }
-  
+
 });
