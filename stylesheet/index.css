@@ -8,8 +8,9 @@ iframe {
 
 
 body {
-  font-family: 'Montserrat', sans-serif;
-  /*font-family: AppleGothic, sans-serif;*/
+  /*font-family: 'Montserrat', sans-serif;*/
+  font-family: AppleGothic, sans-serif;
+
 }
 
 .button-link {
