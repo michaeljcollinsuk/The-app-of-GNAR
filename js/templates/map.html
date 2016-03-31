@@ -29,6 +29,10 @@
       zoom='mapCtrl.mapFactory.map.zoom'
       options="mapCtrl.mapFactory.options">
 
+      <script type="text/ng-template" id="searchbox.tpl.html">
+       <input style='font-size:20px;' class='search-box' type="text" placeholder="YOYOYO">
+       </script>
+
       <ui-gmap-search-box id="search-box"
         template="mapCtrl.mapFactory.searchboxTemplate()"
         events="mapCtrl.mapFactory.searchboxEvents()"
@@ -36,7 +40,7 @@
       </ui-gmap-search-box>
 
       <ui-gmap-marker id='markers' ng-repeat='marker in mapCtrl.ids' idKey='marker.id' coords='marker.coords' click='mapCtrl.getWeather(marker.id, marker.coords)'
-      icon='{url:"http://localhost:8080/images/surfboard.svg"}'>
+      icon='{url:"http://localhost:8080/images/pin.svg"}'>
       </ui-gmap-marker>
 
       <ui-gmap-marker

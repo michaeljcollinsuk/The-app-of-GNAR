@@ -1,62 +1,50 @@
-/*
+/*TAB STYLING*/
 ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 100px 10px 10px 10px;
+  overflow: hidden;
+  /*background-color: white;*/
 }
 
 li {
-    float: left;
-    margin: 10px 10px 0px 10px;
-    padding: 5px 5px 5px 5px;
-    color: black;
-}*/
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 10px 10px 10px 10px;
-    overflow: hidden;
-    background-color: white;
-}
-
-li {
-    float: left;
-    display: block;
-   color: #334431;
-   text-align: center;
-   padding: 14px 16px;
-   text-decoration: none;
-   border-right: 1px solid #bbb;
-   border-left: 1px solid #bbb;
-   border-top: 1px solid #bbb;
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  outline: none;
+  border: 0;
 }
 
 #mainView {
-	clear: both;
+  clear: both;
   z-index: -1;
 }
 
 .active {
-    background-color: #e05038;
-    color: white;
+  background-color: #334431;
+  color: white;
+  opacity: 0.7;
 }
 
-.tide-info{
-  text-align: center;
-}
-
-
+/*TABLE STYLING*/
 .table {
   background-color: white;
   text-align: center;
   font-size: 18px;
-  margin-top: 50px;
-  color: #334431;
+  margin-top: 30px;
+  color: black;
+  opacity: 0.7;
 }
 
-th{
-  background: #334431;
+th {
+  background: #e05038;
   color: white;
   text-align: center;
 }
+
+/*.top-left-cell {
+background: transparent;
+}*/
