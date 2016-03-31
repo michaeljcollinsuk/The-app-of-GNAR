@@ -29,7 +29,6 @@
 </div>
 
 
-
 <div id="main-page">
   <div class="angular-google-map-container" >
     <script type="text/ng-template" id="searchbox.tpl.html">
@@ -41,6 +40,10 @@
       zoom='mapCtrl.mapFactory.map.zoom'
       options="mapCtrl.mapFactory.options">
 
+      <script type="text/ng-template" id="searchbox.tpl.html">
+       <input style='font-size:20px;' class='search-box' type="text" placeholder="Find surf spot">
+       </script>
+
       <ui-gmap-search-box id="search-box"
         template="mapCtrl.mapFactory.searchboxTemplate()"
         events="mapCtrl.mapFactory.searchboxEvents()"
@@ -48,7 +51,7 @@
       </ui-gmap-search-box>
 
       <ui-gmap-marker id='markers' ng-repeat='marker in mapCtrl.ids' idKey='marker.id' coords='marker.coords' click='mapCtrl.getWeather(marker.id, marker.coords)'
-      icon='{url:"//developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png" }'>
+      icon='{url:"http://localhost:8080/images/pin.svg"}'>
       </ui-gmap-marker>
 
       <ui-gmap-marker

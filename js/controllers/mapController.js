@@ -12,6 +12,7 @@ gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocation
       self.beachWeather = response[0].hourly[2];
       self.gnarLevel = GnarlometerFactory.calculateGnar(self.beachWeather.windspeedMiles, self.beachWeather.swellHeight_ft, self.beachWeather.swellPeriod_secs);
     });
+    
   };
 
   self.storeLocation = function(id) {
