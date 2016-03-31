@@ -11,12 +11,13 @@ describe('factory: apiFactory', function() {
 
   beforeEach(inject(function($httpBackend) {
     httpBackend = $httpBackend;
-    httpBackend.expectGET('http://localhost:3000/beaches').respond( {data: { name: 'Bude'}} );
+    httpBackend.expectGET('http://localhost:3000/beaches').respond({data: { name: 'Bude'}});
   }));
 
-  it('returns the name of the beach', function() {
+  xit('returns the name of the beach', function() {
     api.getBeaches().then(function(response) {
-      expect(response.data.name).toEqual('Bude');
+      console.log(response)
+      expect(response).toEqual( {data: { name: 'Bude'}});
     });
     httpBackend.flush();
   });
