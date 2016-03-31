@@ -1,35 +1,21 @@
 describe('factory: MarineApiFactory', function() {
   var marineFactory;
-  var filterWeatherServiceMock;
+  var filterWeatherFactoryMock;
   var long;
   var lat;
 
-  beforeEach(module('GnarApp'));
+  beforeEach(module('GnarApp', function($routeProvider) {
+    $routeProvider.otherwise(function(){return false;});
+  }));
 
   beforeEach(function(){
-    filterWeatherServiceMock = jasmine.createSpyObj(
-      'filterWeatherService',
-      ['deleteForecasts']
-    );
-
-
+    filterWeatherFactoryMock = jasmine.createSpyObj('filterWeatherFactory', ['deleteForecasts']);
     module('GnarApp',{
-      filterWeatherService: filterWeatherServiceMock
+      filterWeatherFactory: filterWeatherFactoryMock
     });
-    inject(function(MarineApiFactory){
-      marineFactory = MarineApiFactory();
-    });
-    // $routeProvider
-    // $routeProvider.otherwise(function(){return false;});
   });
 
-
-
-
-  // inject(function(MarineApiFactory) {
-  //   marineFactory = MarineApiFactory;
-  // }));
-
+  // beforeEach(inject(function()))
 
   xit('has a getMarineInfo function', function() {
     expect(marineFactory.getMarineInfo()).toBeDefined();
@@ -54,8 +40,8 @@ describe('factory: MarineApiFactory', function() {
 
     xit('returns a response from the weather api', function() {
       marineFactory.getMarineInfo(lat, long, function(data) {
-        spyOn(filterWeatherServiceMock);
-        expect(filterWeatherServiceMock.deleteForecasts).toHaveBeenCalled();
+        spyOn(filterWeatherFactoryMock);
+        expect(filterWeatherFactoryMock.deleteForecasts).toHaveBeenCalled();
       });
     });
   });

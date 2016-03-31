@@ -1,11 +1,10 @@
-gnarApp.factory('ApiFactory',['$http', function($http) {
-  var ApiFactory = function() {
-    var self = this;
-    $http.get('http://localhost:3000/beaches')
-    .then(function(response){
-      self.info = response.data;
-    });
+gnarApp.factory('apiFactory',['$http', function($http) {
+
+  return {
+    getBeaches: getBeaches
   };
 
-  return ApiFactory;
+  function getBeaches() {
+    return $http.get('http://localhost:3000/beaches');
+  }
 }]);

@@ -122,12 +122,19 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', function(uiG
           },
           options: {icon:'../../images/myLocation.svg'}
         };
-
       });
     });
 
+    self.searchboxTemplate = function() {
+      return self.searchbox.template;
+    };
+
+    self.searchboxEvents = function() {
+      return events;
+    };
 
   };
+
 
   return MapFactory;
 }]);

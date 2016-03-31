@@ -1,10 +1,14 @@
 /*jshint -W069 */
 
-gnarApp.service('filterWeatherService', function() {
-  var self = this;
+gnarApp.factory('filterWeatherFactory', function() {
 
-  self.sortData = function(data) {
-    self.deleteForecasts(data);
+  return {
+    sortData: sortData,
+    deleteForecasts: deleteForecasts
+  };
+
+  function sortData(data) {
+    deleteForecasts(data);
     var arr = [];
     for (var day in data) {
       var obj = {};
@@ -18,15 +22,14 @@ gnarApp.service('filterWeatherService', function() {
       arr.push(obj);
     }
     return arr;
-  };
+  }
 
 
-  self.deleteForecasts = function(data) {
+function deleteForecasts(data) {
     for (var i = 0; i < 7; i++ ) {
       data[i].hourly.splice(0,2);
     }
     return data;
-  };
-
+  }
 
 });

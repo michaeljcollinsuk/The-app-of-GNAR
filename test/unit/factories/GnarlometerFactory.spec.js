@@ -4,7 +4,7 @@ describe('factory: GnarlometerFactory', function() {
   beforeEach(module('GnarApp'));
 
   beforeEach(inject(function(GnarlometerFactory) {
-    gnarlometerFactory = new GnarlometerFactory;
+    gnarlometerFactory = GnarlometerFactory;
   }));
 
   it('can calculate the gnarly level', function() {

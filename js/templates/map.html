@@ -1,12 +1,12 @@
 <div ng-show='mapCtrl.isLoaded()' class='locationPopup'>
 
-  <h2>{{mapCtrl.beachName}}</h2>
-      Temperature: {{mapCtrl.temp}}<br>
-      Windspeed: {{mapCtrl.windSpeed}}mph<br>
-      Swell height: {{mapCtrl.swellFeet}}<br>
-      Swell period: {{mapCtrl.swellPeriod}}<br>
+  <h2>{{mapCtrl.beach.name}}</h2>
+      Temperature: {{mapCtrl.beachWeather.tempC}}<br>
+      Windspeed: {{mapCtrl.beachWeather.windspeedMiles}}mph<br>
+      Swell height: {{mapCtrl.beachWeather.swellHeight_ft}}<br>
+      Swell period: {{mapCtrl.beachWeather.swellPeriod_secs}}<br>
       Gnarometer: {{mapCtrl.gnarLevel}}/10<br>
-  <a ng-click="mapCtrl.storeLocation(mapCtrl.beachId)" href="#/location/{{mapCtrl.beachName}}" > More info</a>
+  <a ng-click="mapCtrl.storeLocation(mapCtrl.beach.id)" href="#/location/{{mapCtrl.beach.name}}" > More info</a>
 
 </div>
 
@@ -16,13 +16,13 @@
   </script>
 
   <ui-gmap-google-map
-    center='mapCtrl.factory.map.center'
-    zoom='mapCtrl.factory.map.zoom'
-    options="mapCtrl.factory.options">
+    center='mapCtrl.mapFactory.map.center'
+    zoom='mapCtrl.mapFactory.map.zoom'
+    options="mapCtrl.mapFactory.options">
 
     <ui-gmap-search-box id="search-box"
-      template="mapCtrl.factory.searchbox.template"
-      events="mapCtrl.factory.searchbox.events"
+      template="mapCtrl.mapFactory.searchboxTemplate()"
+      events="mapCtrl.mapFactory.searchboxEvents()"
       position="'TOP_RIGHT'">
     </ui-gmap-search-box>
 
@@ -31,9 +31,9 @@
     </ui-gmap-marker>
 
     <ui-gmap-marker
-    coords="mapCtrl.factory.myLocation.coords"
-    options="mapCtrl.factory.myLocation.options"
-    idkey="mapCtrl.factory.myLocation.id">
+    coords="mapCtrl.mapFactory.myLocation.coords"
+    options="mapCtrl.mapFactory.myLocation.options"
+    idkey="mapCtrl.mapFactory.myLocation.id">
     </ui-gmap-marker>
 
   </ui-gmap-google-map>
