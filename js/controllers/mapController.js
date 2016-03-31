@@ -1,6 +1,9 @@
 gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocationService', 'GnarlometerFactory', 'MarineApiFactory', 'markersFactory', 'locations', function(MapFactory, apiFactory, chosenLocationService, GnarlometerFactory, MarineApiFactory, markersFactory, locations) {
   var self = this;
 
+  self.active = true;
+
+
   self.locations = locations.data;
   markersFactory.assignIds(self.locations);
   self.ids = markersFactory.allIds;
@@ -11,8 +14,9 @@ gnarApp.controller("mapController", ['MapFactory', 'apiFactory', 'chosenLocation
       self.beach = self.ids[id-1];
       self.beachWeather = response[0].hourly[2];
       self.gnarLevel = GnarlometerFactory.calculateGnar(self.beachWeather.windspeedMiles, self.beachWeather.swellHeight_ft, self.beachWeather.swellPeriod_secs);
+      self.active = false;
     });
-    
+
   };
 
   self.storeLocation = function(id) {

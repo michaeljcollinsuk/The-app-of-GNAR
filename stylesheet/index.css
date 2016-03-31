@@ -48,24 +48,26 @@ body {
 
 #logo {
   position: absolute;
-  width: 100%;
+  width: 350px;
   height: 100px;
   left: 0;
   top: 0;
   background: #e05038;
-  border: 1px solid #e05038;
-  border-bottom-color: white;
+  /*border: 1px solid #e05038;
+  border-bottom-color: white;*/
+  z-index: 2;
 }
 
 #sidebar {
   position: absolute;
   width: 350px;
-  height: 100%;
   left: 0;
-  top: 0;
+  bottom: 0;
+  top: 100px;
   background: #e6af4b;
-
-
+  border: 1px solid #e6af4b;
+  border-top-color: white;
+  z-index: 1;
 }
 
 #side-buttons {
@@ -89,10 +91,21 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+#web-page {
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  height: 100%;
+  top: 0;
+  background-image: url("../assets/img/white-beach-wave.jpg");
+  /*background-color: #ded1c1;*/
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
 #side-content {
   position: absolute;
-  top: 100px;
+  top: 0;
   width: 100%;
   bottom: 0;
 }

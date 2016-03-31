@@ -1,7 +1,9 @@
+<div id="logo">
+  <img src="assets/img/black.png" id="image"/>
+</div>
+
 <div id="sidebar">
-  <div id="logo">
-    <img src="assets/img/black.png" id="image"/>
-  </div>
+
   <div id='side-content'>
     <h1 class="side-title"> {{socialCtrl.currentLocation.name}}</h1>
     <h2 class="side-title">#{{socialCtrl.tag}}</h2>
@@ -10,10 +12,11 @@
     </div>
   </div>
   <div id="side-buttons">
+    <a class="button-link" id="no-highlight" href="#/map" >Map</a><br>
     <a class="button-link" id="no-highlight" href="#/location/{{socialCtrl.currentLocation.name}}" >Weather</a><br>
     <a class="button-link" id="highlight" >Social</a><br>
     <a class="button-link" id="no-highlight" href="#/location/{{socialCtrl.currentLocation.name}}/webcam" >Webcam</a> <br>
-    <a class="button-link" id="no-highlight" href="#/map" >Map</a><br>
+
   </div>
 </div>
 
