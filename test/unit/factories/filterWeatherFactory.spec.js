@@ -40,18 +40,4 @@ describe('factory: filterWeatherFactory', function(){
     });
   });
 
-
 });
-
-
-// describe('returning the time in 24 hour format', function() {
-//
-//   it("converts a three digit time to the correct format", function() {
-//     expect(ctrl.time('300')).toEqual('0300');
-//   });
-//
-//   it("does not change a four digit time", function() {
-//     expect(ctrl.time('1200')).toEqual('1200');
-//   });
-// });
-//
