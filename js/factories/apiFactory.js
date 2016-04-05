@@ -5,6 +5,6 @@ gnarApp.factory('apiFactory',['$http', function($http) {
   };
 
   function getBeaches() {
-    return $http.get('http://localhost:3000/beaches');
+    return $http.get('https://gnar-api.herokuapp.com/beaches');
   }
 }]);
