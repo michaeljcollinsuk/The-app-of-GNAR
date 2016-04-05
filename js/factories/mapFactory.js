@@ -193,7 +193,7 @@ gnarApp.factory('MapFactory',['uiGmapGoogleMapApi', '$geolocation', 'uiGmapIsRea
               latitude: lat,
               longitude: long
             },
-            options: {icon:'../../images/userLocation.svg'}
+            options: {icon:'{src:"../The-app-of-GNAR/images/userLocation.svg"}'}
           };
         });
       });
