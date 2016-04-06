@@ -22,8 +22,8 @@ Technologies
 * GNAR-api (our API mentioned above)
 * HMTL and CSS (no Bootstrap!)
 
-Installation
--------------
+Set-up
+------
 * clone this repo
 * clone GNAR-api repo
 * GNAR-API- run bundle, then rails s
