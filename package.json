@@ -2,13 +2,13 @@
   "name": "gnar-app",
   "version": "1.0.0",
   "description": "The app of Gnar",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "karma start test/karma.conf.js",
-    "start": "webdriver-manager start",
+    "start": "node app.js",
     "server": "http-server",
-    "protractor": "protractor test/e2e/conf.js",
-    "update-webdriver": "webdriver-manager update"
+    "protractor": "protractor test/e2e/conf.js"
+
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "angular-aria": "^1.5.3",
     "angular-google-maps": "^2.3.2",
     "angular-messages": "^1.5.3",
-    "http-server": "^0.9.0"
+    "http-server": "^0.9.0",
+    "express": "^4.13.4"
   }
 }
