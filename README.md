@@ -1,7 +1,7 @@
 Salty Daze
 ----------
 
-Makers Academy final project made with Heather Campbell, Michael Collins, Harry Gordon and myself.
+Makers Academy final project made with Heather Campbell, Michael Collins, Sarah Crawley and myself.
 
 The app was pitched and built in a 2 week sprint.
 
