@@ -5,17 +5,31 @@ Find your perfect surf spot using the Salty Daze website to access realtime surf
 
 Designed and developed in a 2 week sprint for our final project at Makers Academy.
 
-[Use it now on Heroku](https://mighty-sands-50291.herokuapp.com/#/map)
+[Use it now on Heroku. Please note, you must allow the website to know your location when prompted. ](https://mighty-sands-50291.herokuapp.com/#/map)
 
 ![alt text](http://i.imgur.com/k7X5kXX.png)
 
 ![alt text](http://i.imgur.com/v09fahl.png)
 
+
 Problem statement
 -----------------
-* Where can I go surfing right now?
-* Where is best to surf over the next 7 days?
-* Are there surf spots in country x and what are they like?
+Where can I go surfing right now? Where is best to surf over the next 7 days?
+
+
+Approach
+-----------------
+The project was designed and developed in a 2 week sprint, for our final project for Makers Academy. We followed the concepts of Agile, held regular stand ups, and pair programmed every day.
+
+
+How it works
+------------
+We have a database with over 300 beach locations stored, which is served to our front end via our API built using Ruby on Rails ([GNAR-api](https://github.com/michaeljcollinsuk/GNAR-api)).
+
+These locations are then displayed on our custom map. When the user clicks on a location, a call to the Marine Weather Api is made so that the weather info can be displayed. The Instagram API is also used to bring in pictures using the location name as a hashtag.
+
+Currently the locations are limited to the UK and New Zealand. If it were not for time limitations and our focus on getting a MVP deployed, we would have liked to have added more locations around the world.
+
 
 Technologies
 ------------
