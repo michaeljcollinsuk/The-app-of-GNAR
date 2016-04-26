@@ -1,11 +1,15 @@
 Salty Daze
 ----------
 
-Makers Academy final project made with Heather Campbell, Michael Collins, Sarah Crawley and myself.
+Find your perfect surf spot using the Salty Daze website to access realtime surf-weather stats alongside live webcam and image streams of what the beach conditions look like right now.
 
-The app was pitched and built in a 2 week sprint.
+Designed and developed in a 2 week sprint for our final project at Makers Academy.
 
-https://mighty-sands-50291.herokuapp.com/#/map
+[Use it now on Heroku](https://mighty-sands-50291.herokuapp.com/#/map)
+
+![alt text](http://i.imgur.com/k7X5kXX.png)
+
+![alt text](http://i.imgur.com/v09fahl.png)
 
 Problem statement
 -----------------
@@ -15,17 +19,21 @@ Problem statement
 
 Technologies
 ------------
-* Angular JS
-* Ruby on Rails (we decoupled this part of the app and please see GNAR-api repo for more info. It simply serves json with our beach surf location co-ordinates)
-* Marine weather API
+* Angular JS via Node.js for the front end
+* Ruby on Rails for the back end. We decoupled this part of the app - please see [GNAR-api](https://github.com/michaeljcollinsuk/GNAR-api) repo for more info. It serves json with our beach surf location co-ordinates, which are stored in our database
+* World Weather Online's Marine Weather API
 * Instagram API
+* Google Maps API
+* PostgreSQL to store the surf locations
+* Karma, RSpec for testing
+* Git/Github/Waffle for version control
 * GNAR-api (our API mentioned above)
 * HMTL and CSS (no Bootstrap!)
+* Hosted on Heroku
 
-Set-up
-------
-* clone this repo
-* clone GNAR-api repo
-* GNAR-API- run bundle, then rails s
-* From this repo- bower install, then npm start
-* visit localhost:8080/#map in your browser
+Contributors
+------------
+* [Michael Collins](https://github.com/michaeljcollinsuk)
+* [Harry Gordon](https://github.com/hwgordon247)
+* [Heather Campbell](https://github.com/heather-camcam)
+* [Sarah Crawley](https://github.com/sara6)
