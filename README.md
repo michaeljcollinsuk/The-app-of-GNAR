@@ -11,16 +11,13 @@ Designed and developed in a 2 week sprint for our final project at Makers Academ
 
 ![alt text](http://i.imgur.com/v09fahl.png)
 
-
 Problem statement
 -----------------
 Where can I go surfing right now? Where is best to surf over the next 7 days?
 
-
 Approach
 -----------------
 The project was designed and developed in a 2 week sprint, for our final project for Makers Academy. We followed the concepts of Agile, held regular stand ups, and pair programmed every day.
-
 
 How it works
 ------------
@@ -29,7 +26,6 @@ We have a database with over 300 beach locations stored, which is served to our 
 These locations are then displayed on our custom map. When the user clicks on a location, a call to the Marine Weather Api is made so that the weather info can be displayed. The Instagram API is also used to bring in pictures using the location name as a hashtag.
 
 Currently the locations are limited to the UK and New Zealand. If it were not for time limitations and our focus on getting a MVP deployed, we would have liked to have added more locations around the world.
-
 
 Technologies
 ------------
