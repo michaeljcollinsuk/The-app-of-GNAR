@@ -4,7 +4,7 @@ gnarApp.factory('chosenLocationFactory',['$http', 'filterWeatherFactory', functi
   self.location = {};
 
   self.getMarineInfo = function(lat, long) {
-    var key = 'key=13b7cf31eb9c40758b7144945162403';
+    var key = 'key=69159fe7148044bb95d223920160906';
     var url = 'http://api.worldweatheronline.com/premium/v1/marine.ashx?' + key + '&q=' + lat + ',' + long + '&tide=yes&format=json';
     return $http.get(url)
     .then(function(response) {
